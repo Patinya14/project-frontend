@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { PersonalComponent } from './add/personal/personal.component';
-
+// import { LoginComponent } from './login/login.component';
 
 import { NgModule } from '@angular/core';
 
@@ -11,7 +11,7 @@ import { NgModule } from '@angular/core';
     AppComponent,
     MenuComponent,
     PersonalComponent,
-    
+    // LoginComponent
    
   ],
   imports: [
