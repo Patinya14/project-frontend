@@ -17,23 +17,23 @@
             <div class="col-lg-8">
 
                 <div class="alert alert-info" role="alert">
-                    <form>
+                    <form #Personal="ngForm" (ngSubmit)="submit(Personal.value)">
                         <div class="row">
 
                             <div class="col ">
-                                <label>เลขที่บัตร(ID)</label>
-                                <input type="text" name="userid" class="form-control">
+                                <label>เลขที่บัตร(User ID)</label>
+                                <input type="text" name="personId" class="form-control" [(ngModel)]="personId">
                             </div>
                             <div class="col">
                                 <label>เพศ(Sex)</label>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked> ชาย(Male)
+                                        <input class="form-check-input" type="radio" name=" personGender" value="option1" [(ngModel)]="personGender"> ชาย(Male)
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"> หญิง(Female)
+                                        <input class="form-check-input" type="radio" name="personGender" value="option2" [(ngModel)]="personGender"> หญิง(Female)
                                     </label>
 
                                 </div>
@@ -44,11 +44,11 @@
                         <div class="row">
                             <div class="col">
                                 <label>ชื่อ(First Name)</label>
-                                <input name="fname" class="form-control" placeholder="Enter text">
+                                <input name="personName" class="form-control" placeholder="Enter text" [(ngModel)]="personName">
                             </div>
                             <div class="col">
                                 <label>นามสกุล(Last Name)</label>
-                                <input name="lname" class="form-control" placeholder="Enter text">
+                                <input name="personSurname" class="form-control" placeholder="Enter text" [(ngModel)]="personSurname">
                             </div>
                         </div>
 
@@ -56,19 +56,16 @@
                         <div class="row">
                             <div class="col">
                                 <label>วันเกิด(ฺฺBrithday)</label>
-                                <input name="brith" class="form-control" placeholder="Enter text">
+                                <input name="personDate" class="form-control" placeholder="Enter text" [(ngModel)]="personDate">
                                 <p class="help-block">Example "yyyy-mm-dd"</p>
                             </div>
-                            <div class="col">
-                                <label>อายุ(ฺฺAge)</label>
-                                <input name="age" class="form-control" placeholder="Enter text">
-                            </div>
+
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <label>สถานภาพ(ฺฺStatus)</label>
-                                <select name="sex" class="form-control">
+                                <select name="personMaritalStatus" type="String" class="form-control" [(ngModel)]="personMaritalStatus">
                                     <option>โสด(Single)</option>
                                     <option>คู่(Married)</option>
                                     <option>หม้าย(Widowed)</option>
@@ -79,66 +76,67 @@
                             </div>
                             <div class="col">
                                 <label>อาชีพ(ฺฺOccupation)</label>
-                                <input name="occu" class="form-control" placeholder="Enter text">
+                                <input name="personCareer" class="form-control" placeholder="Enter text" [(ngModel)]="personCareer">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <label>เลขบัตรประชาชน(ฺฺID card)</label>
-                                <input name="id card" class="form-control" placeholder="Enter text">
+                                <input name="personIdentityId" class="form-control" placeholder="Enter text" [(ngModel)]="personIdentityId">
                             </div>
                             <div class="col">
                                 <label>สถานที่เกิด(Brith Palce)</label>
-                                <input name="bplace" class="form-control" placeholder="Enter text">
+                                <input name=" personBirthPlace" class="form-control" placeholder="Enter text" [(ngModel)]=" personBirthPlace">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <label>เชื้อชาติ(ฺฺNationality)</label>
-                                <input name="nation" class="form-control" placeholder="Enter text">
+                                <input name="personNationality" class="form-control" placeholder="Enter text" [(ngModel)]="personNationality">
                             </div>
                             <div class="col">
                                 <label>สัญชาติ(ฺฺCitizenship)</label>
-                                <input name="citizen" class="form-control" placeholder="Enter text">
+                                <input name="personCitizenship" class="form-control" placeholder="Enter text" [(ngModel)]="personCitizenship">
                             </div>
                             <div class="col">
                                 <label>ศาสนา(ฺฺReligion)</label>
-                                <input name="religion" class="form-control" placeholder="Enter text">
+                                <input name="personReligion" class="form-control" placeholder="Enter text" [(ngModel)]="personReligion">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <label>จังหวัด(ฺฺProvince)</label>
-                                <input name="Province" class="form-control" placeholder="Enter text">
+                                <input name="personProvince" class="form-control" placeholder="Enter text" [(ngModel)]="personProvince">
                             </div>
                             <div class="col">
                                 <label>โทรศัพท์(ฺฺPhone)</label>
-                                <input name="Phone" class="form-control" placeholder="Enter text">
+                                <input name="personNumber" class="form-control" placeholder="Enter text" [(ngModel)]="personNumber">
                             </div>
 
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label>ที่อยู่(ฺฺAddress)</label>
-                                <textarea name="address" class="form-control" row="3"></textarea>
+                                <textarea name="personAddress" class="form-control" row="3" [(ngModel)]="personAddress"></textarea>
                             </div>
                         </div>
                         <div class="row">
-                                <div class="col">
-                                    <label >ประวัติครอบครัว(family History)</label>
-                                    <input type="text" class="form-control" placeholder="Enter text">
-                                </div>
+                            <div class="col">
+                                <label>ประวัติครอบครัว(family History)</label>
+                                <input type="text" name="personFamilyHistory" class="form-control" placeholder="Enter text" [(ngModel)]="personFamilyHistory">
                             </div>
+                        </div>
 
-                            <div class="row">
-                                <div class="col">
-                                    <label >ประวัติส่วนตัว(Personal History)</label>
-                                    <input type="text" class="form-control" placeholder="Enter text">
-                                </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>ประวัติส่วนตัว(Personal History)</label>
+                                <input type="text" name="personPersonalHistory" class="form-control" placeholder="Enter text" [(ngModel)]="personPersonalHistory">
                             </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">submit</button>
                     </form>
                 </div>
 
@@ -161,7 +159,7 @@
             </div>
         </div>
     </div>
-   
+
 
     <div class="row">
         <div class="col-lg-12">
