@@ -15,9 +15,14 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="alert alert-info" role="alert">
-                    <form>
+                    <form #Personal="ngForm" (ngSubmit)="submit(Personal.value)">
                         <div class="row">
                             <div class="col ">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
+=======
+                                <label>เลขที่บัตร(User ID)</label>
+                                <input type="text" name="personId" class="form-control" [(ngModel)]="personId">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
                             <div class="col-md-4">
                                 <label>เลขที่บัตร ( ID )</label>
@@ -55,10 +60,18 @@
                                 <label>เพศ ( Gender )</label>
                                 <div class="form-check">
                                     <label class="form-check-label">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked> ชาย ( Male )
+=======
+                                        <input class="form-check-input" type="radio" name=" personGender" value="option1" [(ngModel)]="personGender"> ชาย(Male)
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                                     </label>
                                     <label class="form-check-label">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"> หญิง ( Female )
+=======
+                                        <input class="form-check-input" type="radio" name="personGender" value="option2" [(ngModel)]="personGender"> หญิง(Female)
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                                     </label>
                                 </div>
                             </div>
@@ -70,6 +83,7 @@
 
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label>วันเกิด (ฺฺ Brithday ) </label>
                                 <input name="brith" class="form-control" placeholder="Enter text">
                                 <p class="help-block"></p>
@@ -81,6 +95,14 @@
                             <div class="col">
                                 <label>อาชีพ (ฺฺ Occupation )</label>
                                 <input name="occu" class="form-control" placeholder="อาจารย์">
+=======
+                                <label>ชื่อ(First Name)</label>
+                                <input name="personName" class="form-control" placeholder="Enter text" [(ngModel)]="personName">
+                            </div>
+                            <div class="col">
+                                <label>นามสกุล(Last Name)</label>
+                                <input name="personSurname" class="form-control" placeholder="Enter text" [(ngModel)]="personSurname">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
                         </div>
 
@@ -110,6 +132,7 @@
 
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label>ศาสนา (ฺ Religion ) </label>
                                 <input name="religion" class="form-control" placeholder="พุทธ">
                             </div>
@@ -121,22 +144,46 @@
                                 <label>จังหวัด (ฺ Province ) </label>
                                 <input name="Province" class="form-control" placeholder="Enter text">
                             </div>
+=======
+                                <label>วันเกิด(ฺฺBrithday)</label>
+                                <input name="personDate" class="form-control" placeholder="Enter text" [(ngModel)]="personDate">
+                                <p class="help-block">Example "yyyy-mm-dd"</p>
+                            </div>
+
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                         </div>
 
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label>ที่อยู่ ( Address )</label>
                                 <textarea name="address" class="form-control" row="3"></textarea>
                             </div>
                             <div class="col">
                                 <label>โทรศัพท์( Phone ) </label>
                                 <input name="Phone" class="form-control" placeholder="0948573928">
+=======
+                                <label>สถานภาพ(ฺฺStatus)</label>
+                                <select name="personMaritalStatus" type="String" class="form-control" [(ngModel)]="personMaritalStatus">
+                                    <option>โสด(Single)</option>
+                                    <option>คู่(Married)</option>
+                                    <option>หม้าย(Widowed)</option>
+                                    <option>หย่า(Divorced))</option>
+                                    <option>แยกกันอยู่(Separated)</option>
+                                    <option>นักบวช(Monk)</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label>อาชีพ(ฺฺOccupation)</label>
+                                <input name="personCareer" class="form-control" placeholder="Enter text" [(ngModel)]="personCareer">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
 
                         </div>
 
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label>ประวัติครอบครัว ( family History ) </label>
                                 <input type="text" class="form-control" placeholder="Enter text">
                             </div>
@@ -179,27 +226,50 @@
                             <div class="col">
                                 <label for="inputEmail4">เวลา ( time ) นาที ( am/pm ) </label>
                                 <input type="text" class="form-control" placeholder="">
+=======
+                                <label>เลขบัตรประชาชน(ฺฺID card)</label>
+                                <input name="personIdentityId" class="form-control" placeholder="Enter text" [(ngModel)]="personIdentityId">
+                            </div>
+                            <div class="col">
+                                <label>สถานที่เกิด(Brith Palce)</label>
+                                <input name=" personBirthPlace" class="form-control" placeholder="Enter text" [(ngModel)]=" personBirthPlace">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label for="inputEmail4">อาการสำคัญ ( Symptoms/Condition )</label>
                                 <input type="text" class="form-control" placeholder="">
+=======
+                                <label>เชื้อชาติ(ฺฺNationality)</label>
+                                <input name="personNationality" class="form-control" placeholder="Enter text" [(ngModel)]="personNationality">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label for="inputEmail4">ประวัติปัจจุบัน ( Present History )</label>
                                 <input type="text" class="form-control" placeholder="">
+=======
+                                <label>สัญชาติ(ฺฺCitizenship)</label>
+                                <input name="personCitizenship" class="form-control" placeholder="Enter text" [(ngModel)]="personCitizenship">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label for="inputEmail4">ประวัติอดีต ( Past History ) </label>
                                 <input type="text" class="form-control" placeholder="">
+=======
+                                <label>ศาสนา(ฺฺReligion)</label>
+                                <input name="personReligion" class="form-control" placeholder="Enter text" [(ngModel)]="personReligion">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
                         </div>
                     </form>
@@ -220,17 +290,27 @@
                     <form>
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label for="inputEmail4">อุณหภูมิ ( Temp )</label>
                                 <input type="text" class="form-control" placeholder="">
                             </div>
                             <div class="col">
                                 <label for="inputEmail4">ชีพจร ( Pulse ) ครั้ง/นาที ( Beats/min )</label>
                                 <input type="text" class="form-control" placeholder="">
+=======
+                                <label>จังหวัด(ฺฺProvince)</label>
+                                <input name="personProvince" class="form-control" placeholder="Enter text" [(ngModel)]="personProvince">
+                            </div>
+                            <div class="col">
+                                <label>โทรศัพท์(ฺฺPhone)</label>
+                                <input name="personNumber" class="form-control" placeholder="Enter text" [(ngModel)]="personNumber">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
 
                         </div>
                         <div class="row">
                             <div class="col">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                                 <label for="inputEmail4">การหายใจ ( Respiration ) ครั้ง/นาที ( Beats/min )</label>
                                 <input type="text" class="form-control" placeholder="">
                             </div>
@@ -257,6 +337,10 @@
                             <div class="col">
                                 <label for="inputEmail4">อื่นๆ</label>
                                 <textarea name="address" class="form-control" row="3"></textarea>
+=======
+                                <label>ที่อยู่(ฺฺAddress)</label>
+                                <textarea name="personAddress" class="form-control" row="3" [(ngModel)]="personAddress"></textarea>
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
                         </div>
                     </form>
@@ -277,11 +361,19 @@
                 <div class="alert alert-info" role="alert">
                     <form>
                         <div class="row">
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                             <label>มาตรวัดความปวด ( ก่อนรักษา ) Pain score ( Pre-treatment )</label>
                             <div class="col">
 
+=======
+                            <div class="col">
+                                <label>ประวัติครอบครัว(family History)</label>
+                                <input type="text" name="personFamilyHistory" class="form-control" placeholder="Enter text" [(ngModel)]="personFamilyHistory">
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                             </div>
+                        </div>
 
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
                         </div>
                         <div class="row">
                             <div class="col-2">
@@ -302,6 +394,15 @@
 
                         </div>
 
+=======
+                        <div class="row">
+                            <div class="col">
+                                <label>ประวัติส่วนตัว(Personal History)</label>
+                                <input type="text" name="personPersonalHistory" class="form-control" placeholder="Enter text" [(ngModel)]="personPersonalHistory">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">submit</button>
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
                     </form>
                 </div>
             </div>
@@ -319,7 +420,28 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD:src/app/add/personal/personal.component.html
 </div>
+=======
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="alert alert-info" role="alert">
+                        <form>
+                            <div class="row">
+                                <div class="col ">
+                                    <label for="inputEmail4">วัน เดือน ปีที่มาพบแพทย์(Current date)</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div>
+                                <div class="col">
+                                    <label for="inputEmail4">เวลา(time) นาที(am/pm)</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+>>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada:src/app/personal/personal.component.html
 
 
 <div class="row">
