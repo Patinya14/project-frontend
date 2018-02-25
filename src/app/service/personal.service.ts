@@ -20,4 +20,5 @@ export class PersonalService {
   deletePerson(id: string): Observable<any> {
     return this.apiService.delete('personal/' + id);
   }
+  
 }
