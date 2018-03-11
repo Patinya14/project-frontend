@@ -1,167 +1,122 @@
 <div class="row">
-    <div class="col-md-12">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="alert alert-warning" role="alert">
-                    <strong>เพิ่มข้อมูลทั่วไป ( Add Personal )</strong>
-                </div>
-            </div>
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="alert alert-warning" role="alert">
+            <strong>เพิ่มข้อมูลทั่วไป ( Add Personal )</strong>
         </div>
     </div>
+    <div class="col-2"></div>
 </div>
-
 <div class="row">
-    <div class="col-lg-12">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="alert alert-info" role="alert">
-                    <form #Personal="ngForm" (ngSubmit)="submit(Personal.value)">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>เลขที่บัตร ( ID )</label>
-                                <input type="text" name="personId" class="form-control" placeholder="60-0001" [(ngModel)]="personId">
-                            </div>
-                            <div class="col">
-                                <label>เพศ ( Sex )</label>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name=" personGender" value="option1" [(ngModel)]="personGender"> ชาย ( Male )
-                                    </label>
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="personGender" value="option2" [(ngModel)]="personGender"> หญิง ( Female )
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label>คำนำหน้า ( NameTitle )</label>
-                                <select name="personNameTitle" class="form-control" [(ngModel)]="personNameTitle">
-                                    <option>นาย</option>
-                                    <option>นาง</option>
-                                    <option>นางสาว</option>
-                                    <option>ศาสตราจารย์ ( Professor )</option>
-                                    <option>ผู้ช่วยศาสตราจารย์ ( Assistant Professor )</option>
-                                    <option>รองศาสตราจารย์ ( Associate Professor )</option>
-                                    <option>พระสงฆ์ ( Buddhist Monk )</option>
-                                    <option>Mr.</option>
-                                    <option>Miss</option>
-                                    <option>Mrs.</option>
-                                </select>
-                            </div>
-                            <div class="col">
-
-                                <label>ชื่อ ( First Name )</label>
-                                <input name="personName" class="form-control" placeholder="สมชาย " [(ngModel)]="personName">
-                            </div>
-                            <div class="col">
-                                <label>นามสกุล ( Last Name )</label>
-                                <input name="personSurname" class="form-control" placeholder="โชคดี" [(ngModel)]="personSurname">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label >วันเดือนปีเกิด (Brith Day)</label>
-                                            <input type="text"  class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="myDateValue">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label>เลขบัตรประชาชน (ฺฺ ID card )</label>
-                                <input name="personIdentityId" class="form-control" placeholder="1229909123000" [(ngModel)]="personIdentityId">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <label>สถานภาพ (ฺฺ Status )</label>
-                                <select name="personMaritalStatus" class="form-control" [(ngModel)]="personMaritalStatus">
-                                    <option>โสด ( Single )</option>
-                                    <option>คู่ ( Married )</option>
-                                    <option>หม้าย ( Widowed )</option>
-                                    <option>หย่า ( Divorced ))</option>
-                                    <option>แยกกันอยู่ ( Separated )</option>
-                                    <option>นักบวช ( Monk )</option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <label>อาชีพ (ฺ Occupation )</label>
-                                <input name="personCareer" class="form-control" placeholder="นักศึกษา" [(ngModel)]="personCareer">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label>สถานที่เกิด ( Brith Palce )</label>
-                                <input name=" personBirthPlace" class="form-control" placeholder="โรงพยาบาลกรุงเทพ" [(ngModel)]=" personBirthPlace">
-                            </div>
-                            <div class="col">
-<<<<<<< HEAD
-                                <label>จังหวัด (ฺ Province )</label>
-=======
-                                <label>จังหวัด (ฺฺ Province )</label>
->>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
-                                <input name="personProvince" class="form-control" placeholder="ชลบุรี" [(ngModel)]="personProvince">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label>เชื้อชาติ (ฺ Nationality )</label>
-                                <input name="personNationality" class="form-control" placeholder="ไทย" [(ngModel)]="personNationality">
-                            </div>
-                            <div class="col">
-                                <label>สัญชาติ (ฺ Citizenship )</label>
-                                <input name="personCitizenship" class="form-control" placeholder="ไทย" [(ngModel)]="personCitizenship">
-                            </div>
-                            <div class="col">
-                                <label>ศาสนา (ฺ Religion )</label>
-                                <input name="personReligion" class="form-control" placeholder="พุทธ" [(ngModel)]="personReligion">
-                            </div>
-                        </div>
-
-<<<<<<< HEAD
-                        
-=======
-
->>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
-
-                        <div class="row">
-                            <div class="col">
-                                <label>ที่อยู่ ( Address )</label>
-                                <textarea name="address" class="form-control" row="3"></textarea>
-                            </div>
-                            <div class="col">
-<<<<<<< HEAD
-                                <label>โทรศัพท์ (ฺ Phone )</label>
-                                <input name="personNumber" class="form-control" placeholder="0885203300" [(ngModel)]="personNumber">
-=======
-                                <label>โทรศัพท์ (ฺฺ Phone )</label>
-                                <input name="personNumber" class="form-control" placeholder="0885203000" [(ngModel)]="personNumber">
->>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label for="inputEmail4">ประวัติครอบครัว ( Past History ) </label>
-                                <input type="text" class="form-control" placeholder="" [(ngModel)]="personPastHistory">
-                            </div>
-                            <div class="col">
-                                <label for="inputEmail4">ประวัติส่วนตัว ( Personal History ) </label>
-                                <input type="text" class="form-control" placeholder="" [(ngModel)]="personPersonalHistory">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="col">
-                            <button type="submit" class="btn btn-primary">submit</button>
-                        </div>
-                    </form>
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="alert alert-info" role="alert">
+            <form #Personal="ngForm" (ngSubmit)="submit(Personal.value)">
+                <div class="row">
+                    <div class="col-4">
+                        <p>เลขที่บัตร ( ID )</p>
+                        <input type="text" name="personId" class="form-control" placeholder="60-0001" [(ngModel)]="personId">
+                    </div>
+                    <div class="form-check col-8">
+                        <p>เพศ ( Sex )</p>
+                        <label class="form-check-label">
+                            <input type="radio" name="personGender" value="male" [(ngModel)]="personGender"> ชาย ( Male )
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="personGender" value="female" [(ngModel)]="personGender"> หญิง ( Female )
+                        </label>
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-4">
+                        <p>คำนำหน้า ( NameTitle )</p>
+                        <select name="personNameTitle" class="form-control" value="nametitle" [(ngModel)]="personNameTitle">
+                            <option *ngFor="let data of nametitle">{{data}}</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <p>ชื่อ ( First Name )</p>
+                        <input name="personName" class="form-control" placeholder="ชื่อ" [(ngModel)]="personName">
+                    </div>
+                    <div class="col-4">
+                        <p>นามสกุล ( Last Name )</p>
+                        <input name="personSurname" class="form-control" placeholder="นามสกุล" [(ngModel)]="personSurname">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p>วันเดือนปีเกิด (Brith Day)</p>
+                            <input type="text" class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="myDateValue">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <p>เลขบัตรประชาชน (ฺฺ ID card )</p>
+                        <input name="personIdentityId" class="form-control" placeholder="1229909123000" [(ngModel)]="personIdentityId">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>สถานภาพ (ฺฺ Status )</label>
+                        <select name="personMaritalStatus" value="status" class="form-control" [(ngModel)]="personMaritalStatus">
+                            <option *ngFor="let data of status">{{data}}</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <p>อาชีพ (ฺ Occupation )</p>
+                        <input name="personCareer" class="form-control" placeholder="นักศึกษา" [(ngModel)]="personCareer">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>สถานที่เกิด ( Brith Palce )</p>
+                        <input name="personBirthPlace" class="form-control" placeholder="โรงพยาบาลกรุงเทพ" [(ngModel)]="personBirthPlace">
+                    </div>
+                    <div class="col-6">
+                        <p>จังหวัด (ฺ Province )</p>
+                        <input name="personProvince" class="form-control" placeholder="ชลบุรี" [(ngModel)]="personProvince">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>เชื้อชาติ (ฺ Nationality )</p>
+                        <input name="personNationality" class="form-control" placeholder="ไทย" [(ngModel)]="personNationality">
+                    </div>
+                    <div class="col-6">
+                        <p>สัญชาติ (ฺ Citizenship )</p>
+                        <input name="personCitizenship" class="form-control" placeholder="ไทย" [(ngModel)]="personCitizenship">
+                    </div>
+                    <div class="col-6">
+                        <p>ศาสนา (ฺ Religion )</p>
+                        <input name="personReligion" class="form-control" placeholder="พุทธ" [(ngModel)]="personReligion">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>ที่อยู่ ( Address )</p>
+                        <textarea name="personAddress" class="form-control" [(ngModel)]="personAddress"></textarea>
+                    </div>
+                    <div class="col-6">
+                        <p>โทรศัพท์ (ฺ Phone )</p>
+                        <input name="personNumber" class="form-control" placeholder="0885203300" [(ngModel)]="personNumber">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>ประวัติครอบครัว ( Past History ) </p>
+                        <input type="text" class="form-control" placeholder="" [(ngModel)]="personPastHistory">
+                    </div>
+                    <div class="col-6">
+                        <p>ประวัติส่วนตัว ( Personal History ) </p>
+                        <input type="text" class="form-control" placeholder="" [(ngModel)]="personPersonalHistory">
+                    </div>
+                </div>
+                <br>
+                <div align="right">
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
         </div>
     </div>
+    <div class="col-2"></div>
 </div>

@@ -59,7 +59,6 @@ const appRoutes: Routes = [
     ApiService,
     JwtService,
     PersonalService,
-
   ],
 
 
