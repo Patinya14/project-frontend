@@ -6,11 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { PersonalComponent } from './personal/personal.component';
 import { LoginComponent } from './login/login.component';
 import { OldusersComponent } from './oldusers/oldusers.component';
+import { CertificateComponent } from './certificate/certificate.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { PrintappointmentsComponent } from './printappoint/printappointments.component'
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
@@ -21,8 +24,11 @@ import { APP_BASE_HREF } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: 'personal', component: PersonalComponent },
-  { path: 'login',    component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'oldusers', component: OldusersComponent },
+  { path: 'certificate', component: CertificateComponent },
+  { path: 'appointments', component: AppointmentsComponent },
+  { path: 'printappoint', component: PrintappointmentsComponent },
 ];
 
 
@@ -32,8 +38,10 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     BrowserModule,
-    HttpClientModule
-  
+    HttpClientModule,
+    BsDatepickerModule.forRoot(),
+    DatepickerModule.forRoot()
+
   ],
   declarations: [
     AppComponent,
@@ -41,18 +49,20 @@ const appRoutes: Routes = [
     PersonalComponent,
 
     LoginComponent,
-    OldusersComponent
-
-
-
+    OldusersComponent,
+    CertificateComponent,
+    AppointmentsComponent,
+    PrintappointmentsComponent
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     ApiService,
     JwtService,
     PersonalService,
-   
+
   ],
+
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

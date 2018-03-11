@@ -60,10 +60,17 @@
                                 <input name="personSurname" class="form-control" placeholder="โชคดี" [(ngModel)]="personSurname">
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col">
-                                <label>วันเกิด (ฺฺ Brithday )</label>
-                                <input name="personDate" class="form-control" placeholder="2550-03-14" [(ngModel)]="personDate">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label >วันเดือนปีเกิด (Brith Day)</label>
+                                            <input type="text"  class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="myDateValue">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col">
                                 <label>เลขบัตรประชาชน (ฺฺ ID card )</label>
@@ -84,7 +91,7 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <label>อาชีพ (ฺฺ Occupation )</label>
+                                <label>อาชีพ (ฺ Occupation )</label>
                                 <input name="personCareer" class="form-control" placeholder="นักศึกษา" [(ngModel)]="personCareer">
                             </div>
                         </div>
@@ -93,28 +100,35 @@
                                 <label>สถานที่เกิด ( Brith Palce )</label>
                                 <input name=" personBirthPlace" class="form-control" placeholder="โรงพยาบาลกรุงเทพ" [(ngModel)]=" personBirthPlace">
                             </div>
+                            <div class="col">
+<<<<<<< HEAD
+                                <label>จังหวัด (ฺ Province )</label>
+=======
+                                <label>จังหวัด (ฺฺ Province )</label>
+>>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
+                                <input name="personProvince" class="form-control" placeholder="ชลบุรี" [(ngModel)]="personProvince">
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <label>เชื้อชาติ (ฺฺ Nationality )</label>
+                                <label>เชื้อชาติ (ฺ Nationality )</label>
                                 <input name="personNationality" class="form-control" placeholder="ไทย" [(ngModel)]="personNationality">
                             </div>
                             <div class="col">
-                                <label>สัญชาติ (ฺฺ Citizenship )</label>
+                                <label>สัญชาติ (ฺ Citizenship )</label>
                                 <input name="personCitizenship" class="form-control" placeholder="ไทย" [(ngModel)]="personCitizenship">
                             </div>
                             <div class="col">
-                                <label>ศาสนา (ฺฺ Religion )</label>
+                                <label>ศาสนา (ฺ Religion )</label>
                                 <input name="personReligion" class="form-control" placeholder="พุทธ" [(ngModel)]="personReligion">
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <label>จังหวัด (ฺฺ Province )</label>
-                                <input name="personProvince" class="form-control" placeholder="ชลบุรี" [(ngModel)]="personProvince">
-                            </div>
-                        </div>
+<<<<<<< HEAD
+                        
+=======
+
+>>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
 
                         <div class="row">
                             <div class="col">
@@ -122,8 +136,13 @@
                                 <textarea name="address" class="form-control" row="3"></textarea>
                             </div>
                             <div class="col">
-                                <label>โทรศัพท์ (ฺฺ Phone )</label>
+<<<<<<< HEAD
+                                <label>โทรศัพท์ (ฺ Phone )</label>
                                 <input name="personNumber" class="form-control" placeholder="0885203300" [(ngModel)]="personNumber">
+=======
+                                <label>โทรศัพท์ (ฺฺ Phone )</label>
+                                <input name="personNumber" class="form-control" placeholder="0885203000" [(ngModel)]="personNumber">
+>>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
                             </div>
                         </div>
                         <div class="row">
@@ -138,7 +157,7 @@
                         </div>
                         <br>
                         <div class="col">
-                        <button type="submit" class="btn btn-primary">submit</button>
+                            <button type="submit" class="btn btn-primary">submit</button>
                         </div>
                     </form>
                 </div>
