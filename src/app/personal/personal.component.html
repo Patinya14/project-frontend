@@ -60,10 +60,17 @@
                                 <input name="personSurname" class="form-control" placeholder="โชคดี" [(ngModel)]="personSurname">
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col">
-                                <label>วันเกิด (ฺฺ Brithday )</label>
-                                <input name="personDate" class="form-control" placeholder="2550-03-14" [(ngModel)]="personDate">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label >วันเดือนปีเกิด (Brith Day)</label>
+                                            <input type="text"  class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="myDateValue">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col">
                                 <label>เลขบัตรประชาชน (ฺฺ ID card )</label>
@@ -94,7 +101,11 @@
                                 <input name=" personBirthPlace" class="form-control" placeholder="โรงพยาบาลกรุงเทพ" [(ngModel)]=" personBirthPlace">
                             </div>
                             <div class="col">
+<<<<<<< HEAD
                                 <label>จังหวัด (ฺ Province )</label>
+=======
+                                <label>จังหวัด (ฺฺ Province )</label>
+>>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
                                 <input name="personProvince" class="form-control" placeholder="ชลบุรี" [(ngModel)]="personProvince">
                             </div>
                         </div>
@@ -113,7 +124,11 @@
                             </div>
                         </div>
 
+<<<<<<< HEAD
                         
+=======
+
+>>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
 
                         <div class="row">
                             <div class="col">
@@ -121,8 +136,13 @@
                                 <textarea name="address" class="form-control" row="3"></textarea>
                             </div>
                             <div class="col">
+<<<<<<< HEAD
                                 <label>โทรศัพท์ (ฺ Phone )</label>
                                 <input name="personNumber" class="form-control" placeholder="0885203300" [(ngModel)]="personNumber">
+=======
+                                <label>โทรศัพท์ (ฺฺ Phone )</label>
+                                <input name="personNumber" class="form-control" placeholder="0885203000" [(ngModel)]="personNumber">
+>>>>>>> b41b18cb04b082d0c57ecd0dcec2a31a70de521e
                             </div>
                         </div>
                         <div class="row">
@@ -137,7 +157,7 @@
                         </div>
                         <br>
                         <div class="col">
-                        <button type="submit" class="btn btn-primary">submit</button>
+                            <button type="submit" class="btn btn-primary">submit</button>
                         </div>
                     </form>
                 </div>

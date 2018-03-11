@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { PersonalComponent } from './personal/personal.component';
 import { LoginComponent } from './login/login.component';
@@ -24,7 +24,7 @@ import { APP_BASE_HREF } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: 'personal', component: PersonalComponent },
-  { path: 'login',    component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'oldusers', component: OldusersComponent },
   { path: 'certificate', component: CertificateComponent },
   { path: 'appointments', component: AppointmentsComponent },
@@ -38,8 +38,10 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     BrowserModule,
-    HttpClientModule
-  
+    HttpClientModule,
+    BsDatepickerModule.forRoot(),
+    DatepickerModule.forRoot()
+
   ],
   declarations: [
     AppComponent,
@@ -57,8 +59,10 @@ const appRoutes: Routes = [
     ApiService,
     JwtService,
     PersonalService,
-   
+
   ],
+
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
