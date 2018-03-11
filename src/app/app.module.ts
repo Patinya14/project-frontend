@@ -6,22 +6,31 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-<<<<<<< HEAD
-import { PersonalComponent } from './add/personal/personal.component';
-// import { LoginComponent } from './login/login.component';
 
-import { NgModule } from '@angular/core';
-=======
+
 import { PersonalComponent } from './personal/personal.component';
+import { LoginComponent } from './login/login.component';
+import { OldusersComponent } from './oldusers/oldusers.component';
+import { CertificateComponent } from './certificate/certificate.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { PrintappointmentsComponent } from './printappoint/printappointments.component'
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
+
 import { APP_BASE_HREF } from '@angular/common';
+
+
 const appRoutes: Routes = [
-  { path: 'personal', component: PersonalComponent }
+  { path: 'personal', component: PersonalComponent },
+  { path: 'login',    component: LoginComponent },
+  { path: 'oldusers', component: OldusersComponent },
+  { path: 'certificate', component: CertificateComponent },
+  { path: 'appointments', component: AppointmentsComponent },
+  { path: 'printappoint', component: PrintappointmentsComponent },
 ];
->>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada
+
 
 @NgModule({
   imports: [
@@ -30,22 +39,25 @@ const appRoutes: Routes = [
     HttpModule,
     BrowserModule,
     HttpClientModule
+  
   ],
   declarations: [
     AppComponent,
     MenuComponent,
     PersonalComponent,
-<<<<<<< HEAD
-    // LoginComponent
-   
-=======
->>>>>>> 2973a829a74141fb1b8a0ac14b95601afef0dada
+
+    LoginComponent,
+    OldusersComponent,
+    CertificateComponent,
+    AppointmentsComponent,
+    PrintappointmentsComponent
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     ApiService,
     JwtService,
-    PersonalService
+    PersonalService,
+   
   ],
   bootstrap: [AppComponent]
 })

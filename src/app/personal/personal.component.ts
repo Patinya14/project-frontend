@@ -20,3 +20,5 @@ export class PersonalComponent implements OnInit{
     console.log(data)
   }
 }
+
+
