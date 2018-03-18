@@ -1,12 +1,14 @@
 import { NgModule, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { APP_BASE_HREF } from '@angular/common';
+import { routing } from './app.routing';
+import { ThemeModule } from './theme.module';
 
 import { PersonalComponent } from './personal/personal.component';
 import { LoginComponent } from './login/login.component';
@@ -21,37 +23,20 @@ import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
 import { LoginService } from './service/login.service';
 
-
-import { APP_BASE_HREF } from '@angular/common';
-
-
-const appRoutes: Routes = [
-  { path: 'personal', component: PersonalComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'oldusers', component: OldusersComponent },
-  { path: 'certificate', component: CertificateComponent },
-  { path: 'appointments', component: AppointmentsComponent },
-  { path: 'printappoint', component: PrintappointmentsComponent },
-  { path: 'personal-list/:personalId', component: PersonalListComponent }
-];
-
-
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    routing,
     FormsModule,
     HttpModule,
     BrowserModule,
     HttpClientModule,
-    BsDatepickerModule.forRoot(),
-    DatepickerModule.forRoot()
-
+    ThemeModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
     MenuComponent,
     PersonalComponent,
-
     LoginComponent,
     OldusersComponent,
     CertificateComponent,
@@ -60,14 +45,12 @@ const appRoutes: Routes = [
     PersonalListComponent
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: APP_BASE_HREF, useValue : '/' },
     ApiService,
     JwtService,
     PersonalService,
-    LoginService
+    LoginService,
   ],
-
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
