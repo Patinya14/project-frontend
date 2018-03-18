@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonalService } from '../service/personal.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -17,20 +17,23 @@ export class PersonalComponent implements OnInit {
   public rows = [];
   constructor(
     private personalservice: PersonalService,
+    private router: Router
   ) { }
   myDateValue: Date;
   ngOnInit() {
     this.personalservice.getPerson().subscribe(result => {
       this.rows = result;
       this.myDateValue = new Date();
-      console.log(this.rows);
+      
     })
   }
   submit(data) {
     data.myDateValue = this.myDateValue;
     this.personalservice.addPerson(data).subscribe(result => {
       this.rows = result;
+      console.log(this.rows)
     });
+    this.router.navigate(['personal-list', data.personId]);
   }
 }
 
