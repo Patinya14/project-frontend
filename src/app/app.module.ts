@@ -32,7 +32,7 @@ const appRoutes: Routes = [
   { path: 'certificate', component: CertificateComponent },
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'printappoint', component: PrintappointmentsComponent },
-  { path: 'personal-list', component: PersonalListComponent }
+  { path: 'personal-list/:personalId', component: PersonalListComponent }
 ];
 
 

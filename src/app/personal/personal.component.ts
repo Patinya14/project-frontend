@@ -3,11 +3,9 @@ import { PersonalService } from '../service/personal.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Router } from '@angular/router'
 
-
 @Component({
   selector: 'app-personal',
-  templateUrl: './personal.component.html',
-  // styleUrls: ['./personal.component.css']
+  templateUrl: './personal.component.html'
 })
 export class PersonalComponent implements OnInit {
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ( Professor )', 'ผู้ช่วยศาสตราจารย์ ( Assistant Professor )'
@@ -24,16 +22,15 @@ export class PersonalComponent implements OnInit {
     this.personalservice.getPerson().subscribe(result => {
       this.rows = result;
       this.myDateValue = new Date();
-      
     })
   }
   submit(data) {
     data.myDateValue = this.myDateValue;
     this.personalservice.addPerson(data).subscribe(result => {
       this.rows = result;
-      console.log(this.rows)
+      this.router.navigate(['/personal-list', data.personId]);
     });
-    this.router.navigate(['personal-list', data.personId]);
+    
   }
 }
 
