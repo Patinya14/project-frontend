@@ -1,41 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonalService } from '../service/personal.service';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-
-
-
+import { LoginService } from '../service/login.service';
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-personal',
-  templateUrl: './personal.component.html',
-  // styleUrls: ['./personal.component.css']
+  templateUrl: './personal.component.html'
 })
-export class PersonalComponent implements OnInit {
 
+export class PersonalComponent implements OnInit {
   public rows = [];
   constructor(
-    private personalservice: PersonalService,
-
-
+    private loginservice: LoginService,
+    private router: Router
   ) { }
-  myDateValue: Date;
-  
+
   ngOnInit() {
-    this.personalservice.getPerson().subscribe(result => {
+    this.loginservice.getlog().subscribe(result => {
       this.rows = result;
-       
-      this.myDateValue = new Date();
-      
     })
   }
-
   submit(data) {
-    console.log(data)
-  }
-
-  onDateChange(newDate: Date) {
-    console.log(newDate);
+    this.loginservice.addlog(data).subscribe(result => {
+      this.rows = result;
+      console.log(this.rows)
+    });
   }
 }
-
-
-
