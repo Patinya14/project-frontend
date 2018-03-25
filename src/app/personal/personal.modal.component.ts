@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { PersonalService } from '../service/personal.service';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PersonalService } from '../service/personal.service';
 import { DatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-personal',
-  templateUrl: './personal.component.html'
+  selector: 'app-personal.modal',
+  templateUrl: './personal.modal.component.html'
 })
 export class PersonalComponent implements OnInit {
   public form: FormGroup;
@@ -42,11 +42,7 @@ export class PersonalComponent implements OnInit {
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group(this.data);
-    this.personalservice.getPerson().subscribe(result => {
-      this.rows = result;
-    })
   }
-
   submit() {
     const value = this.form.value;
     this.personalservice.addPerson(value).subscribe(result => {
