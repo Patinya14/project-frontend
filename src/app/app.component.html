@@ -2,3 +2,30 @@
 
 <router-outlet></router-outlet>
 
+<ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50"  [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+  <ngx-datatable-column name="ลำดับ" [maxWidth]="100">
+    <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+      {{rowIndex + 1}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="ชื่อระดับการศึกษา(ไทย)">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="ชื่อระดับการศึกษา(อังกฤษ)">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="ชื่อย่อระดับการศึกษา(ไทย)">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="ชื่อย่อระดับการศึกษา(อังกฤษ)">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
