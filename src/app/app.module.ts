@@ -16,7 +16,7 @@ import { OldusersComponent } from './oldusers/oldusers.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
-import { PersonalListComponent } from './List/personal-list.component'
+import { PersonalListComponent } from './List/personal-list.component';
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
@@ -31,15 +31,15 @@ import { LoginService } from './service/login.service';
     BrowserModule,
     HttpClientModule,
     ThemeModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
-    MenuComponent,
     PersonalComponent,
     LoginComponent,
     OldusersComponent,
     CertificateComponent,
+    MenuComponent,
     AppointmentsComponent,
     PrintappointmentsComponent,
     PersonalListComponent

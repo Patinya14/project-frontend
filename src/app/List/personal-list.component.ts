@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PersonalService } from '../service/personal.service';
 import { ActivatedRoute } from '@angular/router';
 import { DatepickerConfig } from 'ngx-bootstrap/datepicker';
-
 @Component({
     selector: 'app-personal-list',
     templateUrl: './personal-list.component.html',
@@ -17,7 +16,6 @@ export class PersonalListComponent implements OnInit {
         private datepickerconfig: DatepickerConfig,
     ) {
         this.id = this.activatedroute.snapshot.params['personalId'];
-
     }
     ngOnInit() {
         this.personalservice.getPersonById(this.id).subscribe(result => {
