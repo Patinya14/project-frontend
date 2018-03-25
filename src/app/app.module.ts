@@ -13,13 +13,15 @@ import { LoginComponent } from './login/login.component';
 import { OldusersComponent } from './oldusers/oldusers.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
-import { PrintappointmentsComponent } from './printappoint/printappointments.component'
+import { PrintappointmentsComponent } from './printappoint/printappointments.component';
+import { RecordformComponent } from './recordform/recordform.component';
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
 
 import { APP_BASE_HREF } from '@angular/common';
+
 
 
 const appRoutes: Routes = [
@@ -29,6 +31,8 @@ const appRoutes: Routes = [
   { path: 'certificate', component: CertificateComponent },
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'printappoint', component: PrintappointmentsComponent },
+  { path: 'recordform', component: RecordformComponent },
+ 
 ];
 
 
@@ -52,7 +56,9 @@ const appRoutes: Routes = [
     OldusersComponent,
     CertificateComponent,
     AppointmentsComponent,
-    PrintappointmentsComponent
+    PrintappointmentsComponent,
+    RecordformComponent,
+    
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
