@@ -35,7 +35,62 @@
             </div>
         </div>
         
+        
     </div>
-</div>
+    <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50"  [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+        <ngx-datatable-column name="" [maxWidth]="100">
+          <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+              {{rowIndex + 1}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="เลขที่บัตร">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="ชื่อ-นามสกุล">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="เลขบัตรประจำตัวประชาชน">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="อายุ">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
 
+      <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50"  [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+            <ngx-datatable-column name="" [maxWidth]="100">
+              <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                  {{rowIndex + 1}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เลขที่บัตร">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ชื่อ-นามสกุล">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เลขบัตรประจำตัวประชาชน">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="อายุ">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+</div>
 

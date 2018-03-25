@@ -16,6 +16,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
 
 import { PersonalListComponent } from './personal-list/personal-list.component';
+// import { p } from './personal/personal.modal.component'
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
