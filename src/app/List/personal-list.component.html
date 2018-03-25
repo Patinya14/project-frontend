@@ -1,89 +1,87 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 ">
-        <table class="table table-striped table-light  text-center  ">
+        <table class="table  text-center  ">
             <thead>
-                <tr class="bg-warning">
-                    <th>ข้อมูลส่วนตัว</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
 
-
+                <tr class=" col-md-12 bg-danger text-light ">
+                    <th>ข้อมูลพื้นฐาน</th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-right">
+                            <button type="button" class="btn btn-primary" (click)="openModalWithClass(template)">Edit</button>
+                        <ng-template #template>
+                                <div class="modal-header">
+                                  <h4 class="modal-title pull-left">Modal</h4>
+                                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  Just a modal with a bunch of words inside, nothing serious.
+                                </div>
+                              </ng-template>
+                    </th>
                 </tr>
+
             </thead>
-            <tbody class="table-active">
+            <tbody class="table-muted">
                 <tr>
                     <th scope="row">เลขที่บัตร</th>
                     <td>{{rows[0].personId}} </td>
-                    <td>
+                    <th>
                         ชื่อ-สกุล
-                    </td>
-                    <th>{{rows[0].personNameTitle}} {{rows[0].personName}} {{rows[0].personSurname}}</th>
-                    <th>เพศ</th>
-                    <th>{{rows[0].personGender}}</th>
-
+                    </th>
+                    <td>{{rows[0].personNameTitle}} {{rows[0].personName}} {{rows[0].personSurname}}</td>
                 </tr>
                 <tr>
-
+                    <th>เพศ</th>
+                    <td>{{rows[0].personGender}}</td>
                     <th scope="row">วันเกิด</th>
                     <td>{{rows[0].personDate}} </td>
-                    <td>เลขบัตรประชาชน</td>
-                    <th> {{rows[0]. personIdentityId}}</th>
-                    <th>สถานะภาพ</th>
-                    <th>{{rows[0].personMaritalStatus}} </th>
                 </tr>
                 <tr>
+                    <th>อายุ</th>
+                    <td>21</td>
+                    <th>เลขบัตรประชาชน</th>
+                    <td> {{rows[0]. personIdentityId}}</td>
+                </tr>
+                <tr>
+                    <th>สถานะภาพ</th>
+                    <td>{{rows[0].personMaritalStatus}} </td>
                     <th scope="row">อาชีพ</th>
                     <td>{{rows[0]. personCareer}} </td>
-                    <td>
-                        สถานที่เกิด
-                    </td>
-                    <th> {{rows[0].personBirthPlace}}</th>
+                </tr>
+                <tr>
+                    <th>สถานที่เกิด</th>
+                    <td> {{rows[0].personBirthPlace}}</td>
                     <th>จังหวัด</th>
-                    <th>{{rows[0].personProvince}}</th>
+                    <td>{{rows[0].personProvince}}</td>
                 </tr>
                 <tr>
                     <th scope="row">เชื้อชาติ</th>
                     <td>{{rows[0].personNationality}} </td>
-                    <td>
-                        สัญชาติ
-                    </td>
-                    <th> {{rows[0]. personCitizenship}}</th>
+                    <th> สัญชาติ </th>
+                    <td> {{rows[0]. personCitizenship}}</td>
+                </tr>
+                <tr>
                     <th>ศาสนา</th>
-                    <th>{{rows[0]. personReligion}}</th>
-
-                </tr>
-                <tr>
-                    <th scope="row">ที่อยู่</th>
-                    <td>{{rows[0].personAddress}} </td>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-
-
-                </tr>
-                <tr>
+                    <td>{{rows[0]. personReligion}}</td>
                     <th scope="row">เบอร์โทร </th>
                     <td> {{rows[0].personNumber}}</td>
-                    <td>ประวัติครอบครัว</td>
-                    <th>{{rows[0].personFamilyHistory}}</th>
-                    <td>ประวัติส่วนตัว</td>
-                    <th>{{rows[0].personPersonalHistory}}</th>
-
                 </tr>
-
-
+                <th scope="row">ที่อยู่</th>
+                <td colspan="3">{{rows[0].personAddress}} </td>
+                <tr>
+                    <th>ประวัติครอบครัว</th>
+                    <td>{{rows[0].personFamilyHistory}}</td>
+                    <th>ประวัติส่วนตัว</th>
+                    <td>{{rows[0].personPersonalHistory}}</td>
+                </tr>
         </table>
     </div>
     <div class="col-md-2"></div>
 </div>
-
-
-
 
 <div class="row">
     <div class="col-md-12">
@@ -110,7 +108,7 @@
                                 <input type="text" class="form-control" placeholder="20-02-2560">
                             </div>
                             <div class="col">
-                                <label for="inputEmail4">เวลา ( time ) นาที ( am/pm )</label>
+                                <label for="inputEmail4">เวลา ( Hour ) นาที ( minute )</label>
                                 <input type="text" class="form-control" placeholder="">
                             </div>
                         </div>
@@ -136,11 +134,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="row">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">submit</button>
-                            </div>
-                        </div>
+
                     </form>
                 </div>
             </div>
@@ -238,11 +232,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="row">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">submit</button>
-                            </div>
-                        </div>
+
                     </form>
                 </div>
             </div>
@@ -326,11 +316,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="col">
-                        <button type="submit" class="btn btn-primary">submit</button>
-                    </div>
-                </div>
+
             </form>
         </div>
     </div>
@@ -373,12 +359,13 @@
                             </div>
                         </div>
                         <br>
-                        <div class="row">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">submit</button>
-                            </div>
+                        <div align="right">
+                            <!-- <button type="submit" class="btn btn-primary" [disabled]="!form.valid">submit</button> -->
+                            <button type="submit" class="btn btn-primary">submit</button>
+
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
