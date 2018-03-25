@@ -1,125 +1,33 @@
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <div class="alert alert-warning" role="alert">
-            <strong>เพิ่มข้อมูลทั่วไป ( Add Personal )</strong>
-        </div>
+<div class="row justify-content-between">
+    <div class="col-4">
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-1">
+    </div>
 </div>
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <div class="alert alert-info" role="alert">
-            <form [formGroup]="form" (ngSubmit)="submit()">
-                <div class="row">
-                    <div class="col-md-6" >
-                        <p>เลขที่บัตร ( ID )</p>
-                        <input placeholder="00-0000"  class="form-control" formControlName="personId">
-                    </div>
-                    <div class="col-md-6" class="form-group">
-                        <p>เพศ ( Sex )</p>
-                        <label class="form-check-label">
-                            <input type="radio" class="form-control" formControlName="personGender" value="male"> ชาย ( Male )
-                        </label>
-                        <label class="form-check-label">
-                            <input type="radio" class="form-control" formControlName="personGender" value="female"> หญิง ( Female )
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>คำนำหน้า ( NameTitle )</p>
-                        <select formControlName="personNameTitle" class="form-control">
-                            <option *ngFor="let data of nametitle" placeholder="เลือกคำนำหน้า" [value]="data">{{data}}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <p>ชื่อ ( First Name )</p>
-                        <input  class="form-control" formControlName="personName" placeholder="ชื่อ">
-                    </div>
-                    <div class="col-md-4">
-                        <p> นามสกุล ( Last Name )</p>
-                        <input class="form-control" formControlName="personSurname" placeholder="นามสกุล">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <p>วันเดือนปีเกิด (Brith Day)</p>
-                            <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker formControlName="personDate">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <p>เลขบัตรประชาชน (ฺฺ ID card )</p>
-                        <input class="form-control" formControlName="personIdentityId" placeholder="เลขบัตรประชาชน">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>สถานภาพ (ฺฺ Status )</label>
-                        <select formControlName="personMaritalStatus" class="form-control">
-                            <option *ngFor="let data of status" [value]="data">{{data}}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <p>อาชีพ (ฺ Occupation )</p>
-                        <input class="form-control" formControlName="personCareer" placeholder="อาชีพ">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>สถานที่เกิด ( Brith Palce )</p>
-                        <input class="form-control" formControlName="personBirthPlace" placeholder="สถานที่เกิด">
-                    </div>
-                    <div class="col-md-6">
-                        <p>จังหวัด (ฺ Province )</p>
-                        <input class="form-control" formControlName="personProvince" placeholder="จังหวัด">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>เชื้อชาติ (ฺ Nationality )</p>
-                        <input class="form-control" formControlName="personNationality" placeholder="เชื้อชาติ">
-                    </div>
-                    <div class="col-md-6">
-                        <p>สัญชาติ (ฺ Citizenship )</p>
-                        <input class="form-control" formControlName="personCitizenship" placeholder="สัญชาติ">
-                    </div>
-                    <div class="col-md-6">
-                        <p>ศาสนา (ฺ Religion )</p>
-                        <input class="form-control" formControlName="personReligion" placeholder="ศาสนา">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>ที่อยู่ ( Address )</p>
-                        <textarea class="form-control" formControlName="personAddress" placeholder="ที่อยู่"></textarea>
-                    </div>
-                    <div class="col-md-6">
-                        <p>โทรศัพท์ (ฺ Phone )</p>
-                        <input class="form-control" formControlName="personNumber" placeholder="หมายเลขโทรศัพท์">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>ประวัติครอบครัว ( Past History ) </p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4 ">
+            <br>
+            <br>
+            <br>
+            <div class="alert alert-info" role="alert">
+                <form>
+                    <div class="form-group">
 
-                        <input class="form-control" formControlName="personFamilyHistory" placeholder="ประวัติครอบครัว">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4">
+                                <img src="https://myslu.slu.edu/res/images/cas-padlock-icon.png" width="70px" hight="70px">
+                            </div>
+                        </div>
+                        <br>
+                       
+                        <input type="email" class="form-control"  name="logId" placeholder="UserID" [(ngModel)]="logId">
+                        <br>
+                      <button type="button" class="btn btn-outline-info btn-md btn-block">Sing in</button>
+                        <button type="button" class="btn btn-outline-info btn-md btn-block">New User</button>
                     </div>
-                    <div class="col-md-6">
-                        <p>ประวัติส่วนตัว ( Personal History ) </p>
-                        <input class="form-control" formControlName="personPersonalHistory" placeholder="ประวัติส่วนตัว">
-                    </div>
-                </div>
-                <br>
-                <div align="right">
-                    <!-- <button type="submit" class="btn btn-primary" [disabled]="!form.valid">submit</button> -->
-                    <button type="submit" class="btn btn-primary" >submit</button>
-                    
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="col-md-2"></div>
 </div>

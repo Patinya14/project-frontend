@@ -11,12 +11,10 @@ import { routing } from './app.routing';
 import { ThemeModule } from './theme.module';
 
 import { PersonalComponent } from './personal/personal.component';
-import { LoginComponent } from './login/login.component';
-import { OldusersComponent } from './oldusers/oldusers.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
-import { PersonalListComponent } from './List/personal-list.component';
+import { PersonalListComponent } from './personal-list/personal-list.component';
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
@@ -36,13 +34,11 @@ import { LoginService } from './service/login.service';
   declarations: [
     AppComponent,
     PersonalComponent,
-    LoginComponent,
-    OldusersComponent,
+    PersonalListComponent,
     CertificateComponent,
     MenuComponent,
     AppointmentsComponent,
-    PrintappointmentsComponent,
-    PersonalListComponent
+    PrintappointmentsComponent
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
