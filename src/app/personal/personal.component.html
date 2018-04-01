@@ -30,7 +30,7 @@
                             </div>
                         </div>
 
-                        <button type="button" class="btn btn-outline-info btn-md btn-block" (click)="openModalWithClass(template)">ผู้ป่วยรายใหม่</button>
+                        <button type="button" class="btn btn-outline-info btn-md btn-block" (click)="openModal(template)">ผู้ป่วยรายใหม่</button>
 
                         <ng-template #template>
                             <div class="modal-header">
@@ -149,8 +149,6 @@
                                                 <br>
                                                 <div align="right">
                                                     <button type="submit" class="btn btn-primary" [disabled]="!form.valid">submit</button>
-                                                    <!-- <button type="submit" class="btn btn-primary" >submit</button> -->
-
                                                 </div>
                                             </form>
                                         </div>
@@ -163,8 +161,6 @@
                 </form>
             </div>
         </div>
-
-
     </div>
 
     <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
@@ -194,8 +190,5 @@
 
             </ng-template>
         </ngx-datatable-column>
-
     </ngx-datatable>
-
-
 </div>

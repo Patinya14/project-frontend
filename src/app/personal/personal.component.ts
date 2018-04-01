@@ -1,9 +1,11 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { LoginService } from '../service/login.service';
-import { Router } from '@angular/router'
+import { PersonalService } from '../service/personal.service';
+import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-personal',
@@ -11,34 +13,31 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   
 })
 
+
+
 export class PersonalComponent implements OnInit {
   
   public rows = [];
   modalRef: BsModalRef;
+  loginservice: LoginService
   constructor(
-    private loginservice: LoginService,
+    private personalservice: PersonalService ,
     private router: Router,
     private modalService: BsModalService
   ) { }
-  openModalWithClass(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(
-      template,
-      Object.assign({}, { class: 'gray modal-lg' })
-    );
-  }
   ngOnInit() {
-    this.loginservice.getlog().subscribe(result => {
+    this.personalservice.getPerson().subscribe(result => {
       this.rows = result;
+      console.log( this.rows)
     })
   }
   submit(data) {
     this.loginservice.addlog(data).subscribe(result => {
       this.rows = result;
-      console.log(this.rows)
     });
   }
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
+  openModal(modal: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+}
   
 }

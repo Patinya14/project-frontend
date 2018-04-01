@@ -13,11 +13,8 @@ export const routes: Routes = [
     { path: 'certificate', component: CertificateComponent },
     { path: 'appointments', component: AppointmentsComponent },
     { path: 'printappoint', component: PrintappointmentsComponent },
-<<<<<<< HEAD
-    { path: 'personal-list/:personalId', component: PersonalListComponent }
-=======
     { path: 'personal-list', component: PersonalListComponent },
->>>>>>> 82cab61028230a7540111f7cfe31f6b49b6d9d23
+
     
 ];
 
