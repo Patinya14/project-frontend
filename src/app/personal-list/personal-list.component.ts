@@ -1,5 +1,4 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { PersonalListModalComponent } from './personal-list.modal.component';
 import { PersonalService } from '../service/personal.service';
 import { DatepickerConfig } from 'ngx-bootstrap/datepicker';
 
@@ -24,7 +23,7 @@ export class PersonalListComponent implements OnInit {
             console.log(this.rows)
         });
     }
-    openModal() {
-        this.modalRef = this.bsmodalservice.show(PersonalListModalComponent);
+    openModal(modal: TemplateRef<any>) {
+        this.modalRef = this.bsmodalservice.show(modal);
     }
 }

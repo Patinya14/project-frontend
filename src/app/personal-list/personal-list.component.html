@@ -82,12 +82,12 @@
     </div>
     <div class="col-md-2"></div>
 </div> -->
-<button type="button" class="btn btn-primary" (click)="openModal()">Add</button>
+<button type="button" class="btn btn-primary" (click)="openModal(insertGeneral)">Add</button>
 <div class="container">
     <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
         <ngx-datatable-column name="วันที่มาพบแพทย์">
             <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                
+
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="เวลา">
@@ -117,6 +117,9 @@
         </ngx-datatable-column>
     </ngx-datatable>
 </div>
+<ng-template #insertGeneral>
+
+</ng-template>
 <!-- 
 <div class="row">
     <div class="col-md-12">

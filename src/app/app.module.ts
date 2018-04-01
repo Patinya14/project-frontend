@@ -16,8 +16,6 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
 import { PersonalListComponent } from './personal-list/personal-list.component';
 
-import { PersonalListModalComponent } from './personal-list/personal-list.modal.component';
-
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
@@ -41,8 +39,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
     CertificateComponent,
     MenuComponent,
     AppointmentsComponent,
-    PrintappointmentsComponent,
-    PersonalListModalComponent
+    PrintappointmentsComponent
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
