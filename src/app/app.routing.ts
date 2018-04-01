@@ -7,12 +7,14 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
 import { PersonalListComponent } from './personal-list/personal-list.component';
 
+
 export const routes: Routes = [
     { path: 'personal', component: PersonalComponent  },
     { path: 'certificate', component: CertificateComponent },
     { path: 'appointments', component: AppointmentsComponent },
     { path: 'printappoint', component: PrintappointmentsComponent },
-    { path: 'personal-list/:personalId', component: PersonalListComponent }
+    { path: 'personal-list', component: PersonalListComponent },
+    
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes)

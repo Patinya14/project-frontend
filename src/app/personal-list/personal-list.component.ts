@@ -1,7 +1,8 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { PersonalListModalComponent } from './personal-list.modal.component';
 import { PersonalService } from '../service/personal.service';
-import { ActivatedRoute } from '@angular/router';
 import { DatepickerConfig } from 'ngx-bootstrap/datepicker';
+
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @Component({
@@ -11,22 +12,19 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 export class PersonalListComponent implements OnInit {
     public rows = {};
-    public id;
-    modalRef: BsModalRef;
     constructor(
         private personalservice: PersonalService,
-        private activatedroute: ActivatedRoute,
         private datepickerconfig: DatepickerConfig,
-        private modalService: BsModalService
-    ) {
-        this.id = this.activatedroute.snapshot.params['personalId'];
-    }
+        private bsmodalservice: BsModalService,
+        private modalRef: BsModalRef
+    ) { }
     ngOnInit() {
-        this.personalservice.getPersonById(this.id).subscribe(result => {
+        this.personalservice.getPerson().subscribe(result => {
             this.rows = result;
+            console.log(this.rows)
         });
     }
-    openModal(template: TemplateRef<any>) {
-        this.modalRef = this.modalService.show(template);
-      }
+    openModal() {
+        this.modalRef = this.bsmodalservice.show(PersonalListModalComponent);
+    }
 }
