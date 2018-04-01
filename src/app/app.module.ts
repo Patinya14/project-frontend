@@ -17,13 +17,13 @@ import { PrintappointmentsComponent } from './printappoint/printappointments.com
 import { RecordformComponent } from './Recordform/Recordform.component';
 
 import { PersonalListComponent } from './personal-list/personal-list.component';
-// import { p } from './personal/personal.modal.component'
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
 import { LoginService } from './service/login.service';
-
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @NgModule({
   imports: [
     routing,
@@ -32,7 +32,7 @@ import { LoginService } from './service/login.service';
     BrowserModule,
     HttpClientModule,
     ThemeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
@@ -51,6 +51,8 @@ import { LoginService } from './service/login.service';
     JwtService,
     PersonalService,
     LoginService,
+    BsModalService,
+    BsModalRef
   ],
   bootstrap: [AppComponent]
 })
