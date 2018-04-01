@@ -18,9 +18,12 @@ export class PersonalListModalComponent implements OnInit {
         private activatedroute: ActivatedRoute,
         private datepickerconfig: DatepickerConfig,
         private modalService: BsModalService
-    ) {
+    ) 
+    
+    {
         this.id = this.activatedroute.snapshot.params['personalId'];
     }
+   
     ngOnInit() {
         this.personalservice.getPersonById(this.id).subscribe(result => {
             this.rows = result;
