@@ -82,37 +82,12 @@
     </div>
     <div class="col-md-2"></div>
 </div> -->
-<div class="row">
-    <div class="col-8">
-        <button type="button" class="btn btn-primary" (click)="openModal(template)">
-            +Add
-        </button>
-        <br>
-        <ng-template #template>
-            <div class="modal-header">
-                <h4 class="modal-title pull-left">+Add</h4>
-                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                    <!-- <tabset #staticTabs>
-                            <tab heading="Static title">Static content</tab>
-                            <tab heading="Static Title 1">Static content 1</tab>
-                            <tab heading="Static Title 2">Static content 2</tab>
-                            <tab heading="Static Title 3">Static content 3</tab>
-                          </tabset> -->
-            </div>
-        </ng-template>
-    </div>
-</div>
-
-
+<button type="button" class="btn btn-primary" (click)="openModal()">Add</button>
 <div class="container">
     <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
         <ngx-datatable-column name="วันที่มาพบแพทย์">
             <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-
+                
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="เวลา">

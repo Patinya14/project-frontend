@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     NgxDatatableModule,
     TabsModule.forRoot()
- 
   ],
   declarations: [
   ],
@@ -22,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
     DatepickerModule,
     ModalModule,
     NgxDatatableModule,
-    
   ]
 })
 export class ThemeModule { }

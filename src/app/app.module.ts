@@ -10,7 +10,6 @@ import { APP_BASE_HREF } from '@angular/common';
 import { routing } from './app.routing';
 import { ThemeModule } from './theme.module';
 
-
 import { PersonalComponent } from './personal/personal.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
@@ -22,8 +21,10 @@ import { PersonalListModalComponent } from './personal-list/personal-list.modal.
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
+import { GeneralService } from './service/general.service';
 import { LoginService } from './service/login.service';
-
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @NgModule({
   imports: [
     routing,
@@ -33,7 +34,6 @@ import { LoginService } from './service/login.service';
     HttpClientModule,
     ThemeModule,
     ReactiveFormsModule,
-    
   ],
   declarations: [
     AppComponent,
@@ -44,14 +44,16 @@ import { LoginService } from './service/login.service';
     AppointmentsComponent,
     PrintappointmentsComponent,
     PersonalListModalComponent
-   
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     ApiService,
     JwtService,
     PersonalService,
+    GeneralService,
     LoginService,
+    BsModalService,
+    BsModalRef
   ],
   bootstrap: [AppComponent]
 })
