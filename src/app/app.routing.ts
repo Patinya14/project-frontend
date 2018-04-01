@@ -13,6 +13,7 @@ export const routes: Routes = [
     { path: 'appointments', component: AppointmentsComponent },
     { path: 'printappoint', component: PrintappointmentsComponent },
     { path: 'personal-list/:personalId', component: PersonalListComponent }
+    
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes)

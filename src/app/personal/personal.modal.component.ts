@@ -1,13 +1,18 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonalService } from '../service/personal.service';
 import { DatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-personal.modal',
   templateUrl: './personal.modal.component.html'
+
+  
 })
+
 export class PersonalComponent implements OnInit {
   public form: FormGroup;
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ( Professor )', 'ผู้ช่วยศาสตราจารย์ ( Assistant Professor )'
@@ -51,6 +56,7 @@ export class PersonalComponent implements OnInit {
     });
 
   }
+  
   
 }
 

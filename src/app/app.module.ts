@@ -14,6 +14,7 @@ import { PersonalComponent } from './personal/personal.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
+import { RecordformComponent } from './Recordform/Recordform.component';
 
 import { PersonalListComponent } from './personal-list/personal-list.component';
 // import { p } from './personal/personal.modal.component'
@@ -41,7 +42,7 @@ import { LoginService } from './service/login.service';
     MenuComponent,
     AppointmentsComponent,
     PrintappointmentsComponent,
-    // RecordformComponent,
+    RecordformComponent,
     
   ],
   providers: [
