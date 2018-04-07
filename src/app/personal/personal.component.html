@@ -44,11 +44,11 @@
                                 <div class="row">
 
                                     <div class="col-12">
-                                        <div class="alert alert-info text-dark" role="alert">
+                                        <div class="alert alert-info " role="alert">
                                             <form [formGroup]="form" (ngSubmit)="submit()">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <p>เลขที่บัตร ( ID )</p>
+                                                        <label>เลขที่บัตร ( ID )</label>
                                                         <input placeholder="00-0000" class="form-control" formControlName="personId">
                                                     </div>
                                                     <div class="col-md-6" class="form-group">
@@ -62,87 +62,87 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-4">
-                                                        <p>คำนำหน้า ( NameTitle )</p>
+                                                    <div class="col-md-3">
+                                                        <label>คำนำหน้า ( NameTitle )</label>
                                                         <select formControlName="personNameTitle" class="form-control">
                                                             <option *ngFor="let data of nametitle" placeholder="เลือกคำนำหน้า" [value]="data">{{data}}</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <p>ชื่อ ( First Name )</p>
+                                                    <div class="col">
+                                                        <label>ชื่อ ( First Name )</label>
                                                         <input class="form-control" formControlName="personName" placeholder="ชื่อ">
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <p> นามสกุล ( Last Name )</p>
+                                                    <div class="col">
+                                                        <label> นามสกุล ( Last Name )</label>
                                                         <input class="form-control" formControlName="personSurname" placeholder="นามสกุล">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <p>วันเดือนปีเกิด (Brith Day)</p>
+                                                            <label>วันเดือนปีเกิด ( Brith Day)</label>
                                                             <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker formControlName="personDate">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>เลขบัตรประชาชน (ฺฺ ID card )</p>
+                                                        <label>เลขบัตรประชาชน (ฺฺ ID card )</label>
                                                         <input class="form-control" formControlName="personIdentityId" placeholder="เลขบัตรประชาชน">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label>สถานภาพ (ฺฺ Status )</label>
+                                                        <label>สถานภาพ (ฺ Status )</label>
                                                         <select formControlName="personMaritalStatus" class="form-control">
                                                             <option *ngFor="let data of status" [value]="data">{{data}}</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>อาชีพ (ฺ Occupation )</p>
+                                                        <label>อาชีพ (ฺ Occupation )</label>
                                                         <input class="form-control" formControlName="personCareer" placeholder="อาชีพ">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <p>สถานที่เกิด ( Brith Palce )</p>
+                                                        <label>สถานที่เกิด ( Brith Palce )</label>
                                                         <input class="form-control" formControlName="personBirthPlace" placeholder="สถานที่เกิด">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>จังหวัด (ฺ Province )</p>
+                                                        <label>จังหวัด (ฺ Province )</label>
                                                         <input class="form-control" formControlName="personProvince" placeholder="จังหวัด">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <p>เชื้อชาติ (ฺ Nationality )</p>
+                                                        <label>เชื้อชาติ (ฺ Nationality )</label>
                                                         <input class="form-control" formControlName="personNationality" placeholder="เชื้อชาติ">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>สัญชาติ (ฺ Citizenship )</p>
+                                                        <label>สัญชาติ (ฺ Citizenship )</label>
                                                         <input class="form-control" formControlName="personCitizenship" placeholder="สัญชาติ">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>ศาสนา (ฺ Religion )</p>
+                                                        <label>ศาสนา (ฺ Religion )</label>
                                                         <input class="form-control" formControlName="personReligion" placeholder="ศาสนา">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <p>ที่อยู่ ( Address )</p>
+                                                        <label>ที่อยู่ ( Address )</label>
                                                         <textarea class="form-control" formControlName="personAddress" placeholder="ที่อยู่"></textarea>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>โทรศัพท์ (ฺ Phone )</p>
+                                                        <label>โทรศัพท์ (ฺ Phone )</label>
                                                         <input class="form-control" formControlName="personNumber" placeholder="หมายเลขโทรศัพท์">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <p>ประวัติครอบครัว ( Past History ) </p>
+                                                        <label>ประวัติครอบครัว ( Past History ) </label>
 
                                                         <input class="form-control" formControlName="personFamilyHistory" placeholder="ประวัติครอบครัว">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>ประวัติส่วนตัว ( Personal History ) </p>
+                                                        <label>ประวัติส่วนตัว ( Personal History ) </label>
                                                         <input class="form-control" formControlName="personPersonalHistory" placeholder="ประวัติส่วนตัว">
                                                     </div>
                                                 </div>
