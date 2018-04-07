@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row " id="box">
     <div class="col-md-12">
         <div class="row justify-content-center">
             <img src="http://thaimed.buu.ac.th/public/backend/upload/thaimed.buu.ac.th/summernote/1ff8a7b5dc7a7d1f0ed65aaa29c04b1e.jpg"
@@ -59,27 +59,54 @@
                         </div>
                     </div>
                 </form>
-                <p>
-                    <label>ใบอนุญาตประกอบโรคศิลปะ สาขาการแพทย์แผนไทยประยุกต์</label>
-                </p>
-                <p>
-                    <label>เลขที่ พท.ป.608 ได้ทำการตรวจร่างกาย นาง........</label>
-                </p>
-                <p>
-                    <label>ที่อยู่ปัจจุบัน ...................</label>
-                </p>
-                <p>
-                    <label>เมื่อวันที่..........เดือน...... พ.ศ. ....</label>
-                </p>
-                <p>
-                    <label>ถึงวันที่..........เดือน...... พ.ศ. ....</label>
-                </p>
-                <p>
-                    <label>ได้พิจารณาแล้วเห็นว่า นาง............</label>
-                </p>
-                <p>
-                    <label>มีอาการ/โรค .......</label>
-                </p>
+                <div class="row">
+                    <div class="col">
+                        <label>ใบอนุญาตประกอบโรคศิลปะ สาขาการแพทย์แผนไทยประยุกต์</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>เลขที่ พท.ป.608 ได้ทำการตรวจร่างกาย นาง........</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>ที่อยู่ปัจจุบัน ...................</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">เมื่อวันที่</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="myDateValue">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">จนถึงวันที่</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="myDateValue">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>ได้พิจารณาแล้วเห็นว่า นาง............</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>มีอาการ/โรค .......</label>
+                    </div>
+                </div>
+
             </div>
             <div class="col-4">
             </div>
@@ -128,8 +155,15 @@
         <div class="row justify-content-center">
             <div class="col-4">
             </div>
-            <div class="col-4">
-                <label>พท.ป. 608</label>
+            <div class="col-md-4">
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput"></label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="พท.ป.608">
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-5">
             </div>
@@ -142,9 +176,10 @@
 
             </div>
             <div class="col-4">
-                <button type="submit" class="btn btn-info">Print</button>
+                <button type="submit" class="btn btn-info ">Print</button>
             </div>
         </div>
-        <br><br>
+        <br>
+        <br>
     </div>
 </div>

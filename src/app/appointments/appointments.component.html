@@ -16,15 +16,12 @@
                 <div class="alert alert-info" role="alert">
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col">
                             <label>วันที่ เดือน ปีที่รักษา ( Date )</label>
-                            <input type="text" name="personId" class="form-control" placeholder="26/2/2561" [(ngModel)]="personId">
+                            <input type="text"  class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="myDateValue">
                         </div>
-                        <div class="col-md-4">
-                            <label>เวลา ( Time ) น.( AM/PM )</label>
-                            <input type="text" name="personId" class="form-control" placeholder="00.00" [(ngModel)]="personId">
-                        </div>
-                        <div class="col-md-4">
+
+                        <div class="col">
                             <label>เลขที่บัตร ( No. )</label>
                             <input type="text" name="personId" class="form-control" placeholder="" [(ngModel)]="personId">
                         </div>
@@ -57,15 +54,9 @@
                     <div class="row">
                         <div class="col">
                             <label>วันที่ เดือน ปีที่นัดพบแพทย์( Current date )</label>
-                            <input type="text" name="personId" class="form-control" placeholder="26/4/2561" [(ngModel)]="personId">
+                            <input type="text"  class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="myDateValue">
                         </div>
                         <div class="col">
-                            <label>เวลา ( Time ) น.( AM/PM ) </label>
-                            <input type="text" name="personId" class="form-control" placeholder="12.00" [(ngModel)]="personId">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
                             <label>นัดพบแพทย์</label>
                             <select class="form-control" id="exampleFormControlSelect1">
                                 <option>นางสาวพรรณภัทร อินทฤทธิ์</option>
@@ -74,8 +65,11 @@
                             </select>
                         </div>
                     </div>
+
                     <br>
-                    <button type="submit" class="btn btn-info">Print</button>
+                    <a href="http://localhost:4200/printappoint">
+                        <button type="submit" class="btn btn-info">Print</button>
+                    </a>
                 </div>
             </div>
         </div>

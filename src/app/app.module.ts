@@ -14,6 +14,8 @@ import { PersonalComponent } from './personal/personal.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
+import { RecordformComponent } from './Recordform/Recordform.component';
+
 import { PersonalListComponent } from './personal-list/personal-list.component';
 import { InsertGeneral1Component } from './personal-list/insertGeneral1.modal.component';
 import { InsertGeneral2Component } from './personal-list/insertGeneral2.modal.component';
@@ -47,12 +49,17 @@ import { from } from 'rxjs/observable/from';
     MenuComponent,
     AppointmentsComponent,
     PrintappointmentsComponent,
+<<<<<<< HEAD
     InsertGeneral1Component,
     InsertGeneral2Component,
     InsertGeneral3Component,
     InsertGeneral4Component,
     InsertGeneral5Component,
     InsertGeneral6Component
+=======
+    RecordformComponent,
+    
+>>>>>>> 4a93ab5564f6b7d7ddb414eb242d392c7dcc6cf1
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

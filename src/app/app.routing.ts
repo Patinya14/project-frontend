@@ -14,6 +14,7 @@ export const routes: Routes = [
     { path: 'appointments', component: AppointmentsComponent },
     { path: 'printappoint', component: PrintappointmentsComponent },
     { path: 'personal-list', component: PersonalListComponent },
+
     
 ];
 
