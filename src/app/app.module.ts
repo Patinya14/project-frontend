@@ -49,17 +49,13 @@ import { from } from 'rxjs/observable/from';
     MenuComponent,
     AppointmentsComponent,
     PrintappointmentsComponent,
-<<<<<<< HEAD
     InsertGeneral1Component,
     InsertGeneral2Component,
     InsertGeneral3Component,
     InsertGeneral4Component,
     InsertGeneral5Component,
     InsertGeneral6Component
-=======
-    RecordformComponent,
-    
->>>>>>> 4a93ab5564f6b7d7ddb414eb242d392c7dcc6cf1
+
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

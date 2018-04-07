@@ -15,7 +15,7 @@ import { LoginService } from '../service/login.service';
 
 export class PersonalComponent implements OnInit {
   public rows = [];
-
+  
   public form: FormGroup;
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ( Professor )', 'ผู้ช่วยศาสตราจารย์ ( Assistant Professor )'
     , 'รองศาสตราจารย์ ( Associate Professor )', 'พระสงฆ์ ( Buddhist Monk )', 'Mr.', 'Miss', 'Mrs.'];
@@ -61,7 +61,9 @@ export class PersonalComponent implements OnInit {
   
     submit() {
       const value = this.form.value;
-      this.personalservice.addPerson(value).subscribe(result => {
+      this.personalservice.addPerson(value)
+      
+      .subscribe(result => {
         this.rows = result;
       });
     }
