@@ -8,11 +8,8 @@ import { TabsetComponent } from 'ngx-bootstrap';
 })
 
 export class PersonalListComponent implements OnInit {
-    public rows = {};
     @ViewChild('staticTabs') staticTabs: TabsetComponent;
     constructor() { }
     ngOnInit() {}
-    selectTab(tab_id: number) {
-        this.staticTabs.tabs[tab_id].active = true;
-      }
+
 }

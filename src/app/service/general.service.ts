@@ -15,7 +15,7 @@ export class GeneralService {
     return this.apiService.post('General', data);
   }
   updateGen(id: string, data): Observable<any> {
-    return this.apiService.put('genreal/' + id, data);
+    return this.apiService.put('general/' + id, data);
   }
   deleteGen(id: string): Observable<any> {
     return this.apiService.delete('general/' + id);
