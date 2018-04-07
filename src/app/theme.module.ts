@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     DatepickerModule,
     ModalModule,
     NgxDatatableModule,
+    TabsModule
   ]
 })
 export class ThemeModule { }
