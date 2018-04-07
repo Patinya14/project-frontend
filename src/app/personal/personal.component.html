@@ -44,7 +44,7 @@
                                 <div class="row">
 
                                     <div class="col-12">
-                                        <div class="alert alert-info" role="alert">
+                                        <div class="alert alert-info text-dark" role="alert">
                                             <form [formGroup]="form" (ngSubmit)="submit()">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -166,28 +166,29 @@
     <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
         <ngx-datatable-column name="เลขที่บัตร" [maxWidth]="100">
             <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                {{value.personNameTitle}}
+                {{value.personId}}
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="ชื่อ-นามสกุล">
             <ng-template let-value="value" ngx-datatable-cell-template>
-
+                {{value.personNameTitle}} {{value.personName}} {{value.personSurname}}
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="เลขบัตรประจำตัวประชาชน">
             <ng-template let-value="value" ngx-datatable-cell-template>
-
+                {{value.personIdentityId}}
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="อายุ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-
+                
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="เครื่องมือ">
-
             <ng-template let-value="value" ngx-datatable-cell-template>
-
+                <a href="#"><img src="http://www.iconsplace.com/icons/preview/orange/add-file-256.png" width="30px" height="30px" title="เพิ่ม"></a>
+                <a href="#"><img src="https://www.iconsdb.com/icons/preview/orange/trash-2-xxl.png" width="30px" height="30px" title="ลบ"></a>
+                <a href="#"><img src="https://www.iconsdb.com/icons/preview/orange/edit-11-xxl.png" width="30px" height="30px" title="แก้ไข"></a>
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>

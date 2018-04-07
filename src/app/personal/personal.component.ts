@@ -15,6 +15,7 @@ import { LoginService } from '../service/login.service';
 
 export class PersonalComponent implements OnInit {
   public rows = [];
+
   public form: FormGroup;
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ( Professor )', 'ผู้ช่วยศาสตราจารย์ ( Assistant Professor )'
     , 'รองศาสตราจารย์ ( Associate Professor )', 'พระสงฆ์ ( Buddhist Monk )', 'Mr.', 'Miss', 'Mrs.'];
@@ -40,29 +41,32 @@ export class PersonalComponent implements OnInit {
     personFamilyHistory: [null, Validators.required],
     personPersonalHistory: [null, Validators.required],
   };
+
+
   constructor(
     private personalservice: PersonalService,
     private router: Router,
-    private modalService: BsModalService,
     private modalRef: BsModalRef,
+    private modalService: BsModalService,
     private formBuilder: FormBuilder,
     private loginservice: LoginService
   ) { }
   ngOnInit() {
-    this.form = this.formBuilder.group({ data });
+    this.form = this.formBuilder.group( this.data );
     this.personalservice.getPerson().subscribe(result => {
       this.rows = result;
       console.log(this.rows)
     })
   }
-  submit() {
-    const value = this.form.value;
-    this.personalservice.addPerson(value).subscribe(result => {
-      this.rows = result;
-    });
-  }
-  openModal(modal: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
-  }
+  
+    submit() {
+      const value = this.form.value;
+      this.personalservice.addPerson(value).subscribe(result => {
+        this.rows = result;
+      });
+    }
+    openModal(modal: TemplateRef<any>) {
+      this.modalRef = this.modalService.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+    }
 
 }
