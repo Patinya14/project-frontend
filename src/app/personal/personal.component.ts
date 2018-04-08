@@ -15,7 +15,7 @@ import { LoginService } from '../service/login.service';
 
 export class PersonalComponent implements OnInit {
   public rows = [];
-  
+
   public form: FormGroup;
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ( Professor )', 'ผู้ช่วยศาสตราจารย์ ( Assistant Professor )'
     , 'รองศาสตราจารย์ ( Associate Professor )', 'พระสงฆ์ ( Buddhist Monk )', 'Mr.', 'Miss', 'Mrs.'];
@@ -52,23 +52,38 @@ export class PersonalComponent implements OnInit {
     private loginservice: LoginService
   ) { }
   ngOnInit() {
-    this.form = this.formBuilder.group( this.data );
+    this.form = this.formBuilder.group(this.data);
     this.personalservice.getPerson().subscribe(result => {
       this.rows = result;
       console.log(this.rows)
     })
   }
-  
-    submit() {
-      const value = this.form.value;
+
+  submit() {
+    const value = this.form.value;
+    if (value !== undefined) {
       this.personalservice.addPerson(value)
-      
-      .subscribe(result => {
-        this.rows = result;
-      });
+        .mergeMap(() => this.personalservice.getPerson())
+        .subscribe(result => {
+          this.rows = result;
+          this.modalRef.hide();
+        })
+
     }
-    openModal(modal: TemplateRef<any>) {
-      this.modalRef = this.modalService.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+  }
+  delete(data) {
+    if (data !== undefined) {
+      this.personalservice.deletePerson(data._id)
+        .mergeMap(() => this.personalservice.getPerson())
+        .subscribe(result => {
+          this.rows = result;
+          
+        })
     }
+
+  }
+  openModal(modal: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+  }
 
 }
