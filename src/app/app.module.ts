@@ -27,6 +27,7 @@ import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
 import { GeneralService } from './service/general.service';
 import {PhysicalService} from './service/physical.service';
+import {EvalutionService } from './service/evalution.service';
 import { LoginService } from './service/login.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -63,6 +64,7 @@ import { from } from 'rxjs/observable/from';
     PersonalService,
     GeneralService,
     PhysicalService,
+    EvalutionService,
     LoginService,
     BsModalService,
     BsModalRef
