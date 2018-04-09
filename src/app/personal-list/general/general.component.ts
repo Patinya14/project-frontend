@@ -1,33 +1,34 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SummaryService } from '../service/summary.service';
+import { GeneralService } from '../../service/general.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
-    selector: 'app-insertGeneral3',
-    templateUrl: './insertGeneral3.modal.component.html',
+    selector: 'app-general',
+    templateUrl: './general.component.html',
 })
-export class InsertGeneral3Component implements OnInit {
-    public rows = {};
+export class GeneralComponent implements OnInit {
+    public rows = [];
     public form: FormGroup;
     edit = {}
     public data = {
-        summaryDiseaseName: [null, Validators.required],
-        summarySymptom: [null, Validators.required],
+        // personId : [null, Validators.required],
+        genDate: [null, Validators.required],
+        genTime: [null, Validators.required],
+        genSymptoms: [null, Validators.required],
+        genPresentHistory: [null, Validators.required],
+        genPastHistory: [null, Validators.required],
     }
-
-
     constructor(
-
-        private summaryservice: SummaryService,
+        private generalservice: GeneralService,
         private bsmodalservice: BsModalService,
         private modalRef: BsModalRef,
         private formBuilder: FormBuilder,
     ) { }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
-        this.summaryservice.getSummary().subscribe(result => {
+        this.generalservice.getGen().subscribe(result => {
             this.rows = result;
         });
     }
@@ -39,14 +40,14 @@ export class InsertGeneral3Component implements OnInit {
         const value = this.form.value;
         if (value !== undefined) {
             if (this.form.value.status === 'edit') {
-                this.summaryservice.updateSummary(value.id, value)
-                    .mergeMap(() => this.summaryservice.getSummary())
+                this.generalservice.updateGen(value.id, value)
+                    .mergeMap(() => this.generalservice.getGen())
                     .subscribe(result => {
                         this.rows = result;
                     })
             } else {
-                this.summaryservice.addSummary(value)
-                    .mergeMap(() => this.summaryservice.getSummary())
+                this.generalservice.addGen(value)
+                    .mergeMap(() => this.generalservice.getGen())
                     .subscribe(result => {
                         this.rows = result;
                     })
@@ -55,18 +56,21 @@ export class InsertGeneral3Component implements OnInit {
     }
     delete(data) {
         if (data !== undefined) {
-            this.summaryservice.deleteSummary(data._id)
-                .mergeMap(() => this.summaryservice.getSummary())
+            this.generalservice.deleteGen(data._id)
+                .mergeMap(() => this.generalservice.getGen())
                 .subscribe(result => {
                     this.rows = result;
                 })
         }
-
     }
     openEdit(modal, data) {
         let edit = {
-            summaryDiseaseName: data.summaryDiseaseName,
-            summarySymptom: data.summarySymptom,
+            id: data._id,
+            genDate: data.genDate,
+            genTime: data.genTime,
+            genSymptoms: data.genSymptoms,
+            genPresentHistory: data.genPresentHistory,
+            genPastHistory: data.genPastHistory,
             status: 'edit'
         }
         this.form = this.formBuilder.group(edit);

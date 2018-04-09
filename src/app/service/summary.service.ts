@@ -9,16 +9,16 @@ export class SummaryService {
     private apiService: ApiService
   ) { }
   getSummary(): Observable<any> {
-    return this.apiService.get(`summarySick`);
+    return this.apiService.get('summary');
   }
   addSummary (data): Observable<any> {
-    return this.apiService.post('summarySick', data);
+    return this.apiService.post('summary', data);
   }
   updateSummary(id: string, data): Observable<any> {
-    return this.apiService.put('summarySick/' + id, data);
+    return this.apiService.put('summary/' + id, data);
   }
   deleteSummary(id: string): Observable<any> {
-    return this.apiService.delete('summarySick/' + id);
+    return this.apiService.delete('summary/' + id);
   }
   
 }
