@@ -1,15 +1,15 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GeneralService } from '../service/general.service';
+import { GeneralService } from '../../service/general.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
-    selector: 'app-insertGeneral1',
-    templateUrl: './insertGeneral1.modal.component.html',
+    selector: 'app-general',
+    templateUrl: './general.component.html',
 })
-export class InsertGeneral1Component implements OnInit {
-    public rows = {};
+export class GeneralComponent implements OnInit {
+    public rows = [];
     public form: FormGroup;
     edit = {}
     public data = {
@@ -62,7 +62,6 @@ export class InsertGeneral1Component implements OnInit {
                     this.rows = result;
                 })
         }
-
     }
     openEdit(modal, data) {
         let edit = {

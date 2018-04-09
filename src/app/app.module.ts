@@ -17,16 +17,16 @@ import { PrintappointmentsComponent } from './printappoint/printappointments.com
 import { RecordformComponent } from './Recordform/Recordform.component';
 
 import { PersonalListComponent } from './personal-list/personal-list.component';
-import { InsertGeneral1Component } from './personal-list/insertGeneral1.modal.component';
-import { InsertGeneral2Component } from './personal-list/insertGeneral2.modal.component';
-import { InsertGeneral3Component } from './personal-list/insertGeneral3.modal.component';
-import { InsertGeneral4Component } from './personal-list/insertGeneral4.modal.component';
-import { InsertGeneral5Component } from './personal-list/insertGeneral5.modal.component';
+import { GeneralComponent } from './personal-list/general/general.component';
+import { PhysicalComponent } from './personal-list/physical/physical.component';
+import { SummaryComponent } from './personal-list/summary/summary.component';
+import { EvalutionComponent } from './personal-list/evalution/evalution.component';
 import { InsertGeneral6Component} from './personal-list/insertGeneral6.modal.component'
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
 import { GeneralService } from './service/general.service';
+import {PhysicalService} from './service/physical.service';
 import { LoginService } from './service/login.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -49,11 +49,10 @@ import { from } from 'rxjs/observable/from';
     MenuComponent,
     AppointmentsComponent,
     PrintappointmentsComponent,
-    InsertGeneral1Component,
-    InsertGeneral2Component,
-    InsertGeneral3Component,
-    InsertGeneral4Component,
-    InsertGeneral5Component,
+    GeneralComponent,
+    PhysicalComponent,
+    SummaryComponent,
+    EvalutionComponent,
     InsertGeneral6Component
 
   ],
@@ -63,6 +62,7 @@ import { from } from 'rxjs/observable/from';
     JwtService,
     PersonalService,
     GeneralService,
+    PhysicalService,
     LoginService,
     BsModalService,
     BsModalRef

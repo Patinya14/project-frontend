@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md" align="right">
-        <button type="button" class="btn btn-warning" (click)="openModal(insertGeneralAdd1)">+เพิ่มข้อมูลการรักษา</button>
-        <button type="button" class="btn btn-warning" (click)="openModal(insertGeneralAdd2)">+เพิ่มวิธีการรักษา</button>
+        <button type="button" class="btn btn-warning" (click)="openModal(ModalGeneral)">+เพิ่มข้อมูลการรักษา</button>
+      
     </div>
 </div>
 <div class="container">
@@ -34,15 +34,15 @@
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
                 <button type="button" class="btn btn-warning" (click)="delete(value)">ลบ</button>
-                <button type="button" class="btn btn-warning" (click)="openEdit(insertGeneralAdd1, value)">แก้ไข</button>
+                <button type="button" class="btn btn-warning" (click)="openEdit(ModalGeneral, value)">แก้ไข</button>
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
 </div>
-<ng-template #insertGeneralAdd1>
+<ng-template #ModalGeneral>
     <div class="alert alert-info">
         <div class="row">
-            <form class="col" [formGroup]="form">
+            <form class="col" [formGroup]="form" (ngSubmit)="submit()">
                 <div class="row">
                     <div class="col ">
                         <label for="inputEmail4">วัน เดือน ปีที่มาพบแพทย์ ( Current date )</label>
@@ -73,7 +73,7 @@
                 </div>
                 <br>
                 <div class="footer col-md" align="right">
-                    <button type="submit" aria-label="Close" class="btn btn-primary" (click)="submit()">submit</button>
+                    <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
                 </div>
             </form>
         </div>

@@ -1,10 +1,10 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
-    selector: 'app-insertGeneral2',
-    templateUrl: './insertGeneral2.modal.component.html',
+    selector: 'app-evalution',
+    templateUrl: './evalution.component.html',
 })
-export class InsertGeneral2Component implements OnInit {
+export class EvalutionComponent implements OnInit {
     public rows = {};
     constructor(
     ) { }
