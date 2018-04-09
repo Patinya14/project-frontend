@@ -26,6 +26,7 @@ import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
 import { GeneralService } from './service/general.service';
+import { EvalutionService} from './service/evalution.service';
 import { PhysicalService} from './service/physical.service';
 import { LoginService } from './service/login.service';
 import { SummaryService } from './service/summary.service';
@@ -68,7 +69,8 @@ import { from } from 'rxjs/observable/from';
     LoginService,
     SummaryService,
     BsModalService,
-    BsModalRef
+    BsModalRef,
+    EvalutionService
   ],
   bootstrap: [AppComponent]
 })
