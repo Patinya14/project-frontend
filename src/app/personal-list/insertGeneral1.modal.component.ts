@@ -11,6 +11,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class InsertGeneral1Component implements OnInit {
     public rows = {};
     public form: FormGroup;
+    edit = {}
     public data = {
         // personId : [null, Validators.required],
         genDate: [null, Validators.required],
@@ -18,9 +19,9 @@ export class InsertGeneral1Component implements OnInit {
         genSymptoms: [null, Validators.required],
         genPresentHistory: [null, Validators.required],
         genPastHistory: [null, Validators.required],
-      }
+    }
     constructor(
-        private generalservice: GeneralService,       
+        private generalservice: GeneralService,
         private bsmodalservice: BsModalService,
         private modalRef: BsModalRef,
         private formBuilder: FormBuilder,
@@ -32,27 +33,48 @@ export class InsertGeneral1Component implements OnInit {
         });
     }
     openModal(modal: TemplateRef<any>) {
-        const modalRef = this.bsmodalservice.show(modal,Object.assign({}, { class: 'gray modal-lg' }));
+        this.form = this.formBuilder.group(this.data);
+        this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
     }
     submit() {
         const value = this.form.value;
         if (value !== undefined) {
-            this.generalservice.addGen(value)
-            .mergeMap(() => this.generalservice.getGen())
-            .subscribe(result => {
-                this.rows = result;
-                this.modalRef.hide();
-            })
+            if (this.form.value.status === 'edit') {
+                this.generalservice.updateGen(value.id, value)
+                    .mergeMap(() => this.generalservice.getGen())
+                    .subscribe(result => {
+                        this.rows = result;
+                    })
+            } else {
+                this.generalservice.addGen(value)
+                    .mergeMap(() => this.generalservice.getGen())
+                    .subscribe(result => {
+                        this.rows = result;
+                    })
+            }
         }
     }
     delete(data) {
         if (data !== undefined) {
             this.generalservice.deleteGen(data._id)
-            .mergeMap(() => this.generalservice.getGen())
-            .subscribe(result => {
-                this.rows = result;
-            })
+                .mergeMap(() => this.generalservice.getGen())
+                .subscribe(result => {
+                    this.rows = result;
+                })
         }
 
+    }
+    openEdit(modal, data) {
+        let edit = {
+            id: data._id,
+            genDate: data.genDate,
+            genTime: data.genTime,
+            genSymptoms: data.genSymptoms,
+            genPresentHistory: data.genPresentHistory,
+            genPastHistory: data.genPastHistory,
+            status: 'edit'
+        }
+        this.form = this.formBuilder.group(edit);
+        this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
     }
 }

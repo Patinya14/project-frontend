@@ -1,24 +1,22 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef,ViewChild } from '@angular/core';
 import { PersonalService } from '../service/personal.service';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { LoginService } from '../service/login.service';
+
 
 @Component({
   selector: 'app-personal',
-  templateUrl: './personal.component.html'
+  templateUrl: './personal.component.html',
 
 })
 
 export class PersonalComponent implements OnInit {
   public rows = [];
-
   public form: FormGroup;
-  public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ( Professor )', 'ผู้ช่วยศาสตราจารย์ ( Assistant Professor )'
-    , 'รองศาสตราจารย์ ( Associate Professor )', 'พระสงฆ์ ( Buddhist Monk )', 'Mr.', 'Miss', 'Mrs.'];
+  edit = {}
+  public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ', 'ผู้ช่วยศาสตราจารย์ '
+    , 'รองศาสตราจารย์ ', 'พระสงฆ์ ', 'Mr.', 'Miss', 'Mrs.'];
   public status = ['โสด ( Single )', 'แต่งงาน ( Married )', 'หม้าย ( Widowed )', 'หย่า ( Divorced )'
     , 'แยกกันอยู่ ( Separated )', 'นักบวช ( Monk )'];
   public data = {
@@ -27,7 +25,7 @@ export class PersonalComponent implements OnInit {
     personNameTitle: [null, Validators.required],
     personName: [null, Validators.required],
     personSurname: [null, Validators.required],
-    personDate: [new Date('yyyy-mm-dd'), Validators.required],
+    personBirth: [new Date('yyyy-mm-dd'), Validators.required],
     personMaritalStatus: [null, Validators.required],
     personNationality: [null, Validators.required],
     personCitizenship: [null, Validators.required],
@@ -45,30 +43,34 @@ export class PersonalComponent implements OnInit {
 
   constructor(
     private personalservice: PersonalService,
-    private router: Router,
     private modalRef: BsModalRef,
-    private modalService: BsModalService,
+    private bsmodalservice: BsModalService,
     private formBuilder: FormBuilder,
-    private loginservice: LoginService
+
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group(this.data);
     this.personalservice.getPerson().subscribe(result => {
       this.rows = result;
-      console.log(this.rows)
-    })
+    });
   }
 
   submit() {
     const value = this.form.value;
     if (value !== undefined) {
-      this.personalservice.addPerson(value)
-        .mergeMap(() => this.personalservice.getPerson())
-        .subscribe(result => {
-          this.rows = result;
-          this.modalRef.hide();
-        })
-
+      if (this.form.value.status === 'edit') {
+        this.personalservice.updatePerson(value.id,value)
+          .mergeMap(() => this.personalservice.getPerson())
+          .subscribe(result => {
+            this.rows = result;
+          })
+      } else {
+        this.personalservice.addPerson(value)
+          .mergeMap(() => this.personalservice.getPerson())
+          .subscribe(result => {
+            this.rows = result;
+          })
+      }
     }
   }
   delete(data) {
@@ -77,13 +79,39 @@ export class PersonalComponent implements OnInit {
         .mergeMap(() => this.personalservice.getPerson())
         .subscribe(result => {
           this.rows = result;
-          
+
         })
     }
 
   }
+  openEdit(modal, data) {
+    let edit = {
+      personId: data.personId,
+      personGender: data.personGender,
+      personNameTitle: data.personNameTitle,
+      personName: data.personName,
+      personSurname: data.personSurname,
+      personBirth: [new Date('yyyy-mm-dd'), data.personBirth],
+      personMaritalStatus: data.personMaritalStatus,
+      personNationality: data.personNationality,
+      personCitizenship: data.personCitizenship,
+      personReligion: data.personReligion,
+      personCareer: data.personCareer,
+      personIdentityId: data.personIdentityId,
+      personBirthPlace: data.personBirthPlace,
+      personProvince: data.personProvince,
+      personAddress: data.personAddress,
+      personNumber: data.personNumber,
+      personFamilyHistory: data.personFamilyHistory,
+      personPersonalHistory: data.personPersonalHistory,
+      status: 'edit'
+    }
+    this.form = this.formBuilder.group(edit);
+    this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+  }
   openModal(modal: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+    this.form = this.formBuilder.group(this.data);
+    this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
   }
 
 }

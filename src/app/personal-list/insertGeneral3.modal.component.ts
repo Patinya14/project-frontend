@@ -1,4 +1,8 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SummaryService } from '../service/summary.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
     selector: 'app-insertGeneral3',
@@ -6,9 +10,66 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 })
 export class InsertGeneral3Component implements OnInit {
     public rows = {};
-    constructor(
-    ) { }
-    ngOnInit() {
+    public form: FormGroup;
+    edit = {}
+    public data = {
+        summaryDiseaseName: [null, Validators.required],
+        summarySymptom: [null, Validators.required],
     }
 
+
+    constructor(
+
+        private summaryservice: SummaryService,
+        private bsmodalservice: BsModalService,
+        private modalRef: BsModalRef,
+        private formBuilder: FormBuilder,
+    ) { }
+    ngOnInit() {
+        this.form = this.formBuilder.group(this.data);
+        this.summaryservice.getSummary().subscribe(result => {
+            this.rows = result;
+        });
+    }
+    openModal(modal: TemplateRef<any>) {
+        this.form = this.formBuilder.group(this.data);
+        this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+    }
+    submit() {
+        const value = this.form.value;
+        if (value !== undefined) {
+            if (this.form.value.status === 'edit') {
+                this.summaryservice.updateSummary(value.id, value)
+                    .mergeMap(() => this.summaryservice.getSummary())
+                    .subscribe(result => {
+                        this.rows = result;
+                    })
+            } else {
+                this.summaryservice.addSummary(value)
+                    .mergeMap(() => this.summaryservice.getSummary())
+                    .subscribe(result => {
+                        this.rows = result;
+                    })
+            }
+        }
+    }
+    delete(data) {
+        if (data !== undefined) {
+            this.summaryservice.deleteSummary(data._id)
+                .mergeMap(() => this.summaryservice.getSummary())
+                .subscribe(result => {
+                    this.rows = result;
+                })
+        }
+
+    }
+    openEdit(modal, data) {
+        let edit = {
+            summaryDiseaseName: data.summaryDiseaseName,
+            summarySymptom: data.summarySymptom,
+            status: 'edit'
+        }
+        this.form = this.formBuilder.group(edit);
+        this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+    }
 }
