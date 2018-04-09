@@ -86,7 +86,7 @@ export class PersonalComponent implements OnInit {
   }
   openEdit(modal, data) {
     let edit = {
-      personId: data.personId,
+      id: data._id,
       personGender: data.personGender,
       personNameTitle: data.personNameTitle,
       personName: data.personName,

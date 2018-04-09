@@ -26,12 +26,13 @@ import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { PersonalService } from './service/personal.service';
 import { GeneralService } from './service/general.service';
-import {PhysicalService} from './service/physical.service';
+import { PhysicalService} from './service/physical.service';
 import { LoginService } from './service/login.service';
+import { SummaryService } from './service/summary.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { from } from 'rxjs/observable/from';
-import { SummaryService } from './service/summary.service';
+
 @NgModule({
   imports: [
     routing,
