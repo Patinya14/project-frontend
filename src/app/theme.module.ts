@@ -4,6 +4,7 @@ import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { AccordionModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModalModule.forRoot(),
     HttpClientModule,
     NgxDatatableModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    AccordionModule.forRoot(),
   ],
   declarations: [
   ],
@@ -21,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     DatepickerModule,
     ModalModule,
     NgxDatatableModule,
-    TabsModule
+    TabsModule,
+    AccordionModule,
   ]
 })
 export class ThemeModule { }

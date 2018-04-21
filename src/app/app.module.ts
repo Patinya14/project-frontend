@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
+import {TreaterComponent } from './menu/add/treater.component';
+import {DiseaseComponent } from'./menu/add/disease.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { routing } from './app.routing';
 import { ThemeModule } from './theme.module';
@@ -50,6 +52,8 @@ import { from } from 'rxjs/observable/from';
     PersonalListComponent,
     CertificateComponent,
     MenuComponent,
+    TreaterComponent ,
+    DiseaseComponent,
     AppointmentsComponent,
     PrintappointmentsComponent,
     GeneralComponent,
