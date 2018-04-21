@@ -12,9 +12,18 @@ export class SummaryComponent implements OnInit {
     public rows = [];
     public form: FormGroup;
     edit = {}
+    
+    // public symptomHead =[ 'U61.2 ลมปะกัง','U57.34 ลมปลายปัตคาต ส.5 หลัง','U61.15 อัมพาตใบหน้า']
+
+    
     public data = {
-        summaryDiseaseName: [null, Validators.required],
+        // summaryDiseaseName: [null, Validators.required],
+        // summarySymptom: [null, Validators.required],
+    
         summarySymptom: [null, Validators.required],
+        summaryProcedure: [null, Validators.required],
+        summaryTreatment: [null, Validators.required],
+        summaryRemedy: [null, Validators.required],
     }
 
 
@@ -65,8 +74,12 @@ export class SummaryComponent implements OnInit {
     }
     openEdit(modal, data) {
         let edit = {
-            summaryDiseaseName: data.summaryDiseaseName,
-            summarySymptom: data.summarySymptom,
+            // summaryDiseaseName: data.summaryDiseaseName,
+            // summarySymptom: data.summarySymptom,
+        summarySymptom: data.Symptom,
+        summaryProcedure: data.Procedure,
+        summaryTreatment: data.treatment,
+        summaryRemedy: data.Remedy,
             status: 'edit'
         }
         this.form = this.formBuilder.group(edit);

@@ -1,113 +1,3 @@
-<!-- <div class="alert alert-info" role="alert">
-    <form class="col" [formGroup]="form">
-        <div class="row">
-            <div class="col-md-4">
-                <form>
-                    <label for="inputEmail4">อาการโรค</label>
-                    <div class="row-fluid">
-                        <select name="level" class="form-control">
-                            <option></option>
-                            <optgroup label="ศีรษะ">
-                                <option>U61.2 ลมปะกัง</option>
-                                <option>U57.34 ลมปลายปัตคาต ส.5 หลัง</option>
-                                <option>U61.15 อัมพาตใบหน้า</option>
-                            </optgroup>
-                            <optgroup label="ต้นคอ">
-                                <option>U71.80 คอตกหมอน / ลปป.โค้งคอ</option>
-                            </optgroup>
-                            <optgroup label="บ่า">
-                                <option>U57.20 ลมปลายปัตคาตบ่า / ลปป.สัญญาณ 4 หลัง</option>
-                                <option>ลมปลายปัตคาตแขน</option>
-                            </optgroup>
-                            <optgroup label="ไหล่">
-                                <option>U71.00 ไหล่ติดเฉียบพลัน,เรื้อรัง</option>
-
-                            </optgroup>
-                            <optgroup label="หลัง,เอว">
-                                <option>U57.31 ลมปลายปัตคาตส.1 หลัง</option>
-                                <option>U57.32 ลมปลายปัตคาตส.3 หลัง</option>
-                                <option>U75.10/11 ยอกหลังเดี่ยว/คู่</option>
-                            </optgroup>
-                            <optgroup label="ขา-เท้า">
-                                <option>U57.26 ลมปลายปัตคาตขา</option>
-                                <option>U57.27 ลมปลายปัตคาตส้นเท้า</option>
-                                <option>U57.38 ชาหลังเท้า</option>
-                            </optgroup>
-                            <optgroup label="ข้อเท้า">
-                                <option>U71.63 ข้อเท้าแพลง</option>
-                                <option>U57.54 จับโปงแห้งข้อเท้า</option>
-                                <option>U57.52 จับโปงน้ำข้อเท้า</option>
-                            </optgroup>
-                            <optgroup label="เข่า">
-                                <option>U57.53 จับโปงแห้งเข่า / จับโปงแห้งน้ำ</option>
-                            </optgroup>
-                            <optgroup label="ข้อศอก">
-                                <option>U57.23 ลปป.ข้อศอก</option>
-                            </optgroup>
-                            <optgroup label="ข้อมือ / ข้อนิ้วมือ">
-                                <option>U57.24 ลปป.มือ,ลปป.ข้อนิ้วมือ / นิ้วไกปืน</option>
-                            </optgroup>
-                            <optgroup label="อ่อนแรง">
-                                <option>U61.10 แขน-ขาอ่อนแรงครึ่งซีก</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="inputEmail4">หัตถการ ( masssge )</label>
-                <textarea name="address" class="form-control" row="3"></textarea>
-            </div>
-
-        </div>
-        <br>
-        <u>
-            <b>การรักษา ( Treatment )</b>
-        </u>
-        <div class="row">
-            <div class="col">
-                <label for="inputEmail4">แผนการรักษา ( Treatment plan )</label>
-                <textarea name="address" class="form-control" row="3"></textarea>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <label>วิธีการรักษา ( Treatment Program )</label>
-            </div>
-        </div>
-        <div class="form-check">
-            <div class="col">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    ประคบสมุนไพร ( The Thai herbal compress massage )
-                </label>
-            </div>
-            <div class="col">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    อบสมุนไพร ( Herbal steam )
-                </label>
-            </div>
-            <div class="col">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    จ่ายยาจากสมุนไพร ( ระบุชื่อ ปริมาณ ขนาดที่ใช้ )
-                </label>
-
-                <div class="col">
-                    <textarea name="address" class="form-control" row="3" placeholder="อื่นๆ"></textarea>
-                </div>
-            </div>
-        </div>
-        <br>
-    </form>
-    <div class="col-11" align="right">
-        <button type="submit" class="btn btn-primary">submit</button>
-    </div>
-</div> -->
 <div class="row">
     <div class="col-md" align="right">
         <button type="button" class="btn btn-warning" (click)="openModal(insertGeneralAdd3)">+เพิ่มข้อมูลการรักษา</button>
@@ -119,22 +9,22 @@
     <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
         <ngx-datatable-column name="อาการโรค">
             <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                <!-- {{value.genDate}} -->
+                {{value.summarySymptom}} 
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="หัตถการ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-
+                {{value.summaryProcedure}} 
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="แผนการรักษา">
             <ng-template let-value="value" ngx-datatable-cell-template>
-
+                {{value.summaryTreatment}} 
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="วิธีการรักษา">
             <ng-template let-value="value" ngx-datatable-cell-template>
-
+                {{value.summaryRemedy}} 
             </ng-template>
         </ngx-datatable-column>
         
@@ -148,13 +38,13 @@
 </div>
 <ng-template #insertGeneralAdd3>
     <div class="alert alert-info" role="alert">
-        <form class="col" [formGroup]="form">
+        <form class="col" [formGroup]="form" >
             <div class="row">
                 <div class="col-md-4">
                     <form>
                         <label for="inputEmail4">อาการโรค</label>
                         <div class="row-fluid">
-                            <select name="level" class="form-control">
+                            <select name="level" class="form-control" formControlName="summarySymptom">
                                 <option></option>
                                 <optgroup label="ศีรษะ">
                                     <option>U61.2 ลมปะกัง</option>
@@ -207,7 +97,7 @@
             <div class="row">
                 <div class="col">
                     <label for="inputEmail4">หัตถการ ( masssge )</label>
-                    <textarea name="address" class="form-control" row="3"></textarea>
+                    <textarea name="address" class="form-control" row="3" formControlName="summaryProcedure"></textarea>
                 </div>
     
             </div>
@@ -218,7 +108,7 @@
             <div class="row">
                 <div class="col">
                     <label for="inputEmail4">แผนการรักษา ( Treatment plan )</label>
-                    <textarea name="address" class="form-control" row="3"></textarea>
+                    <textarea name="address" class="form-control" row="3" formControlName="summaryTreatment"></textarea>
                 </div>
             </div>
             <br>
@@ -229,19 +119,19 @@
             </div>
             <div class="form-check">
                 <div class="col">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" type="checkbox"  id="defaultCheck1" value="" >
                     <label class="form-check-label" for="defaultCheck1">
                         ประคบสมุนไพร ( The Thai herbal compress massage )
                     </label>
                 </div>
                 <div class="col">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" type="checkbox"  id="defaultCheck1" value="" >
                     <label class="form-check-label" for="defaultCheck1">
                         อบสมุนไพร ( Herbal steam )
                     </label>
                 </div>
                 <div class="col">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" type="checkbox"  id="defaultCheck1" value="">
                     <label class="form-check-label" for="defaultCheck1">
                         จ่ายยาจากสมุนไพร ( ระบุชื่อ ปริมาณ ขนาดที่ใช้ )
                     </label>
@@ -254,7 +144,7 @@
             <br>
         </form>
         <div class="col-11" align="right">
-            <button type="submit" class="btn btn-primary">submit</button>
+            <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
         </div>
     </div>
 </ng-template>

@@ -6,6 +6,8 @@ import { TabsModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'ngx-bootstrap';
 
+
+
 @NgModule({
   imports: [
     BsDatepickerModule.forRoot(),
@@ -15,6 +17,8 @@ import { AccordionModule } from 'ngx-bootstrap';
     NgxDatatableModule,
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
+
+    
   ],
   declarations: [
   ],
@@ -25,6 +29,7 @@ import { AccordionModule } from 'ngx-bootstrap';
     NgxDatatableModule,
     TabsModule,
     AccordionModule,
+    
   ]
 })
 export class ThemeModule { }
