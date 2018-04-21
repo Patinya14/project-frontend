@@ -1,0 +1,76 @@
+<div class="alert alert-info" role="alert">
+
+    <div class="container">
+        <div class="alert alert-info" role="alert">
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="alert bg-light text-dark " role="alert">
+                            <form class="col" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>เลขที่ประกอบการรักษา</label>
+                                        <input placeholder="พท.ป. 608" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>คำนำหน้า ( NameTitle )</label>
+                                        <select class="form-control">
+                                            <option *ngFor="let data of nametitle" placeholder="เลือกคำนำหน้า" [value]="data">{{data}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>ชื่อ ( First Name )</label>
+                                        <input placeholder="วาสนา" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>นามสกุล ( Last Name )</label>
+                                        <input placeholder="อิ่มกมล" class="form-control">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="footer col-md">
+                                    <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+            <ngx-datatable-column name="เลขที่ประกอบการรักษา">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <!-- {{value.genDate}} -->
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ชื่อ">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <!-- {{value.genTime}} -->
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="นามสกุล">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <!-- {{value.genSymptoms}} -->
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เครื่องมือ">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <img src="https://image.flaticon.com/icons/svg/395/395848.svg"(click)="delete(value)" width="30px" height="30px" title="ลบ">
+                    <button type="button" class="btn btn-warning" (click)="delete(value)">ลบ</button>
+                    <button type="button" class="btn btn-warning" (click)="openEdit(ModalGeneral, value)">แก้ไข</button>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</div>
