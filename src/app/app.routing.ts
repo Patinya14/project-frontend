@@ -19,7 +19,7 @@ export const routes: Routes = [
     { path: 'certificate', component: CertificateComponent },
     { path: 'appointments', component: AppointmentsComponent },
     { path: 'printappoint', component: PrintappointmentsComponent },
-    { path: 'personal-list', component: PersonalListComponent },
+    { path: 'personal-list/:personalId', component: PersonalListComponent },
     { path: 'treater', component: TreaterComponent },
     { path: 'disease', component: DiseaseComponent },
     { path: 'add', component: AddComponent  },

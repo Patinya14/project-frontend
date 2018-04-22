@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {PhysicalService} from '../../service/physical.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { ActivatedRoute } from '@angular/router'
 @Component({
     selector: 'app-physical',
     templateUrl: './physical.component.html',
@@ -10,6 +11,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class PhysicalComponent implements OnInit {
     public rows = [];
     public form: FormGroup;
+    public id;
     edit = {}
     public data = {
 
@@ -26,7 +28,10 @@ export class PhysicalComponent implements OnInit {
         private bsmodalservice: BsModalService,
         private modalRef: BsModalRef,
         private formBuilder: FormBuilder,
-    ) { }
+        private activatedroute: ActivatedRoute
+    ) { 
+        this.id = this.activatedroute.snapshot.params['personalId'];
+    }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
         this.physicalsevice.getPhy().subscribe(result => {

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SummaryService } from '../../service/summary.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-
+import { ActivatedRoute } from '@angular/router'
 @Component({
     selector: 'app-summary',
     templateUrl: './summary.component.html',
@@ -11,6 +11,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class SummaryComponent implements OnInit {
     public rows = [];
     public form: FormGroup;
+    public id;
     edit = {}
     public data = {
         summaryDiseaseName: [null, Validators.required],
@@ -24,7 +25,10 @@ export class SummaryComponent implements OnInit {
         private bsmodalservice: BsModalService,
         private modalRef: BsModalRef,
         private formBuilder: FormBuilder,
-    ) { }
+        private activatedroute: ActivatedRoute
+    ) {
+        this.id = this.activatedroute.snapshot.params['personalId'];
+     }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
         this.summaryservice.getSummary().subscribe(result => {
