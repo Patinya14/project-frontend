@@ -1,0 +1,71 @@
+<div class="alert alert-info" role="alert">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="alert bg-light text-dark " role="alert">
+                            <form class="col" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>รหัสยา ( ID Drug)</label>
+                                    <input placeholder="001" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <label>ชื่อยา ( Name Drug)</label>
+                                        <input placeholder="น้ำมันนวด" class="form-control" >
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>จำนวน ( Amount )</label>
+                                    <input placeholder="20" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>ราคา (Price )</label>
+                                    <input placeholder="100" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="footer col-md">
+                                <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+            <ngx-datatable-column name="รหัสยา">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <!-- {{value.genDate}} -->
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ชื่อยา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <!-- {{value.genTime}} -->
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="จำนวน">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <!-- {{value.genSymptoms}} -->
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ราคา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <!-- {{value.genSymptoms}} -->
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เครื่องมือ">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <button type="button" class="btn btn-warning" (click)="delete(value)">ลบ</button>
+                    <button type="button" class="btn btn-warning" (click)="openEdit(ModalGeneral, value)">แก้ไข</button>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>

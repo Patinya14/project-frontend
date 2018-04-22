@@ -76,16 +76,16 @@
     </div>
 </div> -->
 
- <!--<div _ngcontect-c1 class="content-section implementation">
+<!-- <div _ngcontect-c1 class="content-section implementation">
     <p-schedule_ngcontent-c1 defaultdate="2017-02-01"> -->
-        <div class="undefined fc ui-widget fc-ltr">
+        <div id="calendar" class="fc fc-unthemed fc-ltr">
 
             <div class="fc-toolbar fc ui-header-toolbar">
                 <div class="fc-left">
                     <div class="fc-button-group">
-                        <button type="button" class="fc-prev-button ui-button ui-state-default ui-corner-left">
-                            <span class="ui-icon ui-icon-circle-triangle-w">
-                                ::before
+                        <button type="button" class="fc-prev-button fc-button fc-state-default fc-corner-left" aria-label="prev">
+                            <span class="fc-icon fc-icon-left-single-arrow">
+                                ::after
                             </span>
                         </button>
 
@@ -184,16 +184,16 @@
                                                                     <span class="fc-day-number">31</span>
                                                                 </td>
                                                                 <td class="fc-day-top fc-wed fc-other-month fc-future" data-date="2018-08-1">
-                                                                    <span class="fc-day-number">29</span>
+                                                                    <span class="fc-day-number">1</span>
                                                                 </td>
                                                                 <td class="fc-day-top fc-thu fc-other-month fc-future" data-date="2018-08-2">
-                                                                    <span class="fc-day-number">29</span>
+                                                                    <span class="fc-day-number">2</span>
                                                                 </td>
                                                                 <td class="fc-day-top fc-fri fc-other-month fc-future" data-date="2018-08-3">
-                                                                    <span class="fc-day-number">29</span>
+                                                                    <span class="fc-day-number">3</span>
                                                                 </td>
                                                                 <td class="fc-day-top fc-sat fc-other-month fc-future" data-date="2018-08-4">
-                                                                    <span class="fc-day-number">29</span>
+                                                                    <span class="fc-day-number">4</span>
                                                                 </td>
                                                             </tr>
                                                         </thead>
@@ -497,7 +497,6 @@
                                                     </table>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </td>
@@ -507,5 +506,8 @@
                 </div>
             </div>
         </div>
-    <!-- </p-schedule_ngcontent-c1> 
+    <!-- </p-schedule_ngcontent-c1>
 </div> -->
+
+<timepicker [(ngModel)]="mytime"></timepicker>
+<pre class="alert alert-info">Time is: {{mytime}}</pre>

@@ -2,8 +2,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
 import { MenuComponent} from './menu/menu.component';
-import { TreaterComponent} from './menu/add/treater.component';
-import { DiseaseComponent} from './menu/add/disease.component';
+import { TreaterComponent} from './menu/add/treater/treater.component';
+import { DiseaseComponent} from './menu/add/disease/disease.component';
+import { AddComponent} from'./menu/add/add.component';
+import { DrugComponent } from './menu/add/drug/drug.component';
 import { PersonalComponent } from './personal/personal.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
@@ -20,6 +22,8 @@ export const routes: Routes = [
     { path: 'personal-list', component: PersonalListComponent },
     { path: 'treater', component: TreaterComponent },
     { path: 'disease', component: DiseaseComponent },
+    { path: 'add', component: AddComponent  },
+    { path: 'drug', component: DrugComponent  },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes)

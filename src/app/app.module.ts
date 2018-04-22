@@ -5,13 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import {TreaterComponent } from './menu/add/treater.component';
-import {DiseaseComponent } from'./menu/add/disease.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { routing } from './app.routing';
 import { ThemeModule } from './theme.module';
-
+import { MenuComponent } from './menu/menu.component';
+import {TreaterComponent } from './menu/add/treater/treater.component';
+import {DiseaseComponent } from'./menu/add/disease/disease.component';
+import {DrugComponent } from './menu/add/drug/drug.component';
+import { AddComponent } from './menu/add/add.component';
 import { PersonalComponent } from './personal/personal.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
@@ -61,7 +62,9 @@ import { from } from 'rxjs/observable/from';
     PhysicalComponent,
     SummaryComponent,
     EvalutionComponent,
-    InsertGeneral6Component
+    InsertGeneral6Component,
+    AddComponent,
+    DrugComponent,
 
   ],
   providers: [
