@@ -1,9 +1,9 @@
-import { Component, OnInit, TemplateRef,ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { PersonalService } from '../service/personal.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-personal',
@@ -13,6 +13,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 export class PersonalComponent implements OnInit {
   public rows = [];
+  public id = '';
   public form: FormGroup;
   edit = {}
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ', 'ผู้ช่วยศาสตราจารย์ '
@@ -46,7 +47,7 @@ export class PersonalComponent implements OnInit {
     private modalRef: BsModalRef,
     private bsmodalservice: BsModalService,
     private formBuilder: FormBuilder,
-
+    private router: Router
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group(this.data);
@@ -54,12 +55,20 @@ export class PersonalComponent implements OnInit {
       this.rows = result;
     });
   }
-
+  login() {
+    if (this.id !== '') {
+      this.rows.forEach(element => {
+        if(element.personId === this.id) {
+          this.router.navigate(['/personal-list', element._id]);
+        }
+      });
+    }
+  }
   submit() {
     const value = this.form.value;
     if (value !== undefined) {
       if (this.form.value.status === 'edit') {
-        this.personalservice.updatePerson(value.id,value)
+        this.personalservice.updatePerson(value.id, value)
           .mergeMap(() => this.personalservice.getPerson())
           .subscribe(result => {
             this.rows = result;
@@ -79,10 +88,8 @@ export class PersonalComponent implements OnInit {
         .mergeMap(() => this.personalservice.getPerson())
         .subscribe(result => {
           this.rows = result;
-
         })
     }
-
   }
   openEdit(modal, data) {
     let edit = {

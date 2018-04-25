@@ -1,4 +1,5 @@
 import { NgModule, } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -7,9 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'ngx-bootstrap';
 
 
-
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     DatepickerModule.forRoot(),
     ModalModule.forRoot(),
@@ -17,8 +18,9 @@ import { AccordionModule } from 'ngx-bootstrap';
     NgxDatatableModule,
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
-
     
+   
+
   ],
   declarations: [
   ],
@@ -29,7 +31,8 @@ import { AccordionModule } from 'ngx-bootstrap';
     NgxDatatableModule,
     TabsModule,
     AccordionModule,
-    
+    BrowserAnimationsModule
+
   ]
 })
 export class ThemeModule { }

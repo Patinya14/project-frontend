@@ -9,13 +9,13 @@ import { APP_BASE_HREF } from '@angular/common';
 import { routing } from './app.routing';
 import { ThemeModule } from './theme.module';
 import { MenuComponent } from './menu/menu.component';
-import {TreaterComponent } from './menu/add/treater/treater.component';
-import {DiseaseComponent } from'./menu/add/disease/disease.component';
-import {DrugComponent } from './menu/add/drug/drug.component';
+import { TreaterComponent } from './menu/add/treater/treater.component';
+import { DiseaseComponent } from'./menu/add/disease/disease.component';
+import { DrugComponent } from './menu/add/drug/drug.component';
 import { AddComponent } from './menu/add/add.component';
 import { PersonalComponent } from './personal/personal.component';
 import { CertificateComponent } from './certificate/certificate.component';
-import { AppointmentsComponent } from './appointments/appointments.component';
+import { followUpComponent } from './followUp/followUp.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
 import { RecordformComponent } from './Recordform/Recordform.component';
 import { PersonalListComponent } from './personal-list/personal-list.component';
@@ -33,10 +33,12 @@ import { EvalutionService} from './service/evalution.service';
 import { PhysicalService} from './service/physical.service';
 import { LoginService } from './service/login.service';
 import { SummaryService } from './service/summary.service';
-import { AppointmentsService } from './service/appointments.service';
+import { FollowService} from './service/followUp.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { from } from 'rxjs/observable/from';
+import { CommonModule } from '@angular/common/src/common_module';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
 
 @NgModule({
   imports: [
@@ -47,6 +49,10 @@ import { from } from 'rxjs/observable/from';
     HttpClientModule,
     ThemeModule,
     ReactiveFormsModule,
+    TimepickerModule.forRoot(),
+  
+    
+   
   ],
   declarations: [
     AppComponent,
@@ -56,7 +62,6 @@ import { from } from 'rxjs/observable/from';
     MenuComponent,
     TreaterComponent ,
     DiseaseComponent,
-    AppointmentsComponent,
     PrintappointmentsComponent,
     GeneralComponent,
     PhysicalComponent,
@@ -65,6 +70,7 @@ import { from } from 'rxjs/observable/from';
     InsertGeneral6Component,
     AddComponent,
     DrugComponent,
+    followUpComponent,
 
   ],
   providers: [
@@ -79,8 +85,11 @@ import { from } from 'rxjs/observable/from';
     BsModalService,
     BsModalRef,
     EvalutionService,
-    AppointmentsService
+    FollowService,
+
   ],
   bootstrap: [AppComponent]
+  
+
 })
 export class AppModule { }

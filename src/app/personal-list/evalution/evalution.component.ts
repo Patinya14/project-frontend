@@ -4,13 +4,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EvalutionService } from '../../service/evalution.service'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-
+import { ActivatedRoute } from '@angular/router'
 @Component({
     selector: 'app-evalution',
     templateUrl: './evalution.component.html',
 })
 export class EvalutionComponent implements OnInit {
-
+    public id;
     public rows = [];
     public form: FormGroup;
     edit = {}
@@ -23,7 +23,10 @@ export class EvalutionComponent implements OnInit {
         private bsmodalservice: BsModalService,
         private modalRef: BsModalRef,
         private formBuilder: FormBuilder,
-    ) { }
+        private activatedroute: ActivatedRoute
+    ) {
+        this.id = this.activatedroute.snapshot.params['personalId'];
+     }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
 

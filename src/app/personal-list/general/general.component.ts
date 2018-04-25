@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GeneralService } from '../../service/general.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-
+import { ActivatedRoute } from '@angular/router'
 @Component({
     selector: 'app-general',
     templateUrl: './general.component.html',
@@ -11,6 +11,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class GeneralComponent implements OnInit {
     public rows = [];
     public form: FormGroup;
+    public id;
     edit = {}
     public data = {
         // personId : [null, Validators.required],
@@ -25,7 +26,10 @@ export class GeneralComponent implements OnInit {
         private bsmodalservice: BsModalService,
         private modalRef: BsModalRef,
         private formBuilder: FormBuilder,
-    ) { }
+        private activatedroute: ActivatedRoute
+    ) { 
+        this.id = this.activatedroute.snapshot.params['personalId'];
+    }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
         this.generalservice.getGen().subscribe(result => {
