@@ -14,6 +14,7 @@ import { DiseaseComponent } from'./menu/add/disease/disease.component';
 import { DrugComponent } from './menu/add/drug/drug.component';
 import { AddComponent } from './menu/add/add.component';
 import { PersonalComponent } from './personal/personal.component';
+
 import { CertificateComponent } from './certificate/certificate.component';
 import { followUpComponent } from './followUp/followUp.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
@@ -33,7 +34,13 @@ import { EvalutionService} from './service/evalution.service';
 import { PhysicalService} from './service/physical.service';
 import { LoginService } from './service/login.service';
 import { SummaryService } from './service/summary.service';
+<<<<<<< HEAD
 import { FollowService} from './service/followUp.service';
+=======
+import { TreatmentService } from './service/treatment.service';
+import { MedicineService} from './service/drug.service';
+
+>>>>>>> e3ebde538406068a516bee9469838b0634d7c19b
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { from } from 'rxjs/observable/from';
@@ -85,8 +92,13 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
     BsModalService,
     BsModalRef,
     EvalutionService,
+<<<<<<< HEAD
     FollowService,
 
+=======
+    TreatmentService,
+    MedicineService,
+>>>>>>> e3ebde538406068a516bee9469838b0634d7c19b
   ],
   bootstrap: [AppComponent]
   

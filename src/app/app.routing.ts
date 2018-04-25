@@ -20,6 +20,7 @@ export const routes: Routes = [
     { path: 'followUp', component: followUpComponent },
     { path: 'printappoint', component: PrintappointmentsComponent },
     { path: 'personal-list/:personalId', component: PersonalListComponent },
+  
     { path: 'treater', component: TreaterComponent },
     { path: 'disease', component: DiseaseComponent },
     { path: 'add', component: AddComponent  },
