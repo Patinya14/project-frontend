@@ -11,6 +11,9 @@ export class TreatmentService {
   getTreat(): Observable<any> {
     return this.apiService.get(`treatment`);
   }
+  getTreatById(id): Observable<any> {
+    return this.apiService.get(`treatment/` + id);
+  }
   addTreat(data): Observable<any> {
     return this.apiService.post('treatment', data);
   }
