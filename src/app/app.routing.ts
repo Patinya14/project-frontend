@@ -19,12 +19,14 @@ export const routes: Routes = [
     { path: 'certificate', component: CertificateComponent },
     { path: 'followUp', component: followUpComponent },
     { path: 'printappoint', component: PrintappointmentsComponent },
-    { path: 'personal-list/:personalId', component: PersonalListComponent },
-  
+    // { path: 'personal-list/:personalId', component: PersonalListComponent },
+    { path: 'personal-list', component: PersonalListComponent },
     { path: 'treater', component: TreaterComponent },
     { path: 'disease', component: DiseaseComponent },
     { path: 'add', component: AddComponent  },
     { path: 'drug', component: DrugComponent  },
+   
+    { path: 'treater', component: TreaterComponent },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes)

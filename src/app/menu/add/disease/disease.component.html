@@ -11,43 +11,43 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="inputEmail4">รหัสโรค ( ID Disease )</label>
-                                    <input type="text" class="form-control" placeholder="U61.2">
+                                    <input type="text" class="form-control" placeholder="U61.2" formControlName="treatDiseaseID">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="inputEmail4">ส่วนของร่างกาย ( Body Parts)</label>
-                                    <input type="text" placeholder="ศรีษะ" class="form-control">
+                                    <input type="text" placeholder="ศรีษะ" class="form-control"  formControlName="treatBodyParth">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="inputEmail4">ชื่อโรค ( Name Disease )</label>
-                                    <input type="text" placeholder="เหน็บชา" class="form-control">
+                                    <input type="text" placeholder="เหน็บชา" class="form-control" formControlName="treatDiseaseName">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>หัตถการ ( Procedure )</label>
-                                    <input type="text" placeholder="ส.4 หัวไหล่" class="form-control">
+                                    <input type="text" placeholder="ส.4 หัวไหล่" class="form-control" formControlName="treatProcedure"> 
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="inputEmail4">วิธีการรักษา ( Treatmemt )</label>
-                                    <input type="text" placeholder="อบสมุนไพร" class="form-control">
+                                    <input type="text" placeholder="อบสมุนไพร" class="form-control" formControlName="treatMent">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="inputEmail4">ราคาในเวลา ( In time Price )</label>
-                                    <input type="text" placeholder="500" class="form-control">
+                                    <input type="text" placeholder="500" class="form-control" formControlName="treatPrice">
                                 </div>
                             </div>
                             <div class="row">
                                     <div class="col-md-6">
                                         <label for="inputEmail4">ราคานอกเวลา ( Out time Price )</label>
-                                        <input type="text" placeholder="500" class="form-control">
+                                        <input type="text" placeholder="500" class="form-control" formControlName="treatDiseaseName">
                                     </div>
                                 </div>
                             <br>
@@ -72,37 +72,37 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="inputEmail4">รหัสโรค ( ID Disease )</label>
-                                <input type="text" class="form-control" placeholder="U61.2">
+                                <input type="text" class="form-control" placeholder="U61.2" formControlName = "treatDiseaseID">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="inputEmail4">ส่วนของร่างกาย ( Body Parts)</label>
-                                <input type="text" placeholder="ศรีษะ" class="form-control">
+                                <input type="text" placeholder="ศรีษะ" class="form-control"  formControlName = "treatBodyParth">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="inputEmail4">ชื่อโรค ( Name Disease )</label>
-                                <input type="text" placeholder="เหน็บชา" class="form-control">
+                                <input type="text" placeholder="เหน็บชา" class="form-control" formControlName = "treatDiseaseName">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label>หัตถการ ( Procedure )</label>
-                                <input type="text" placeholder="ส.4 หัวไหล่" class="form-control">
+                                <input type="text" placeholder="ส.4 หัวไหล่" class="form-control"  formControlName = "treatProcedure">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="inputEmail4">วิธีการรักษา ( Treatmemt )</label>
-                                <input type="text" placeholder="อบสมุนไพร" class="form-control">
+                                <input type="text" placeholder="อบสมุนไพร" class="form-control"  formControlName = "treatMent">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="inputEmail4">ราคา ( Price )</label>
-                                <input type="text" placeholder="500" class="form-control">
+                                <input type="text" placeholder="500" class="form-control"  formControlName = "treatPrice">
                             </div>
                         </div>
                         <br>
@@ -121,8 +121,8 @@
     <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
         <ngx-datatable-column name="รหัสโรค">
             <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-               console.log('12121')
-                {{value.treatId}}
+            
+                {{value.treatDiseaseID}}
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="ส่วนของร่างกาย">

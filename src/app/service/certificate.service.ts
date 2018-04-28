@@ -11,6 +11,9 @@ export class CertificateService {
     getCer(): Observable<any>{
         return this.apiService.get('certificate');
     }
+    getCerById(id): Observable<any> {
+        return this.apiService.get(`certificate/` + id);
+      }
     addCer(data): Observable<any>{
         return this.apiService.post('certificate',data);
     }

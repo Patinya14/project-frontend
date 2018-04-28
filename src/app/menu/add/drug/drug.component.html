@@ -8,25 +8,31 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>รหัสยา ( ID Drug)</label>
-                                    <input placeholder="001" class="form-control" >
+                                    <input placeholder="001" class="form-control"formControlName="drugId" >
                                 </div>
                             </div>
                             <div class="row">
                                     <div class="col-md-6">
                                         <label>ชื่อยา ( Name Drug)</label>
-                                        <input placeholder="น้ำมันนวด" class="form-control" >
+                                        <input placeholder="น้ำมันนวด" class="form-control" formControlName="drugName">
                                     </div>
                                 </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>จำนวน ( Amount )</label>
-                                    <input placeholder="20" class="form-control" >
+                                    <input placeholder="20" class="form-control" formControlName="drugAmount">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>ราคา (Price )</label>
-                                    <input placeholder="100" class="form-control">
+                                    <input placeholder="100" class="form-control" formControlName="drugPrice">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>สรรพคุณ ( Properties )</label>
+                                    <input placeholder="100" class="form-control" formControlName="drugProperties">
                                 </div>
                             </div>
                             <br>
@@ -55,7 +61,7 @@
                                         </div>
                                         <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>ชื่อยา ( Name Drug)</label>
+                                                    <label>ชื่อยา ( Name Drug )</label>
                                                     <input placeholder="น้ำมันนวด" class="form-control" >
                                                 </div>
                                             </div>
@@ -67,7 +73,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>ราคา (Price )</label>
+                                                <label>ราคา ( Price )</label>
                                                 <input placeholder="100" class="form-control">
                                             </div>
                                         </div>
@@ -99,11 +105,17 @@
                     {{value.drugAmount}}
                 </ng-template>
             </ngx-datatable-column>
+            <ngx-datatable-column name="สรรพคุณ">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.drugProperties}}
+                </ng-template>
+            </ngx-datatable-column>
             <ngx-datatable-column name="ราคา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value.drugPrice}}
                 </ng-template>
             </ngx-datatable-column>
+
             <ngx-datatable-column name="เครื่องมือ">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     <button type="button" class="btn btn-warning" (click)="delete(value)">ลบ</button>
