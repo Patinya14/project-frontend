@@ -13,17 +13,16 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 })
 
-export class followComponent implements OnInit {
+export class followComponent {
   public rows = [];
   public form: FormGroup;
   edit = {}
   public data = {
-    folID: [null, Validators.required],
+    
     folName: [null, Validators.required],
     folSurName: [null, Validators.required],
     folDate: [new Date('yyyy-mm-dd'), Validators.required],
-    folmytimeHour: [null , Validators.required],
-    // folmytimeMinute: [null, Validators.required],
+    folmytimeHour: [null, Validators.required],
     folPhysicianName: [null, Validators.required], //ผู้รักษา
     folPurpose: [null, Validators.required], //จุดประสงค์
     folduration: [null, Validators.required], //ช่วงเวลาการรักษา
@@ -78,12 +77,11 @@ export class followComponent implements OnInit {
   }
   openEdit(modal, data) {
     let edit = {
-      folID: data.folID,
+      id: data._id,
       folName: data.folName,
       folSurName: data.folSurName,
       folDate: [new Date('yyyy-mm-dd'), data.folDate],
       folmytimeHour: data.folmytimeHour,
-      // folmytimeMinute: [null, Validators.required],
       folPhysicianName: data.folPhysicianName, 
       folPurpose: data.folPurpose, 
       folduration: data.folduration, 

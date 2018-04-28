@@ -13,7 +13,9 @@ import { TreaterComponent } from './menu/add/treater/treater.component';
 import { DiseaseComponent } from'./menu/add/disease/disease.component';
 import { DrugComponent } from './menu/add/drug/drug.component';
 import { AddComponent } from './menu/add/add.component';
+import {TabTreaterComponent } from './menu/add/tabtreater.component';
 import { PersonalComponent } from './personal/personal.component';
+
 
 import { CertificateComponent } from './certificate/certificate.component';
 import { followComponent } from './follow/follow.component';
@@ -77,6 +79,9 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
     AddComponent,
     DrugComponent,
     followComponent,
+    TabTreaterComponent ,
+    
+
 
   ],
   providers: [
