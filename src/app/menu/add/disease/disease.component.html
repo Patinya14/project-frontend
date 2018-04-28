@@ -1,65 +1,10 @@
-
-
-
-<div class="alert alert-info" role="alert">
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="alert bg-light text-dark" role="alert">
-                        <form class="col" [formGroup]="form" (ngSubmit)="submit()">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="inputEmail4">รหัสโรค ( ID Disease )</label>
-                                    <input type="text" class="form-control" placeholder="U61.2" formControlName="treatDiseaseID">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="inputEmail4">ส่วนของร่างกาย ( Body Parts)</label>
-                                    <input type="text" placeholder="ศรีษะ" class="form-control"  formControlName="treatBodyParth">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="inputEmail4">ชื่อโรค ( Name Disease )</label>
-                                    <input type="text" placeholder="เหน็บชา" class="form-control" formControlName="treatDiseaseName">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>หัตถการ ( Procedure )</label>
-                                    <input type="text" placeholder="ส.4 หัวไหล่" class="form-control" formControlName="treatProcedure"> 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="inputEmail4">วิธีการรักษา ( Treatmemt )</label>
-                                    <input type="text" placeholder="อบสมุนไพร" class="form-control" formControlName="treatMent">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="inputEmail4">ราคาในเวลา ( In time Price )</label>
-                                    <input type="text" placeholder="500" class="form-control" formControlName="treatPrice">
-                                </div>
-                            </div>
-                            <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="inputEmail4">ราคานอกเวลา ( Out time Price )</label>
-                                        <input type="text" placeholder="500" class="form-control" formControlName="treatDiseaseName">
-                                    </div>
-                                </div>
-                            <br>
-                            <div class="footer col-md">
-                                <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-md" align="right">
+        <button type="button" class="btn btn-warning" (click)="openModal(ModalDisease)">+เพิ่มข้อมูลโรค/หัตถการ</button>
+      
     </div>
+</div>
+
 <ng-template #ModalDisease>
 <div class="alert alert-info" role="alert">
     <br>
@@ -107,7 +52,7 @@
                         </div>
                         <br>
                         <div class="footer col-md">
-                            <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
+                            <button type="submit" aria-label="Close" class="btn btn-primary">บันทึก</button>
                         </div>
                     </form>
                 </div>

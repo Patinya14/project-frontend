@@ -5,6 +5,7 @@ import { MenuComponent} from './menu/menu.component';
 import { TreaterComponent} from './menu/add/treater/treater.component';
 import { DiseaseComponent} from './menu/add/disease/disease.component';
 import { AddComponent} from'./menu/add/add.component';
+import {TabTreaterComponent } from './menu/add/tabtreater.component';
 import { DrugComponent } from './menu/add/drug/drug.component';
 import { PersonalComponent } from './personal/personal.component';
 import { CertificateComponent } from './certificate/certificate.component';
@@ -19,14 +20,13 @@ export const routes: Routes = [
     { path: 'certificate', component: CertificateComponent },
     { path: 'followUp', component: followUpComponent },
     { path: 'printappoint', component: PrintappointmentsComponent },
-    // { path: 'personal-list/:personalId', component: PersonalListComponent },
-    { path: 'personal-list', component: PersonalListComponent },
+    { path: 'personal-list/:personalId', component: PersonalListComponent },
+    // { path: 'personal-list', component: PersonalListComponent },
     { path: 'treater', component: TreaterComponent },
     { path: 'disease', component: DiseaseComponent },
     { path: 'add', component: AddComponent  },
     { path: 'drug', component: DrugComponent  },
-   
-    { path: 'treater', component: TreaterComponent },
+    { path: 'tabtreater', component: TabTreaterComponent },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes)

@@ -16,9 +16,13 @@ export class TreaterComponent {
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ', 'ผู้ช่วยศาสตราจารย์ '
     , 'รองศาสตราจารย์ ', 'พระสงฆ์ ', 'Mr.', 'Miss', 'Mrs.'];
   public data = {
-    cerLicensed_No: [null, Validators.required], //ใบอนุญาตประกอบโรคศิลปะเลขที่
-    cerPhysicianName: [null, Validators.required], //ชื่อแพทย์
+    cerDateout: [null, Validators.required], //วันเดือนปีที่ออกใบรับรองแพทย์
+    cerNameTitle:[null, Validators.required], //คำนำหน้า
+    cerPhysicianName:[null, Validators.required], //ชื่อแพทย์
     cerPhysicianSurName: [null, Validators.required], //นามสกุลแพทย์
+    cerDateMeet:[null, Validators.required], //วันเดือนปีที่รับการรักษา
+    cerSymptom: [null, Validators.required], //อาการของโรค
+    cerLicensed_No:[null, Validators.required], //ใบอนุญาตประกอบโรคศิลปะเลขที่
 
   }
   constructor(
@@ -67,9 +71,13 @@ export class TreaterComponent {
   openEdit(modal, data) {
     let edit = {
       id: data._id,
-      cerLicensed_No: data.cerLicensed_No, //ใบอนุญาตประกอบโรคศิลปะเลขที่
+      cerDateout: data.cerDateout, //วันเดือนปีที่ออกใบรับรองแพทย์
+      cerNameTitle: data.cerNameTitle, //คำนำหน้า
       cerPhysicianName: data.cerPhysicianName, //ชื่อแพทย์
       cerPhysicianSurName: data.cerPhysicianSurName, //นามสกุลแพทย์
+      cerDateMeet: data.cerDateMeet, //วันเดือนปีที่รับการรักษา
+      cerSymptom: data.cerSymptom, //อาการของโรค
+      cerLicensed_No: data.cerLicensed_No, //ใบอนุญาตประกอบโรคศิลปะเลขที่
       status: 'edit'
     }
     this.form = this.formBuilder.group(edit);
