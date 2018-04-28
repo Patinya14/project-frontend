@@ -43,8 +43,8 @@
         </ngx-datatable-column>
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                 <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
-                 <img src="../assets/images/edit.png" (click)="openEdit(ModalPhysical, value)" width="30px" height="30px" title="แก้ไข">
+                <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                <img src="../assets/images/edit.png" (click)="openEdit(ModalPhysical, value)" width="30px" height="30px" title="แก้ไข">
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
@@ -57,7 +57,7 @@
 
         <div class="row">
 
-            <div class="col-12">
+             <div class="col-12">
                 <div class="alert alert-info" role="alert">
                     <div class="row">
                         <form class="col" [formGroup]="form">
@@ -95,6 +95,7 @@
                                     <label for="inputEmail4">ค่า BMI</label>
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
+
                             </div>
 
                             <br>
@@ -149,11 +150,52 @@
 
 
 
+
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-7">
                                     <img src="https://i.pinimg.com/564x/ce/cb/54/cecb54937b75383be0d99c6b94758739.jpg" width="400px" height="200px">
+
+                                </div>
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            ศีรษะ
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            ต้นคอ
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            บ่า
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            ไหล่
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            หลัง,เอว
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            ขา-เท้า
+                                        </label>
+                                    </div>
+
 
                                 </div>
                                 <div class="col">
@@ -228,11 +270,11 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                            <label class="form-check-label" for="exampleRadios1">
-                                                อ่อนแรงข้างขวา
-                                            </label>
-                                        </div>
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            อ่อนแรงข้างขวา
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <br>
@@ -253,8 +295,8 @@
                         </form>
                     </div>
                 </div>
-            </div>
         </div>
+    </div>
     </div>
 
 </ng-template>

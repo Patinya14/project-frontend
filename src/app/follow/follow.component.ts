@@ -1,12 +1,9 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { FollowService } from '../service/follow.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
-
-
-
 
 // import { Script } from 'vm';
 
@@ -19,10 +16,9 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 export class followComponent implements OnInit {
   public rows = [];
   public form: FormGroup;
-  public id;
   edit = {}
   public data = {
-    // folID: [null, Validators.required],
+    folID: [null, Validators.required],
     folName: [null, Validators.required],
     folSurName: [null, Validators.required],
     folDate: [new Date('yyyy-mm-dd'), Validators.required],
@@ -82,10 +78,11 @@ export class followComponent implements OnInit {
   }
   openEdit(modal, data) {
     let edit = {
+      folID: data.folID,
       folName: data.folName,
       folSurName: data.folSurName,
       folDate: [new Date('yyyy-mm-dd'), data.folDate],
-      folmytimeHour: [new Date('hh-mm'), data.folmytimeHour],
+      folmytimeHour: data.folmytimeHour,
       // folmytimeMinute: [null, Validators.required],
       folPhysicianName: data.folPhysicianName, 
       folPurpose: data.folPurpose, 

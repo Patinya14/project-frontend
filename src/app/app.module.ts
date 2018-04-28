@@ -28,20 +28,18 @@ import { InsertGeneral6Component} from './personal-list/insertGeneral6.modal.com
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
+import { CertificateService} from './service/certificate.service';
 import { PersonalService } from './service/personal.service';
 import { GeneralService } from './service/general.service';
 import { EvalutionService} from './service/evalution.service';
 import { PhysicalService} from './service/physical.service';
 import { LoginService } from './service/login.service';
 import { SummaryService } from './service/summary.service';
-
 import { FollowService} from './service/follow.service';
-
 import { TreatmentService } from './service/treatment.service';
 import { MedicineService} from './service/drug.service';
-
-
 import { BsModalService } from 'ngx-bootstrap/modal';
+
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { from } from 'rxjs/observable/from';
 import { CommonModule } from '@angular/common/src/common_module';
@@ -96,6 +94,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
     FollowService,
     TreatmentService,
     MedicineService,
+    CertificateService,
 
   ],
   bootstrap: [AppComponent]

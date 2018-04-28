@@ -25,7 +25,7 @@ export class AddComponent implements OnInit {
         this.treatmentservice.getTreatById(this.id).subscribe(result => {
             this.rows = result;
         })
-        this.medicineService.getdrugById(this.id).subscribe(result => {
+        this.medicineService.getDrugById(this.id).subscribe(result => {
             this.rows = result;
         })
     }

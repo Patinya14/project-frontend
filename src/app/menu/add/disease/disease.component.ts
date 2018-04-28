@@ -67,7 +67,7 @@ openEdit(modal, data) {
   let edit = {
       id: data._id,
       treatDiseaseName:data.treatDiseaseName, //ชื่อโรค
-      treatDiseaseID: data.treatDiseaseName, //รหัสโรค
+      treatDiseaseID: data.treatDiseaseID, //รหัสโรค
       treatMent:data.treatMent, //วิธีการรักษา
       treatProcedure: data.treatProcedure,  //หัตถการ
       treatPrice: data.treatPrice, //ราคาการรักษา
