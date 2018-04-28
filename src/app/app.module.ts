@@ -25,7 +25,7 @@ import { GeneralComponent } from './personal-list/general/general.component';
 import { PhysicalComponent } from './personal-list/physical/physical.component';
 import { SummaryComponent } from './personal-list/summary/summary.component';
 import { EvalutionComponent } from './personal-list/evalution/evalution.component';
-import { InsertGeneral6Component} from './personal-list/insertGeneral6.modal.component'
+
 
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
@@ -40,7 +40,6 @@ import { FollowService} from './service/followUp.service';
 import { TreatmentService } from './service/treatment.service';
 import { MedicineService} from './service/drug.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
-
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { from } from 'rxjs/observable/from';
 import { CommonModule } from '@angular/common/src/common_module';
@@ -73,7 +72,6 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
     PhysicalComponent,
     SummaryComponent,
     EvalutionComponent,
-    InsertGeneral6Component,
     AddComponent,
     DrugComponent,
     followUpComponent,
