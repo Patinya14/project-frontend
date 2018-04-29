@@ -11,6 +11,9 @@ export class EvalutionService {
   getEva(): Observable<any> {
     return this.apiService.get(`evalution`);
   }
+  getEvaById(id): Observable<any> {
+    return this.apiService.get(`evalution/` + id);
+  }
   addEva(data): Observable<any> {
     return this.apiService.post('Evalution', data);
   }

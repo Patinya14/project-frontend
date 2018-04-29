@@ -16,6 +16,8 @@ import { PersonalListComponent } from './personal-list/personal-list.component';
 
 
 
+
+
 export const routes: Routes = [
     { path: 'menu',component: MenuComponent},
     { path: 'personal', component: PersonalComponent  },
@@ -28,6 +30,7 @@ export const routes: Routes = [
     { path: 'add', component: AddComponent  },
     { path: 'drug', component: DrugComponent  },
     { path: 'tabtreater', component: TabTreaterComponent },
+    
     
     
 

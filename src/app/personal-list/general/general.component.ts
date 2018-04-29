@@ -13,6 +13,7 @@ export class GeneralComponent implements OnInit {
     public rows = [];
     public form: FormGroup;
     public id;
+    
     edit = {}
     public data = {
         // personId : [null, Validators.required],
@@ -30,11 +31,11 @@ export class GeneralComponent implements OnInit {
         private activatedroute: ActivatedRoute,
         
     ) { 
-        
+        this.id = this.activatedroute.snapshot.params['personalId'];
     }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
-        this.generalservice.getGen().subscribe(result => {
+        this.generalservice.getGenById(this.id).subscribe(result => {
             this.rows = result;
         });
     }
@@ -44,16 +45,18 @@ export class GeneralComponent implements OnInit {
     }
     submit() {
         const value = this.form.value;
+        value.personId = this.id;
+       
         if (value !== undefined) {
             if (this.form.value.status === 'edit') {
                 this.generalservice.updateGen(value.id, value)
-                    .mergeMap(() => this.generalservice.getGen())
+                    .mergeMap(() => this.generalservice.getGenById(this.id))
                     .subscribe(result => {
                         this.rows = result;
                     })
             } else {
                 this.generalservice.addGen(value)
-                    .mergeMap(() => this.generalservice.getGen())
+                    .mergeMap(() => this.generalservice.getGenById(this.id))
                     .subscribe(result => {
                         this.rows = result;
                     })
@@ -63,7 +66,7 @@ export class GeneralComponent implements OnInit {
     delete(data) {
         if (data !== undefined) {
             this.generalservice.deleteGen(data._id)
-                .mergeMap(() => this.generalservice.getGen())
+                .mergeMap(() => this.generalservice.getGenById(this.id))
                 .subscribe(result => {
                     this.rows = result;
                 })

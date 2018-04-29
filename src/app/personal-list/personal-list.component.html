@@ -1,137 +1,133 @@
 <div class="alert alert-info" role="alert">
-<div class="row">
-    <div class="col-2">
-        <img src="../assets/images/user.png">
+    <div class="row">
+        <div class="col-2">
+            <img src="../assets/images/user.png">
 
+        </div>
+
+        <div class="footer col-md-9" align="left">
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>สถานะ : ออนไลน์ </p>
+            <p>
+                <a href="../menu" class="text-danger">ออกจากระบบ</a>
+            </p>
+        </div>
     </div>
 
-    <div class="footer col-md-9" align="left">
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>สถานะ : ออนไลน์ </p>
-        <p>
-            <a href="#" class="text-danger">ออกจากระบบ</a>
-        </p>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 ">
+            <accordion>
+                <accordion-group>
+                    <div accordion-heading class="clearfix">
+                        ข้อมูลส่วนตัว
+                        <!-- <span class="badge badge-secondary float-right pull-right">...</span> -->
+                    </div>
+                    <table class="table  text-center  ">
+                        <thead>
+                            <tr class=" col-md-12 bg-light text-dark ">
+                                <th>ข้อมูลส่วนตัว</th>
+                                <th></th>
+                                <th></th>
+                                <th class="text-right">
+                                    <!-- <button type="button" class="btn btn-primary" (click)="openModalWithClass(template)">Edit</button> -->
+                                    <ng-template #template>
+                                        <div class="modal-header">
+                                            <h4 class="modal-title pull-left">Modal</h4>
+                                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Just a modal with a bunch of words inside, nothing serious.
+                                        </div>
+                                    </ng-template>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-muted">
+                            <tr>
+                                <th scope="row">เลขที่บัตร</th>
+                                <td>{{rows.personId}} </td>
+                                <th>
+                                    ชื่อ-สกุล
+                                </th>
+                                <td>{{rows.personNameTitle}} {{rows.personName}} {{rows.personSurname}}</td>
+                            </tr>
+                            <tr>
+                                <th>เพศ</th>
+                                <td>{{rows.personGender}}</td>
+                                <th scope="row">วันเกิด</th>
+                                <td>{{rows.personBirth}} </td>
+                            </tr>
+                            <tr>
+                                <th>อายุ</th>
+                                <td>21</td>
+                                <th>เลขบัตรประชาชน</th>
+                                <td> {{rows.personIdentityId}}</td>
+                            </tr>
+                            <tr>
+                                <th>สถานะภาพ</th>
+                                <td>{{rows.personMaritalStatus}} </td>
+                                <th scope="row">อาชีพ</th>
+                                <td>{{rows.personCareer}} </td>
+                            </tr>
+                            <tr>
+                                <th>สถานที่เกิด</th>
+                                <td> {{rows.personBirthPlace}}</td>
+                                <th>จังหวัด</th>
+                                <td>{{rows.personProvince}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">เชื้อชาติ</th>
+                                <td>{{rows.personNationality}} </td>
+                                <th> สัญชาติ </th>
+                                <td> {{rows.personCitizenship}}</td>
+                            </tr>
+                            <tr>
+                                <th>ศาสนา</th>
+                                <td>{{rows. personReligion}}</td>
+                                <th scope="row">เบอร์โทร </th>
+                                <td> {{rows.personNumber}}</td>
+                            </tr>
+                            <th scope="row">ที่อยู่</th>
+                            <td colspan="3">{{rows.personAddress}} </td>
+                            <tr>
+                                <th>ประวัติครอบครัว</th>
+                                <td>{{rows.personFamilyHistory}}</td>
+                                <th>ประวัติส่วนตัว</th>
+                                <td>{{rows.personPersonalHistory}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <br>
+    <div>
+
+        <div class="container">
+            <tabset>
+                <tab heading="ประวัติการรักษา">
+                    <app-general></app-general>
+                </tab>
+                <tab heading="ตรวจร่างกายก่อนการรักษา">
+                    <app-physical></app-physical>
+                </tab>
+                <tab heading="สรุปความเจ็บป่วย">
+                    <app-summary></app-summary>
+                </tab>
+                <tab heading="ตรวจร่างกายและประเมินผลหลังการรักษา">
+                    <app-evalution></app-evalution>
+                </tab>
+            </tabset>
+        </div>
     </div>
 </div>
-
-
-
-<div class="row justify-content-center">
-    <div class="col-md-2"></div>
-    <div class="col-md-8 ">
-        <accordion>
-            <accordion-group>
-                <div accordion-heading class="clearfix">
-                    ข้อมูลส่วนตัว
-                    <!-- <span class="badge badge-secondary float-right pull-right">...</span> -->
-                </div>
-                <table class="table  text-center  ">
-                    <thead>
-                        <tr class=" col-md-12 bg-light text-dark ">
-                            <th>ข้อมูลส่วนตัว</th>
-                            <th></th>
-                            <th></th>
-                            <th class="text-right">
-                                <!-- <button type="button" class="btn btn-primary" (click)="openModalWithClass(template)">Edit</button> -->
-                                <ng-template #template>
-                                    <div class="modal-header">
-                                        <h4 class="modal-title pull-left">Modal</h4>
-                                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Just a modal with a bunch of words inside, nothing serious.
-                                    </div>
-                                </ng-template>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-muted">
-                        <tr>
-                            <th scope="row">เลขที่บัตร</th>
-                            <td>{{rows.personId}} </td>
-                            <th>
-                                ชื่อ-สกุล
-                            </th>
-                            <td>{{rows.personNameTitle}} {{rows.personName}} {{rows.personSurname}}</td>
-                        </tr>
-                        <tr>
-                            <th>เพศ</th>
-                            <td>{{rows.personGender}}</td>
-                            <th scope="row">วันเกิด</th>
-                            <td>{{rows.personBirth}} </td>
-                        </tr>
-                        <tr>
-                            <th>อายุ</th>
-                            <td>21</td>
-                            <th>เลขบัตรประชาชน</th>
-                            <td> {{rows.personIdentityId}}</td>
-                        </tr>
-                        <tr>
-                            <th>สถานะภาพ</th>
-                            <td>{{rows.personMaritalStatus}} </td>
-                            <th scope="row">อาชีพ</th>
-                            <td>{{rows.personCareer}} </td>
-                        </tr>
-                        <tr>
-                            <th>สถานที่เกิด</th>
-                            <td> {{rows.personBirthPlace}}</td>
-                            <th>จังหวัด</th>
-                            <td>{{rows.personProvince}}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">เชื้อชาติ</th>
-                            <td>{{rows.personNationality}} </td>
-                            <th> สัญชาติ </th>
-                            <td> {{rows.personCitizenship}}</td>
-                        </tr>
-                        <tr>
-                            <th>ศาสนา</th>
-                            <td>{{rows. personReligion}}</td>
-                            <th scope="row">เบอร์โทร </th>
-                            <td> {{rows.personNumber}}</td>
-                        </tr>
-                        <th scope="row">ที่อยู่</th>
-                        <td colspan="3">{{rows.personAddress}} </td>
-                        <tr>
-                            <th>ประวัติครอบครัว</th>
-                            <td>{{rows.personFamilyHistory}}</td>
-                            <th>ประวัติส่วนตัว</th>
-                            <td>{{rows.personPersonalHistory}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </accordion-group>
-        </accordion>
-    </div>
-    <div class="col-md-2"></div>
-</div>
-<br>
-<div>
-    <!-- <div class="alert alert-info" role="alert"> -->
-    <div class="container">
-        <tabset>
-            <tab heading="ประวัติการรักษา">
-                <app-general></app-general>
-            </tab>
-            <tab heading="ตรวจร่างกายก่อนการรักษา">
-                <app-physical></app-physical>
-            </tab>
-            <tab heading="สรุปความเจ็บป่วย">
-                <app-summary></app-summary>
-            </tab>
-            <tab heading="ตรวจร่างกายและประเมินผลหลังการรักษา">
-                <app-evalution></app-evalution>
-            </tab>
-        </tabset>
-    </div>
-</div>
-</div>
-
-<!-- <ng-template #insertGeneralAdd2>
-    <app-insertGeneral6></app-insertGeneral6>
-</ng-template> -->

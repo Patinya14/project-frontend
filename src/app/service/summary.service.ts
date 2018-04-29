@@ -11,6 +11,9 @@ export class SummaryService {
   getSummary(): Observable<any> {
     return this.apiService.get('summary');
   }
+  getSummaryById(id): Observable<any> {
+    return this.apiService.get(`summary/` + id);
+  }
   addSummary (data): Observable<any> {
     return this.apiService.post('summary', data);
   }

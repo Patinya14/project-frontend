@@ -12,7 +12,23 @@ import { ActivatedRoute } from '@angular/router'
 export class EvalutionComponent implements OnInit {
     public id;
     public rows = [];
+    public body = '';
     public form: FormGroup;
+    public images = [
+        {
+            name: 'ศรีษะ',
+            img: '../assets/images/ศีรษะ.jpg'
+        },
+        {
+            name: 'ไหล่',
+            img: '../assets/images/bed.png'
+        },
+        {
+            name: 'สะโพก',
+            img: '../assets/images/home.png'
+        },
+
+    ]
     edit = {}
     public data = {
         // personId : [null, Validators.required],
@@ -26,11 +42,11 @@ export class EvalutionComponent implements OnInit {
         private activatedroute: ActivatedRoute
     ) {
         this.id = this.activatedroute.snapshot.params['personalId'];
-     }
+    }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
 
-        this.evalutionservice.getEva().subscribe(result => {
+        this.evalutionservice.getEvaById(this.id).subscribe(result => {
             this.rows = result;
         });
     }
@@ -38,8 +54,17 @@ export class EvalutionComponent implements OnInit {
         this.form = this.formBuilder.group(this.data);
         this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
     }
-    submit() {
+    // clickBody() {
+    //     this.body = this.form.value.
+    // }
+    changeimages() {
+        this.images.forEach(element => {
+            if (element.name === this.body)
+                return element.img
+        });
+    } submit() {
         const value = this.form.value;
+       
         if (value !== undefined) {
             if (this.form.value.status === 'edit') {
                 this.evalutionservice.updateEva(value.id, value)
@@ -77,5 +102,7 @@ export class EvalutionComponent implements OnInit {
         this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
 
     }
+
+
 
 }
