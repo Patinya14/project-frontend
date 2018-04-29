@@ -12,7 +12,6 @@ export class PhysicalComponent implements OnInit {
     public rows = [];
     public form: FormGroup;
     public id;
-
     public body = '';
     edit = {}
     public bodyparth = ['ศีรษะ', 'ต้นคอ', 'บ่า', 'ไหล่ ', 'หลัง-เอว '
@@ -70,16 +69,17 @@ export class PhysicalComponent implements OnInit {
     }
     submit() {
         const value = this.form.value;
+        value.personId = this.id;
         if (value !== undefined) {
             if (this.form.value.status === 'edit') {
                 this.physicalsevice.updatePhy(value.id, value)
-                    .mergeMap(() => this.physicalsevice.getPhy())
+                    .mergeMap(() => this.physicalsevice.getPhyById(this.id))
                     .subscribe(result => {
                         this.rows = result;
                     })
             } else {
                 this.physicalsevice.addPhy(value)
-                    .mergeMap(() => this.physicalsevice.getPhy())
+                    .mergeMap(() => this.physicalsevice.getPhyById(this.id))
                     .subscribe(result => {
                         this.rows = result;
                     })
@@ -89,7 +89,7 @@ export class PhysicalComponent implements OnInit {
     delete(data) {
         if (data !== undefined) {
             this.physicalsevice.deletePhy(data._id)
-                .mergeMap(() => this.physicalsevice.getPhy())
+                .mergeMap(() => this.physicalsevice.getPhyById(this.id))
                 .subscribe(result => {
                     this.rows = result;
                 })

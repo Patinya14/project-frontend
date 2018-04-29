@@ -57,10 +57,10 @@
 
         <div class="row">
 
-             <div class="col-12">
+            <div class="col-12">
                 <div class="alert alert-info" role="alert">
                     <div class="row">
-                        <form class="col" [formGroup]="form">
+                        <form class="col" [formGroup]="form" (ngSubmit)="submit()">
                             <div class="row">
                                 <div class="col">
                                     <label for="inputEmail4">อุณหภูมิ ( Temp )</label>
@@ -95,19 +95,15 @@
                                     <label for="inputEmail4">ค่า BMI</label>
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
-
                             </div>
-
                             <br>
                             <u>
                                 <b>กรณีมีความเจ็บปวดให้บันทึกระดับความเจ็บปวดด้วย ( For pain,please record pain score )</b>
                             </u>
-
                             <br>
                             <b>
                                 <label>มาตรวัดความปวด( ก่อนการรักษา ) Pain score ( Pre-treatment )</label>
                             </b>
-
                             <div class="row">
                                 <div class="col-2">
                                     <label>ไม่ปวดเลย</label>
@@ -118,7 +114,6 @@
                                 <div class="col">
                                     <label>ปวดมากที่สุด</label>
                                 </div>
-
                             </div>
                             <div class="row">
                                 <div class="col">
@@ -141,22 +136,13 @@
                                             <button type="button" class="btn btn-outline-danger">9</button>
                                             <button type="button" class="btn btn-outline-danger">10</button>
                                         </div>
-
-
-
                                     </div>
-
                                 </div>
-
-
-
-
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-7">
                                     <img src="https://i.pinimg.com/564x/ce/cb/54/cecb54937b75383be0d99c6b94758739.jpg" width="400px" height="200px">
-
                                 </div>
                                 <div class="col">
                                     <label>ส่วนของร่างกาย ( BodyParth )</label>
@@ -164,124 +150,6 @@
                                         <option *ngFor="let data of bodyparth" placeholder="เลือกส่วนของร่างกาย" [value]="data">{{data}}</option>
                                     </select>
                                 </div>
-                                <!-- <div class="col">
-                                    <div class="form-check-label">
-                                        <input  class="form-control" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ศีรษะ
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ต้นคอ
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            บ่า
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ไหล่
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            หลัง,เอว
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ขา-เท้า
-                                        </label>
-                                    </div>
-
-
-                                </div>
-                                <div class="col">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ศีรษะ
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ต้นคอ
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            บ่า
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ไหล่
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            หลัง,เอว
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ขา-เท้า
-                                        </label>
-                                    </div>
-
-                                </div>
-                                <div class="col">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ข้อเท้า
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            เข่า
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ข้อศอก
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            ข้อมือ/ข้อนิ้วมือ
-                                        </label>
-                                    </div>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            อ่อนแรงข้างซ้าย
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            อ่อนแรงข้างขวา
-                                        </label>
-                                    </div>
-                                </div> -->
                             </div>
                             <br>
                             <u>
@@ -295,14 +163,12 @@
                             </div>
                             <br>
                             <div class="footer col-md" align="right">
-                                <button type="submit" aria-label="Close" class="btn btn-primary" (click)="submit()">submit</button>
+                                <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
-    </div>
-
 </ng-template>
