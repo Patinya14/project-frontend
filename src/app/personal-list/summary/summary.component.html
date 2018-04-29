@@ -24,14 +24,18 @@
         </ngx-datatable-column>
         <ngx-datatable-column name="วิธีการรักษา">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.summaryRemedy}}
+                {{value.summaryHerbalcompress}}
+                {{value.summaryHerbalsteam}}
+                {{value.summaryDrug}}
+                {{value.summaryAnother}}
+                
             </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                 <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
-                 <img src="../assets/images/edit.png" (click)="openEdit(insertGeneralAdd3, value)" width="30px" height="30px" title="แก้ไข">
+                <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                <img src="../assets/images/edit.png" (click)="openEdit(insertGeneralAdd3, value)" width="30px" height="30px" title="แก้ไข">
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
@@ -47,7 +51,7 @@
 
             <div class="col-12">
                 <div class="alert alert-info" role="alert">
-                    <form class="col" [formGroup]="form">
+                    <form class="col" [formGroup]="form" (ngSubmit)="submit()">
                         <div class="row">
                             <div class="col-md-4">
                                 <form>
@@ -128,34 +132,35 @@
                         </div>
                         <div class="form-check">
                             <div class="col">
-                                <input class="form-check-input" type="checkbox" id="defaultCheck1" value="">
+                                <input class="form-check-input" type="checkbox" class="form-control"  row="3" formControlName="summaryHerbalcompress" value="ประคบสมุนไพร">
                                 <label class="form-check-label" for="defaultCheck1">
                                     ประคบสมุนไพร ( The Thai herbal compress massage )
                                 </label>
                             </div>
                             <div class="col">
-                                <input class="form-check-input" type="checkbox" id="defaultCheck1" value="">
+                                <input class="form-check-input" type="checkbox"  class="form-control" formControlName="summaryHerbalsteam" value="อบสมุนไพร">
                                 <label class="form-check-label" for="defaultCheck1">
                                     อบสมุนไพร ( Herbal steam )
                                 </label>
                             </div>
                             <div class="col">
-                                <input class="form-check-input" type="checkbox" id="defaultCheck1" value="">
+                                <input class="form-check-input" type="checkbox"  class="form-control" formControlName="summaryDrug" value="จ่ายยาจากสมุนไพร ">
                                 <label class="form-check-label" for="defaultCheck1">
                                     จ่ายยาจากสมุนไพร ( ระบุชื่อ ปริมาณ ขนาดที่ใช้ )
                                 </label>
 
                                 <div class="col">
-                                    <textarea name="address" class="form-control" row="3" placeholder="อื่นๆ"></textarea>
+                                    <textarea name="address" class="form-control" formControlName="summaryAnother" placeholder="อื่นๆ"></textarea>
                                 </div>
                             </div>
 
                         </div>
                         <br>
+
+                        <div class="col-11" align="right">
+                            <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
+                        </div>
                     </form>
-                    <div class="col-11" align="right">
-                        <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
-                    </div>
                 </div>
             </div>
         </div>

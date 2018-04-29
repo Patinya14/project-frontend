@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SummaryService } from '../../service/summary.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -13,18 +13,17 @@ export class SummaryComponent implements OnInit {
     public form: FormGroup;
     public id;
     edit = {}
-    
-    // public symptomHead =[ 'U61.2 ลมปะกัง','U57.34 ลมปลายปัตคาต ส.5 หลัง','U61.15 อัมพาตใบหน้า']
 
-    
+    // public symptomHead =[ 'U61.2 ลมปะกัง','U57.34 ลมปลายปัตคาต ส.5 หลัง','U61.15 อัมพาตใบหน้า']
     public data = {
-        // summaryDiseaseName: [null, Validators.required],
-        // summarySymptom: [null, Validators.required],
-    
-        summarySymptom: [null, Validators.required],
-        summaryProcedure: [null, Validators.required],
-        summaryTreatment: [null, Validators.required],
-        summaryRemedy: [null, Validators.required],
+
+        summarySymptom: [null, Validators.required], //อาการ
+        summaryProcedure: [null, Validators.required], //หัตถการ
+        summaryTreatment: [null, Validators.required], //การรักษา
+        summaryHerbalcompress: [null, Validators.required], //ประคบสมุนไพร
+        summaryHerbalsteam: [null, Validators.required], //อบสมุนไพร
+        summaryDrug: [null, Validators.required], //จ่ายยา
+        summaryAnother: [null, Validators.required], //อื่นๆ
     }
 
 
@@ -37,7 +36,7 @@ export class SummaryComponent implements OnInit {
         private activatedroute: ActivatedRoute
     ) {
         this.id = this.activatedroute.snapshot.params['personalId'];
-     }
+    }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
         this.summaryservice.getSummary().subscribe(result => {
@@ -78,12 +77,14 @@ export class SummaryComponent implements OnInit {
     }
     openEdit(modal, data) {
         let edit = {
-            // summaryDiseaseName: data.summaryDiseaseName,
-            // summarySymptom: data.summarySymptom,
-        summarySymptom: data.Symptom,
-        summaryProcedure: data.Procedure,
-        summaryTreatment: data.treatment,
-        summaryRemedy: data.Remedy,
+            id: data._id,
+            summarySymptom: data.summarySymptom,
+            summaryProcedure: data.summaryProcedure,
+            summaryTreatment: data.summaryTreatment,
+            summaryHerbalcompress: data.summaryHerbalcompress, //ประคบสมุนไพร
+            summaryHerbalsteam: data.summaryHerbalsteam, //อบสมุนไพร
+            summaryDrug: data.summaryDrug , //จ่ายยา
+            summaryAnother:data.summaryAnother, //อื่นๆ
             status: 'edit'
         }
         this.form = this.formBuilder.group(edit);
