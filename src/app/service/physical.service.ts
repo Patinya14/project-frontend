@@ -11,6 +11,9 @@ export class PhysicalService {
   getPhy(): Observable<any> {
     return this.apiService.get(`physical`);
   }
+  getPhyById(id): Observable<any> {
+    return this.apiService.get(`physical/` + id);
+  }
   addPhy (data): Observable<any> {
     return this.apiService.post('physical', data);
   }

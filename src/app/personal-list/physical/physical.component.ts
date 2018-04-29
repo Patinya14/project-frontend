@@ -12,7 +12,23 @@ export class PhysicalComponent implements OnInit {
     public rows = [];
     public form: FormGroup;
     public id;
+    public body = '';
     edit = {}
+    public images = [
+        {
+            name: 'ศรีษะ',
+            img: '../assets/images/ศีรษะ.jpg'
+        },
+        {
+            name: 'ไหล่',
+            img: '../assets/images/bed.png'
+        },
+        {
+            name: 'สะโพก',
+            img: '../assets/images/home.png'
+        },
+
+    ]
     public data = {
 
         phyTemp: [null,Validators.required],
@@ -34,7 +50,7 @@ export class PhysicalComponent implements OnInit {
     }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
-        this.physicalsevice.getPhy().subscribe(result => {
+        this.physicalsevice.getPhyById(this.id).subscribe(result => {
             this.rows = result;
         
         });
@@ -42,6 +58,12 @@ export class PhysicalComponent implements OnInit {
     } openModal(modal: TemplateRef<any>) {
         this.form = this.formBuilder.group(this.data);
         this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+    }
+    changeimages() {
+        this.images.forEach(element => {
+            if (element.name === this.body)
+                return element.img
+        });
     }
     submit() {
         const value = this.form.value;

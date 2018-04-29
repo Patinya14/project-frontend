@@ -16,8 +16,9 @@ import { AddComponent } from './menu/add/add.component';
 import {TabTreaterComponent } from './menu/add/tabtreater.component';
 import { PersonalComponent } from './personal/personal.component';
 
+
 import { CertificateComponent } from './certificate/certificate.component';
-import { followUpComponent } from './followUp/followUp.component';
+import { followComponent } from './follow/follow.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
 import { RecordformComponent } from './Recordform/Recordform.component';
 import { PersonalListComponent } from './personal-list/personal-list.component';
@@ -36,7 +37,7 @@ import { EvalutionService} from './service/evalution.service';
 import { PhysicalService} from './service/physical.service';
 import { LoginService } from './service/login.service';
 import { SummaryService } from './service/summary.service';
-import { FollowService} from './service/followUp.service';
+import { FollowService} from './service/follow.service';
 import { TreatmentService } from './service/treatment.service';
 import { MedicineService} from './service/drug.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -44,6 +45,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { from } from 'rxjs/observable/from';
 import { CommonModule } from '@angular/common/src/common_module';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
+
 
 @NgModule({
   imports: [
@@ -74,8 +76,10 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
     EvalutionComponent,
     AddComponent,
     DrugComponent,
-    followUpComponent,
+    followComponent,
     TabTreaterComponent ,
+    
+
 
   ],
   providers: [

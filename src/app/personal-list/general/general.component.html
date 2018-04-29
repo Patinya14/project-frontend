@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md" align="right">
-        <button type="button" class="btn btn-warning" (click)="openModal(ModalGeneral)">+เพิ่มข้อมูลการรักษา</button>
-      
+        <button type="button" class="btn btn-warning" (click)="openModal(ModalGeneral)">+เพิ่มข้อมูลประวัติการรักษา</button>
+
     </div>
 </div>
 <div class="container">
@@ -33,49 +33,60 @@
         </ngx-datatable-column>
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                <button type="button" class="btn btn-warning" (click)="delete(value)">ลบ</button>
-                <button type="button" class="btn btn-warning" (click)="openEdit(ModalGeneral, value)">แก้ไข</button>
+                 <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                 <img src="../assets/images/edit.png" (click)="openEdit(ModalGeneral, value)" width="30px" height="30px" title="แก้ไข">
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
 </div>
 <ng-template #ModalGeneral>
-    <div class="alert alert-info">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">ประวัติการรักษา</h4>
+    </div>
+    <div class="modal-body">
+
         <div class="row">
-            <form class="col" [formGroup]="form" (ngSubmit)="submit()">
-                <div class="row">
-                    <div class="col ">
-                        <label for="inputEmail4">วัน เดือน ปีที่มาพบแพทย์ ( Current date )</label>
-                        <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker formControlName="getDate">
-                    </div>
-                    <div class="col">
-                        <label for="inputEmail4">เวลา ( Hour ) นาที ( minute )</label>
-                        <input type="text" class="form-control" placeholder="" formControlName="genTime">
+
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <div class="row">
+                        <form class="col" [formGroup]="form" (ngSubmit)="submit()">
+                            <div class="row">
+                                <div class="col ">
+                                    <label for="inputEmail4">วัน เดือน ปีที่มาพบแพทย์ ( Current date )</label>
+                                    <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker formControlName="getDate">
+                                </div>
+                                <div class="col">
+                                    <label for="inputEmail4">เวลา ( Hour ) นาที ( minute )</label>
+                                    <timepicker class="form-control" formControlName="genTime"></timepicker>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="inputEmail4">อาการสำคัญ ( Symptoms/Condition )</label>
+                                    <input type="text" class="form-control" placeholder="" formControlName="genSymptoms">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="inputEmail4">ประวัติปัจจุบัน ( Present History )</label>
+                                    <input type="text" class="form-control" placeholder="" formControlName="genPresentHistory">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="inputEmail4">ประวัติอดีต ( Past History )</label>
+                                    <input type="text" class="form-control" placeholder="" formControlName="genPastHistory">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="footer col-md" align="right">
+                                <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="inputEmail4">อาการสำคัญ ( Symptoms/Condition )</label>
-                        <input type="text" class="form-control" placeholder="" formControlName="genSymptoms">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="inputEmail4">ประวัติปัจจุบัน ( Present History )</label>
-                        <input type="text" class="form-control" placeholder="" formControlName="genPresentHistory">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="inputEmail4">ประวัติอดีต ( Past History )</label>
-                        <input type="text" class="form-control" placeholder="" formControlName="genPastHistory">
-                    </div>
-                </div>
-                <br>
-                <div class="footer col-md" align="right">
-                    <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </ng-template>
