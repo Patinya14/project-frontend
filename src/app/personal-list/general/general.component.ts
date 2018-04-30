@@ -17,7 +17,7 @@ export class GeneralComponent implements OnInit {
     edit = {}
     public data = {
         // personId : [null, Validators.required],
-        genDate: [null, Validators.required],
+        genDate:  [new Date('yyyy-mm-dd'), Validators.required],
         genTime: [null, Validators.required],
         genSymptoms: [null, Validators.required],
         genPresentHistory: [null, Validators.required],

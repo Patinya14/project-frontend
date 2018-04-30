@@ -1,122 +1,144 @@
-<div class="alert alert-info" role="alert">
-        <div class="row">
-            <div class="col-12 text-center">
-                <a href="../menu" class="alert-link">ข้อมูลผู้ป่วย</a>
-                <a href="../menu">
-                    <img src="../assets/images/placeholder.png" width="50px" height="50px">
-                </a>
+<div class=" alert-info">
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="../menu" class="alert-link">ข้อมูลผู้ป่วย</a>
+            <a href="../menu">
+                <img src="../assets/images/placeholder.png" width="50px" height="50px">
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-1"></div>
+
+        <img src="../assets/images/certificate.png" width="5%" height="10%">
+
+        <div class="col-2">
+            <div class="alert bg-warning" role="alert">
+                <h4>
+                    ใบรับรองแพทย์
+                </h4>
             </div>
         </div>
-        <br>
-    
-        <div class="row">
-            <div class="col-1"></div>
-    
-            <img src="../assets/images/planning.png" width="60px" height="60px">
-    
-            <div class="col-2">
-                <div class="alert bg-warning" role="alert">
-                    <h4>
-                       ใบรับรองแพทย์
-                    </h4>
-                </div>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-11" align="right">
+            <button type="button" class="btn btn-warning" (click)="openModal(Modalfollow)">+เพิ่มใบรับรองแพทย์</button>
+
         </div>
-        <div class="row">
-            <div class="col-11" align="right">
-                <button type="button" class="btn btn-warning" (click)="openModal(ModalCertificate)">+เพิ่มใบรับรองแพทย์</button>
-    
-            </div>
+    </div>
+
+
+
+
+
+    <ng-template #Modalfollow>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">ใบรับรองแพทย์ ( )</h4>
         </div>
-    
-    
-    
-    
-    
-        <ng-template #ModalCertificate>
-            <div class="modal-header">
-                <h4 class="modal-title pull-left">ใบรับรองแพทย์</h4>
-            </div>
-            <div class="modal-body alert-info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="alert bg-light text-dark" role="alert">
+        <div class="modal-body alert-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert bg-light text-dark" role="alert">
+                            <br>
+                            <form class="col" [formGroup]="form" (ngSubmit)="submit()">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="form-control" placeholder="เลขที่บัตรผู้ป่วย" [(ngModel)]="id" [ngModelOptions]="{standalone: true}">
+                                            <div class="input-group-append">
+                                                <button type="button" class="btn btn-outline-info" (click)="login()">
+                                                    <img src="../assets/images/job-search.png" width="20px" height="20px">
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>ชื่อผู้ป่วย</label>
+                                        <input class="form-control" formControlName="personName">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>นามสกุล</label>
+                                        <input class="form-control" formControlName="personSurname">
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <div class="col-md-6">
+                                        <label>ที่อยู่</label>
+                                        <input class="form-control" formControlName="personAddress">
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <div class="col-md-6">
+                                        <label>วัน/เดือน/ปี</label>
+                                        <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker formControlName="cerDateout">
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <div class="col-md-6">
+                                        <label>อาการ/โรค</label>
+                                        <input class="form-control" formControlName="cerSymptom" placeholder="">
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <div class="col-md-6">
+                                        <label>ผู้รักษา</label>
+                                        <input class="form-control" formControlName="cerPhysicianName" placeholder="">
+                                    </div>
+                                </div>
+
                                 <br>
-                                <form class="col" [formGroup]="form" (ngSubmit)="submit()">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>เลขที่บัตรผู้ป่วย</label>
-                                            <input class="form-control" formControlName="folName" placeholder="ชาลี">
-                                        </div>
-                                    </div>
-                                    <div class=" row">
-                                        <div class="col-md-6">
-                                            <label>ข้าพเจ้า</label>
-                                            <input class="form-control" formControlName="folSurName" placeholder="ขยัน">
-                                        </div>
-                                    </div>
-                                    <div class=" row">
-                                        <div class="col-md-6">
-                                            <label>วัน/เดือน/ปี</label>
-                                            <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker formControlName="folDate">
-                                        </div>
-                                    </div>
-                                   
-                                    <div class=" row">
-                                        <div class="col-md-6">
-                                            <label>อาการ/โรค</label>
-                                            <input class="form-control" formControlName="folPurpose" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class=" row">
-                                        <div class="col-md-6">
-                                            <label>ที่อยู่</label>
-                                            <input class="form-control" formControlName="folPhysicianName" placeholder="">
-                                        </div>
-                                    </div>
-    
-                                    <br>
-                                    <div class="footer col-md" align="right">
-                                        <button type="submit" aria-label="Close" class="btn btn-warning">submit</button>
-                                    </div>
-                                </form>
-                            </div>
+                                <div class="footer col-md" align="right">
+                                    <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </ng-template>
-    
-        <div class="container">
-            <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
-                <ngx-datatable-column name="วันที่" [maxWidth]="100">
-                    <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        {{value.folDate}}
-                    </ng-template>
-                </ngx-datatable-column>
-               
-                <ngx-datatable-column name="ชื่อ-นามสกุล">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.folName}} {{value.folSurName}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="จุดประสงค์เพื่อ">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.folPurpose}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="ผู้รักษา">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.folPhysicianName}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="เครื่องมือ">
-                        <ng-template let-value="value" ngx-datatable-cell-template>
-                            <button type="button" class="btn btn-warning" (click)="delete(value)">ลบ</button>
-                            <button type="button" class="btn btn-warning" (click)="openEdit(ModalCertificate, value)">แก้ไข</button>
-                        </ng-template>
-                    </ngx-datatable-column>
-            </ngx-datatable>
         </div>
+    </ng-template>
+
+    <div class="container">
+        <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+            <ngx-datatable-column name="วันที่" [maxWidth]="100">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    {{value.cerDateout}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เวลา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.cerDateout}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ชื่อ-นามสกุล">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.personNameTitle}} {{value.personName}} {{value.personSurname}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="อาการ/โรค">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value. cerSymptom}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ผู้รักษา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.cerPhysicianName}} {{value. cerPhysicianSurName}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เครื่องมือ">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                    <img src="../assets/images/edit.png" (click)="openEdit(Modalfollow, value)" width="30px" height="30px" title="แก้ไข">
+
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
     </div>
+</div>
