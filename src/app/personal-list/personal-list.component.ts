@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router'
 })
 
 export class PersonalListComponent implements OnInit {
-    public rows = {};
+    public rows: any = {};
     public id;
     public form: FormGroup;
     edit = {}
@@ -54,13 +54,14 @@ export class PersonalListComponent implements OnInit {
         this.form = this.formBuilder.group(this.data);
         this.personalservice.getPersonById(this.id).subscribe(result => {
             this.rows = result;
-       
+            console.log(this.data)
         })
     }
     submit() {
         const value = this.form.value;
         if (value !== undefined) {
           if (this.form.value.status === 'edit') {
+            console.log(value)
             this.personalservice.updatePerson(value.id, value)
               .mergeMap(() => this.personalservice.getPersonById(this.id))
               .subscribe(result => {
@@ -84,28 +85,10 @@ export class PersonalListComponent implements OnInit {
             })
         }
       }
-      openEdit(modal, data) {
-        let edit = {
-          id: data._id,
-          personGender: data.personGender,
-          personNameTitle: data.personNameTitle,
-          personName: data.personName,
-          personSurname: data.personSurname,
-          personBirth: [new Date('yyyy-mm-dd'), data.personBirth],
-          personMaritalStatus: data.personMaritalStatus,
-          personNationality: data.personNationality,
-          personCitizenship: data.personCitizenship,
-          personReligion: data.personReligion,
-          personCareer: data.personCareer,
-          personIdentityId: data.personIdentityId,
-          personBirthPlace: data.personBirthPlace,
-          personProvince: data.personProvince,
-          personAddress: data.personAddress,
-          personNumber: data.personNumber,
-          personFamilyHistory: data.personFamilyHistory,
-          personPersonalHistory: data.personPersonalHistory,
-          status: 'edit'
-        }
+      openEdit(modal) {
+        var edit: any = this.rows;
+        edit.status = 'edit';
+        edit.id = this.rows._id;
         this.form = this.formBuilder.group(edit);
         this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
       }

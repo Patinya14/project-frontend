@@ -43,7 +43,7 @@ submit() {
           this.treatmentService.updateTreat(value.id, value)
               .mergeMap(() => this.treatmentService.getTreat())
               .subscribe(result => {
-                  this.rows = result;
+                  this.rows.unshift = result;
               })
       } else {
           this.treatmentService.addTreat(value)

@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 @Component({
   selector: 'app-certificate',
   templateUrl: './certificate.component.html',
+  styleUrls: ['./certificate.component.css']
 })
 export class CertificateComponent implements OnInit {
   public id;
@@ -76,11 +77,12 @@ export class CertificateComponent implements OnInit {
       }
     }
   }
-  login() {
+  findid() {
     if (this.id !== '') {
       this.rows.forEach(element => {
         if (element.personId === this.id) {
           this.router.navigate(['/certificate', element._id]);
+        
         }
       });
     }

@@ -13,6 +13,7 @@ import { Router } from '@angular/router'
 
 export class PersonalComponent implements OnInit {
   public rows = [];
+  public count = 0;
   public id = '';
   public form: FormGroup;
   edit = {}
@@ -57,8 +58,9 @@ export class PersonalComponent implements OnInit {
   }
   login() {
     if (this.id !== '') {
+   
       this.rows.forEach(element => {
-        if(element.personId === this.id) {
+        if (element.personId === this.id) {
           this.router.navigate(['/personal-list', element._id]);
         }
       });
@@ -116,9 +118,28 @@ export class PersonalComponent implements OnInit {
     this.form = this.formBuilder.group(edit);
     this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
   }
+  // generateCount() {
+  //   this.personalservice.getPerson().subscribe(result => {
+  //     var current = new Date()
+  //     var temp = (String(current.getFullYear() + 543)).substring(2, 4)
+  //     result = '000' + result.length;
+  //     if (result.length > 4) {
+  //       result = result.substring(result.length-4, result.length)
+        
+  //     }
+      
+  //     temp = temp + '-' + result;
+  //     console.log(temp)
+  //   })
+  // }
+ 
   openModal(modal: TemplateRef<any>) {
     this.form = this.formBuilder.group(this.data);
     this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
   }
+ 
+  
+  
+  
 
 }

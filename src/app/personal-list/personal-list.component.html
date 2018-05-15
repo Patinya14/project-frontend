@@ -36,8 +36,8 @@
                                 <th></th>
                                 <th></th>
                                 <th class="text-right">
-                                    <button type="button" class="btn btn-primary" (click)="openEdit(ModalPersonal,value)">Edit</button>
-                                    <button type="button" class="btn btn-primary"(click)="delete(value)">ลบ</button>
+                                    <img src="../assets/images/edit.png" (click)="openEdit(ModalPersonal)" width="30px" height="30px" title="แก้ไข">
+                                    <!-- <button type="button" class="btn btn-primary"(click)="delete(value)">ลบ</button> -->
                                     <ng-template #template>
                                         <div class="modal-header">
                                             <h4 class="modal-title pull-left">Modal</h4>
@@ -249,7 +249,7 @@
                                 </div>
                                 <br>
                                 <div class="footer col-md" align="right">
-                                    <button type="submit" aria-label="Close" class="btn btn-primary" href="../personal-list">submit</button>
+                                    <button type="submit" class="btn btn-primary">submit</button>
                                 </div>
                             </form>
                         </div>

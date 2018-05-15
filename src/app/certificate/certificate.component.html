@@ -1,7 +1,9 @@
-<div class=" alert-info">
+<div class="body">
+    <br>
+    <br>
     <div class="row">
         <div class="col-12 text-center">
-            <a href="../menu" class="alert-link">ข้อมูลผู้ป่วย</a>
+            <a href="../menu" class="alert-link">กลับไปหน้าหลัก</a>
             <a href="../menu">
                 <img src="../assets/images/placeholder.png" width="50px" height="50px">
             </a>
@@ -15,11 +17,11 @@
         <img src="../assets/images/certificate.png" width="5%" height="10%">
 
         <div class="col-2">
-            <div class="alert bg-warning" role="alert">
-                <h4>
-                    ใบรับรองแพทย์
-                </h4>
-            </div>
+
+            <label>
+                ข้อมูลผู้ป่วย : ใบรับรองแพทย์
+            </label>
+
         </div>
     </div>
     <div class="row">
@@ -49,7 +51,7 @@
                                         <div class="input-group mb-2">
                                             <input type="text" class="form-control" placeholder="เลขที่บัตรผู้ป่วย" [(ngModel)]="id" [ngModelOptions]="{standalone: true}">
                                             <div class="input-group-append">
-                                                <button type="button" class="btn btn-outline-info" (click)="login()">
+                                                <button type="button" class="btn btn-outline-info" (click)="findid()">
                                                     <img src="../assets/images/job-search.png" width="20px" height="20px">
                                                 </button>
                                             </div>
