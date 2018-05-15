@@ -1,7 +1,8 @@
-<div class="alert alert-info" role="alert">
+<div class="body">
+    <!-- <div class="alert alert-info" role="alert"> -->
     <div class="row">
         <div class="col-12 text-center">
-            <a href="../menu" class="alert-link">ข้อมูลผู้ป่วย</a>
+            <a href="../menu" class="alert-link">กลับสู่หน้าหลัก</a>
             <a href="../menu">
                 <img src="../assets/images/placeholder.png" width="50px" height="50px">
             </a>
@@ -29,10 +30,6 @@
         </div>
     </div>
 
-
-
-
-
     <ng-template #Modalfollow>
         <div class="modal-header">
             <h4 class="modal-title pull-left">การนัดหมาย ( Follow Up )</h4>
@@ -56,17 +53,28 @@
                                         <input class="form-control" formControlName="folSurName" placeholder="ขยัน">
                                     </div>
                                 </div>
-                                <div class=" row">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <label>วัน/เดือน/ปี</label>
                                         <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker formControlName="folDate">
                                     </div>
                                 </div>
-                                <div class=" row">
-                                    <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-3">
                                         <label>เวลา</label>
-                                        <timepicker class="form-control" formControlName="folmytimeHour"></timepicker>
+                                        <select formControlName="folmytimeHour" class="form-control">
+                                            <option *ngFor="let data of time" [value]="data">{{data}}</option>
+                                        </select>
+
                                     </div>
+                                    <div class="col-md-3">
+                                        <label>ถึง</label>
+                                        <select formControlName="folmytimeMinute" class="form-control">
+                                            <option *ngFor="let data of time" [value]="data">{{data}}</option>
+                                        </select>
+
+                                    </div>
+                                    <label>น.</label>
                                 </div>
                                 <div class=" row">
                                     <div class="col-md-6">
@@ -84,7 +92,7 @@
                                 <div class=" row">
                                     <div class="col-md-6">
                                         <label>จุดประสงค์เพื่อ</label>
-                                        <input class="form-control" formControlName="folPurpose" placeholder="">
+                                        <input class="form-control" formControlName="folPurpose" placeholder="ติดตามอาการ">
                                     </div>
                                 </div>
                                 <div class=" row">
@@ -105,46 +113,113 @@
             </div>
         </div>
     </ng-template>
+    
+        <div class="container">
+            <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+                <ngx-datatable-column name="วันที่" [maxWidth]="300">
+                    <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        {{value.folDate}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="เวลา">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                        {{value.folmytimeHour}}-{{value.folmytimeMinute}} น.
+                    </ng-template>
+                </ngx-datatable-column>
 
-    <div class="container">
-        <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
-            <ngx-datatable-column name="วันที่" [maxWidth]="100">
-                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                    {{value.folDate}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="เวลา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.folmytimeHour}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="ช่วงเวลาการรักษา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.folduration}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="ชื่อ-นามสกุล">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.folName}} {{value.folSurName}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="จุดประสงค์เพื่อ">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.folPurpose}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="ผู้รักษา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.folPhysicianName}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="เครื่องมือ">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
-                    <img src="../assets/images/edit.png" (click)="openEdit(Modalfollow, value)" width="30px" height="30px" title="แก้ไข">
-                   
-                </ng-template>
-            </ngx-datatable-column>
-        </ngx-datatable>
-    </div>
+                <ngx-datatable-column name="ชื่อ-นามสกุล">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                        {{value.folName}} {{value.folSurName}}
+                    </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column name="ผู้รักษา">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                        {{value.folPhysicianName}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="เครื่องมือ" >
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                            </div>
+                            <div class="col-2">
+                                <img src="../assets/images/edit.png" (click)="openEdit(Modalfollow, value)" width="30px" height="30px" title="แก้ไข">
+                            </div>
+                            <div class="col">
+                                <img src="../assets/images/view.png" (click)="openModalView(Modalviewfollow, value)" width="30px" height="30px" title="ดูข้อมูล">
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
+   
+    <!-- </div> -->
+    <ng-template #Modalviewfollow>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">การนัดหมาย ( Follow Up )</h4>
+        </div>
+        <div class="modal-body alert-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert bg-light text-dark" role="alert">
+
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>วันที่ :</label>
+                                </div>
+                                <div class="col-8">
+                                    {{form.value.folDate}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>เวลา :</label>
+                                </div>
+                                <div class="col-8">
+                                    {{form.value.folmytimeHour}}-{{form.value.folmytimeMinute}} น.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>ช่วงเวลาการรักษา :</label>
+                                </div>
+                                <div class="col-8">
+                                    {{form.value.folduration}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>ชื่อ-นามสกุล :</label>
+                                </div>
+                                <div class="col-8">
+                                    {{form.value.folName}} {{form.value.folSurName}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>จุดประสงค์เพื่อ :</label>
+                                </div>
+                                <div class="col-8">
+                                    {{form.value.folPurpose}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>ผู้รักษา :</label>
+                                </div>
+                                <div class="col-8">
+                                    {{form.value.folPhysicianName}}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
 </div>

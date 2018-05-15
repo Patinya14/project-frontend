@@ -61,6 +61,10 @@ export class PhysicalComponent implements OnInit {
         this.form = this.formBuilder.group(this.data);
         this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
     }
+    openModalView(modal: TemplateRef<any>, data) {
+        this.form = this.formBuilder.group(data);
+        this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+      }
     changeimages() {
         this.images.forEach(element => {
             if (element.name === this.body)

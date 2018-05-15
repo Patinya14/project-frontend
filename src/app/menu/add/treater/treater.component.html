@@ -46,8 +46,8 @@
 
                             <br>
                             <div class="footer col-md" align="right">
-                                    <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
-                                </div>
+                                <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -70,9 +70,50 @@
         </ngx-datatable-column>
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                <button type="button" class="btn btn-warning" (click)="delete(value)">ลบ</button>
-                <button type="button" class="btn btn-warning" (click)="openEdit(ModalTreater, value)">แก้ไข</button>
+                <div class="row">
+                    <div class="col-2">
+                        <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                    </div>
+                    <div class="col-2">
+                        <img src="../assets/images/edit.png" (click)="openEdit(ModalTreater, value)" width="30px" height="30px" title="แก้ไข">
+                    </div>
+                    <div class="col">
+                        <img src="../assets/images/view.png" (click)="openModalView(ModalviewTreater, value)" width="30px" height="30px" title="ดูข้อมูล">
+                    </div>
+                </div>
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
 </div>
+<ng-template #ModalviewTreater>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">ข้อมูลผู้รักษา</h4>
+    </div>
+    <div class="modal-body alert-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert bg-light text-dark" role="alert">
+
+                        <div class="row">
+                            <div class="col-5">
+                                <label>ใบอนุญาตประกอบโรคศิลปะเลขที่ :</label>
+                            </div>
+                            <div class="col-4">
+                                {{form.value.cerLicensed_No}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <label>ชื่อ-นามสกุล :</label>
+                            </div>
+                            <div class="col-5">
+                                {{form.value.cerNameTitle}} {{form.value.cerPhysicianName}} {{form.value.cerPhysicianSurName}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

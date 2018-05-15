@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router'
 @Component({
     selector: 'app-tabtreater',
     templateUrl: './tabtreater.component.html',
+    styleUrls: ['./tabtreater.component.css']
 })
 
 export class TabTreaterComponent implements OnInit {

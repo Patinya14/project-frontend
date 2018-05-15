@@ -28,6 +28,7 @@ import { SummaryComponent } from './personal-list/summary/summary.component';
 import { EvalutionComponent } from './personal-list/evalution/evalution.component';
 
 
+
 import { JwtService } from './service/jwt.service';
 import { ApiService } from './service/api.service';
 import { CertificateService} from './service/certificate.service';
@@ -98,6 +99,8 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
     TreatmentService,
     MedicineService,
     CertificateService,
+    
+    
 
   ],
   bootstrap: [AppComponent]

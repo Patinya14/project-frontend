@@ -99,7 +99,7 @@ export class CertificateComponent implements OnInit {
   delete(data) {
     if (data !== undefined) {
       this.certificateService.deleteCer(data._id)
-        .mergeMap(() => this.certificateService.getCerById(this.id))
+        .mergeMap(() => this.certificateService.getCer())
         .subscribe(result => {
           this.rows = result;
         })
