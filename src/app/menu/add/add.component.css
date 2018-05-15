@@ -4,5 +4,14 @@
     width: 100%;
     top: 0;
     bottom: 0;
+}
+.head{
+    background-color: rgb(234, 238, 236);
+    height: 80%;
+    width: 70%;
+    background-position: center center;
+    margin-left: 15%;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5)
     
 }

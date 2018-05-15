@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md" align="right">
+        <button type="button" class="btn btn-warning" (click)="openModal(ModalRemedy)">+เพิ่มข้อมูลวิธีการรักษา</button>
+
+    </div>
+</div>
+<ng-template #ModalRemedy>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">ข้อมูลวิธีการรักษา</h4>
+    </div>
+    <div class="modal-body alert-info">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert bg-light text-dark " role="alert">
+                        <form class="col" [formGroup]="form" (ngSubmit)="submit()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>วิธีการรักษา</label>
+                                    <input placeholder="นวด" class="form-control" formControlName="treatMent">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>ราคา</label>
+                                    <input placeholder="200" class="form-control" formControlName="treatPrice">
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="footer col-md" align="right">
+                                <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<div class="container">
+    <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+        <ngx-datatable-column name="วิธีการรักษา" [maxWidth]="400">
+            <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                {{value.treatMent}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="ราคา" [maxWidth]="400">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value.treatPrice}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="เครื่องมือ" [maxWidth]="400">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                <div class="row">
+                    <div class="col-2">
+                        <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                    </div>
+                    <div class="col-2">
+                        <img src="../assets/images/edit.png" (click)="openEdit(ModalRemedy, value)" width="30px" height="30px" title="แก้ไข">
+                    </div>
+                </div>
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>

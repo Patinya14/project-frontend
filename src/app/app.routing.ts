@@ -12,6 +12,7 @@ import { CertificateComponent } from './certificate/certificate.component';
 import { followComponent } from './follow/follow.component';
 import { PrintappointmentsComponent } from './printappoint/printappointments.component';
 import { PersonalListComponent } from './personal-list/personal-list.component';
+import { RemedyComponent } from './menu/add/remedy/remedy.component';
 
 
 
@@ -30,6 +31,7 @@ export const routes: Routes = [
     { path: 'add', component: AddComponent  },
     { path: 'drug', component: DrugComponent  },
     { path: 'tabtreater', component: TabTreaterComponent },
+    { path: 'remedy', component: RemedyComponent },
     
     
     
