@@ -1,4 +1,4 @@
-<div class="alert alert-info" role="alert">
+<div class="body" >
     <div class="row">
         <div class="col-2">
             <img src="../assets/images/user.png">
@@ -13,7 +13,7 @@
             <p> คุณ : {{rows.personName}} {{rows.personSurname}}</p>
             <p>สถานะ : ออนไลน์ </p>
             <p>
-                <a href="../menu" class="text-danger">ออกจากระบบ</a>
+                <a href="../personal" class="text-danger">ออกจากระบบ</a>
             </p>
         </div>
     </div>
@@ -36,7 +36,11 @@
                                 <th></th>
                                 <th></th>
                                 <th class="text-right">
+<<<<<<< HEAD
                                     <img src="../assets/images/edit.png" (click)="openEdit(ModalPersonal)" width="30px" height="30px" title="แก้ไข">
+=======
+                                    <button type="button" class="btn btn-primary" (click)="openEdit(ModalPersonal,value)">Edit</button>
+>>>>>>> 1fec371a266e23eb67d3e171af1dc883744da248
                                     <!-- <button type="button" class="btn btn-primary"(click)="delete(value)">ลบ</button> -->
                                     <ng-template #template>
                                         <div class="modal-header">
@@ -249,7 +253,11 @@
                                 </div>
                                 <br>
                                 <div class="footer col-md" align="right">
+<<<<<<< HEAD
                                     <button type="submit" class="btn btn-primary">submit</button>
+=======
+                                    <button type="submit" aria-label="Close" class="btn btn-primary" href="../personal-list">บันทึก</button>
+>>>>>>> 1fec371a266e23eb67d3e171af1dc883744da248
                                 </div>
                             </form>
                         </div>

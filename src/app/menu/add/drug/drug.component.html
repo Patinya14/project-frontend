@@ -7,11 +7,11 @@
 
 
 <ng-template #ModalDrug>
-        <div class="modal-header">
-                <h4 class="modal-title pull-left">ข้อมูลยา</h4>
-            </div>
-            <div class="modal-body alert-info">
-        
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">ข้อมูลยา</h4>
+    </div>
+    <div class="modal-body alert-info">
+
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -49,8 +49,8 @@
                             </div>
                             <br>
                             <div class="footer col-md" align="right">
-                                    <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
-                                </div>
+                                <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -70,32 +70,82 @@
                 {{value.drugName}}
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="จำนวน">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.drugAmount}}
-            </ng-template>
-        </ngx-datatable-column>
         <ngx-datatable-column name="สรรพคุณ">
             <ng-template let-value="value" ngx-datatable-cell-template>
                 {{value.drugProperties}}
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="ราคา">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.drugPrice}}
-            </ng-template>
-        </ngx-datatable-column>
-
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                <button type="button" class="btn btn-warning" (click)="delete(value)">ลบ</button>
-                <button type="button" class="btn btn-warning" (click)="openEdit(ModalDrug, value)">แก้ไข</button>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                    </div>
+                    <div class="col-3">
+                        <img src="../assets/images/edit.png" (click)="openEdit(ModalDrug, value)" width="30px" height="30px" title="แก้ไข">
+                    </div>
+                    <div class="col">
+                        <img src="../assets/images/view.png" (click)="openModalView(ModalviewDrug, value)" width="30px" height="30px" title="ดูข้อมูล">
+                    </div>
+                </div>
+
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
 </div>
+<ng-template #ModalviewDrug>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">ข้อมูลยา</h4>
+    </div>
+    <div class="modal-body alert-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert bg-light text-dark" role="alert">
 
-
-
-
-
+                        <div class="row">
+                            <div class="col-3">
+                                <label>รหัสยา :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.drugId}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>ชื่อยา :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.drugName}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>จำนวน :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.drugAmount}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>สรรพคุณ :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.drugProperties}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>ราคา :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.drugPrice}} บาท
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

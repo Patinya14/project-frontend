@@ -43,26 +43,50 @@ export class SummaryComponent implements OnInit {
         this.form = this.formBuilder.group(this.data);
         this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
     }
-
+    openModalView(modal: TemplateRef<any>, data) {
+        this.form = this.formBuilder.group(data);
+        this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+    }
     submit() {
         const value = this.form.value;
         value.personId = this.id;
-
-        if (value !== undefined) {
+        const temp: any = this.herbCheck(value);
+        if (temp !== undefined) {
             if (this.form.value.status === 'edit') {
-                this.summaryService.updateSummary(value.id, value)
+                this.summaryService.updateSummary(temp.id, temp)
                     .mergeMap(() => this.summaryService.getSummary())
                     .subscribe(result => {
                         this.rows = result;
                     })
             } else {
-                this.summaryService.addSummary(value)
+                this.summaryService.addSummary(temp)
                     .mergeMap(() => this.summaryService.getSummaryById(this.id))
                     .subscribe(result => {
                         this.rows = result;
                     })
             }
         }
+    }
+    herbCheck(data) {
+        if (data.summaryHerbalsteam === true) {
+            data.summaryHerbalsteam = 'ประคบสมุนไพร';
+        } 
+        if (data.summaryHerbalcompress === true) {
+            data.summaryHerbalcompress = 'อบสมุนไพร';
+        }
+        if (data.summaryHerbalsteam === false) {
+            data.summaryHerbalsteam = '';
+        }
+        if (data.summaryHerbalcompress === false) {
+            data.summaryHerbalcompress = '';
+        }
+        if (data.summaryDrug === true){
+            data.summaryDrug = 'จ่ายยาจากสมุนไพร'
+        }
+        if (data.summaryDrug === false) {
+            data.summaryDrug = '';
+        }
+        return data;
     }
     delete(data) {
         if (data !== undefined) {

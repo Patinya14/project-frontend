@@ -11,24 +11,9 @@
                 {{value.phyTemp}}
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="ชีพจร">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value. phyPulse}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="ความดันโลหิต">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.phyBp}}
-            </ng-template>
-        </ngx-datatable-column>
         <ngx-datatable-column name="ค่า BMI">
             <ng-template let-value="value" ngx-datatable-cell-template>
 
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="การหายใจ">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.phyRespirationRate}}
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="ส่วนสูง">
@@ -43,8 +28,20 @@
         </ngx-datatable-column>
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
-                <img src="../assets/images/edit.png" (click)="openEdit(ModalPhysical, value)" width="30px" height="30px" title="แก้ไข">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                    </div>
+                    <div class="col-3">
+                        <img src="../assets/images/edit.png" (click)="openEdit(ModalPhysical, value)" width="30px" height="30px" title="แก้ไข">
+                    </div>
+                    <div class="col">
+                        <img src="../assets/images/view.png" (click)="openModalView(ModalviewPhysical, value)" width="30px" height="30px" title="ดูข้อมูล">
+                    </div>
+                </div>
+
+
+
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
@@ -67,7 +64,7 @@
                                     <input type="text" class="form-control" placeholder="" formControlName="phyTemp">
                                 </div>
                                 <div class="col">
-                                    <label for="inputEmail4">ชีพจร( Pulse ) ครั้ง/นาที( Beats/min )</label>
+                                    <label for="inputEmail4">ชีพจร( Pulse ) ครั้ง/นาที ( Beats/min )</label>
                                     <input type="text" class="form-control" placeholder="" formControlName="phyPulse">
                                 </div>
 
@@ -163,9 +160,97 @@
                             </div>
                             <br>
                             <div class="footer col-md" align="right">
-                                <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
+                                <button type="submit" aria-label="Close" class="btn btn-primary">บันทึก</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #ModalviewPhysical>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">ตรวจร่างกายก่อนการรักษา</h4>
+    </div>
+    <div class="modal-body alert-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert bg-light text-dark" role="alert">
+
+                        <div class="row">
+                            <div class="col-3">
+                                <label>อุณหภูมิ :</label>
+                            </div>
+                            <div class="col-2">
+                                {{form.value.phyTemp}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>ชีพจร :</label>
+                            </div>
+                            <div class="col-2">
+                                {{form.value.phyPulse}}
+                            </div>
+                            <div class="col">
+                                <label>ครั้ง/นาที</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>ความดันโลหิต :</label>
+                            </div>
+                            <div class="col-2">
+                                {{form.value.phyBp}}
+                            </div>
+                            <div class="col">
+                                <label>มม.ปรอท</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>ค่า BMI :</label>
+                            </div>
+                            <div class="col-8">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>การหายใจ :</label>
+                            </div>
+                            <div class="col-2">
+                                {{form.value.phyRespirationRate}}
+                            </div>
+                            <div class="col">
+                                <label>ครั้ง/นาที</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>ส่วนสูง :</label>
+                            </div>
+                            <div class="col-2">
+                                {{form.value.phyHeight}}
+                            </div>
+                            <div class="col">
+                                <label>ซม.</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>น้ำหนัก :</label>
+                            </div>
+                            <div class="col-2">
+                                {{form.value.phyWeight}}
+                            </div>
+                            <div class="col">
+                                <label>กก.</label>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

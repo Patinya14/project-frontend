@@ -21,20 +21,20 @@
                 {{value.genSymptoms}}
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="ประวัติปัจจุบัน">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.genPresentHistory}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="ประวัติอดีต">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.genPastHistory}}
-            </ng-template>
-        </ngx-datatable-column>
+        
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                 <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
-                 <img src="../assets/images/edit.png" (click)="openEdit(ModalGeneral, value)" width="30px" height="30px" title="แก้ไข">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                    </div>
+                    <div class="col-2">
+                        <img src="../assets/images/edit.png" (click)="openEdit(ModalGeneral, value)" width="30px" height="30px" title="แก้ไข">
+                    </div>
+                    <div class="col">
+                        <img src="../assets/images/view.png" (click)="openModalView(ModalviewGeneral, value)" width="30px" height="30px" title="ดูข้อมูล">
+                    </div>
+                </div>
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
@@ -64,26 +64,82 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="inputEmail4">อาการสำคัญ ( Symptoms/Condition )</label>
-                                    <input type="text" class="form-control" placeholder="" formControlName="genSymptoms">
+                                    <input type="text" class="form-control" placeholder="ปวดหลัง" formControlName="genSymptoms">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="inputEmail4">ประวัติปัจจุบัน ( Present History )</label>
-                                    <input type="text" class="form-control" placeholder="" formControlName="genPresentHistory">
+                                    <input type="text" class="form-control" placeholder="ปวดหลัง" formControlName="genPresentHistory">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="inputEmail4">ประวัติอดีต ( Past History )</label>
-                                    <input type="text" class="form-control" placeholder="" formControlName="genPastHistory">
+                                    <input type="text" class="form-control" placeholder="ปวดหลัง" formControlName="genPastHistory">
                                 </div>
                             </div>
                             <br>
                             <div class="footer col-md" align="right">
-                                <button type="submit" aria-label="Close" class="btn btn-primary">submit</button>
+                                <button type="submit" aria-label="Close" class="btn btn-primary">บันทึก</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #ModalviewGeneral>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">ประวัติการรักษา</h4>
+    </div>
+    <div class="modal-body alert-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert bg-light text-dark" role="alert">
+
+                        <div class="row">
+                            <div class="col-3">
+                                <label>วันที่มาพบแพทย์ :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.genDate}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>เวลา :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.genTime}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>อาการสำคัญ :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.genSymptoms}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>ประวัติปัจจุบัน :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.genPresentHistory}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label>ประวัติอดีต :</label>
+                            </div>
+                            <div class="col-8">
+                                {{form.value.genPastHistory}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
