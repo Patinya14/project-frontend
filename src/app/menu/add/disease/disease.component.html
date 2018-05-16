@@ -40,7 +40,7 @@
                                         <input type="text" placeholder="ส.4 หัวไหล่" class="form-control" formControlName="treatProcedure">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-6">
                                         <label for="inputEmail4">วิธีการรักษา ( Treatmemt )</label>
                                         <input type="text" placeholder="อบสมุนไพร" class="form-control" formControlName="treatMent">
@@ -51,7 +51,7 @@
                                         <label for="inputEmail4">ราคา ( Price )</label>
                                         <input type="text" placeholder="500" class="form-control" formControlName="treatPrice">
                                     </div>
-                                </div>
+                                </div> -->
                                 <br>
                                 <div class="footer col-md" align="right">
                                     <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
@@ -78,7 +78,7 @@
                     {{value.treatDiseaseName}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="หัตถการ">
+            <ngx-datatable-column name="หัตถการ" >
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value.treatProcedure}}
                 </ng-template>
@@ -148,7 +148,7 @@
                                     {{form.value.treatProcedure}}
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-3">
                                     <label>วิธีการรักษา :</label>
                                 </div>
@@ -164,7 +164,7 @@
                                     {{form.value.treatPrice}} บาท
                                 </div>
 
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

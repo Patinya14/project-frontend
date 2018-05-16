@@ -1,32 +1,95 @@
 <div class="body">
-    <!-- <div class="alert alert-info" role="alert"> -->
     <div class="row">
-        <div class="col-12 text-center">
-            <a href="../menu" class="alert-link">กลับสู่หน้าหลัก</a>
-            <a href="../menu">
-                <img src="../assets/images/placeholder.png" width="50px" height="50px">
-            </a>
-        </div>
-    </div>
-    <br>
+        <div class="title">
+            <div class="col text-dark ">
 
-    <div class="row">
-        <div class="col-1"></div>
-
-        <img src="../assets/images/planning.png" width="60px" height="60px">
-
-        <div class="col-2">
-            <div class="alert bg-warning" role="alert">
-                <h4>
-                    การนัดหมาย
-                </h4>
+                <img src="../assets/images/planning.png" width="50px" height="50px">
+                <label>การนัดหมาย</label>
             </div>
+
+            <div class="head">
+                <div class="col text-dark ">
+                    <i>
+                        <img src="../assets/images/placeholder.png" width="35px" height="35px">
+                        <a href="../menu" class="alert-link text-dark">กลับสู่หน้าหลัก</a>
+                    </i>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="row">
-        <div class="col-11" align="right">
-            <button type="button" class="btn btn-warning" (click)="openModal(Modalfollow)">+เพิ่มการนัดหมาย</button>
 
+
+    <!-- <div class="head">
+            <div class="col text-center">
+                <br>
+                <i>
+                    <a href="../menu" class="alert-link text-dark">กลับสู่หน้าหลัก</a>
+                </i>
+                <img src="../assets/images/placeholder.png" width="35px" height="35px">
+            </div>
+        </div> -->
+
+
+    <div class="row">
+        <!-- <div class="title">
+            <div class="col text-center text-dark ">
+                <br>
+                
+                <b>
+                    <label>การนัดหมาย</label>
+                </b>
+                <img src="../assets/images/planning.png" width="50px" height="50px">
+            </div>
+        </div> -->
+        <div class="center">
+            <div class="col" align="right">
+                <button type="button" class="btn btn-warning" (click)="openModal(Modalfollow)">+เพิ่มการนัดหมาย</button>
+
+            </div>
+
+
+            <div class="container">
+                <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+                    <ngx-datatable-column name="วันที่" [maxWidth]="300">
+                        <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                            {{value.folDate}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="เวลา">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.folmytimeHour}}-{{value.folmytimeMinute}} น.
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="ชื่อ-นามสกุล">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.folName}} {{value.folSurName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="ผู้รักษา">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.folPhysicianName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="เครื่องมือ">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            <div class="row">
+                                <div class="col-2">
+                                    <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                                </div>
+                                <div class="col-2">
+                                    <img src="../assets/images/edit.png" (click)="openEdit(Modalfollow, value)" width="30px" height="30px" title="แก้ไข">
+                                </div>
+                                <div class="col">
+                                    <img src="../assets/images/view.png" (click)="openModalView(Modalviewfollow, value)" width="30px" height="30px" title="ดูข้อมูล">
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                </ngx-datatable>
+            </div>
         </div>
     </div>
 
@@ -113,50 +176,8 @@
             </div>
         </div>
     </ng-template>
-    
-        <div class="container">
-            <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
-                <ngx-datatable-column name="วันที่" [maxWidth]="300">
-                    <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        {{value.folDate}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="เวลา">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.folmytimeHour}}-{{value.folmytimeMinute}} น.
-                    </ng-template>
-                </ngx-datatable-column>
 
-                <ngx-datatable-column name="ชื่อ-นามสกุล">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.folName}} {{value.folSurName}}
-                    </ng-template>
-                </ngx-datatable-column>
 
-                <ngx-datatable-column name="ผู้รักษา">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.folPhysicianName}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="เครื่องมือ" >
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
-                            </div>
-                            <div class="col-2">
-                                <img src="../assets/images/edit.png" (click)="openEdit(Modalfollow, value)" width="30px" height="30px" title="แก้ไข">
-                            </div>
-                            <div class="col">
-                                <img src="../assets/images/view.png" (click)="openModalView(Modalviewfollow, value)" width="30px" height="30px" title="ดูข้อมูล">
-                            </div>
-                        </div>
-                    </ng-template>
-                </ngx-datatable-column>
-            </ngx-datatable>
-        </div>
-   
-    <!-- </div> -->
     <ng-template #Modalviewfollow>
         <div class="modal-header">
             <h4 class="modal-title pull-left">การนัดหมาย ( Follow Up )</h4>
