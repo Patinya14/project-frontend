@@ -58,14 +58,14 @@ export class PersonalComponent implements OnInit {
   }
   login() {
     if (this.id !== '') {
-   
       this.rows.forEach(element => {
-        if (element.personId === this.id) {
+        if(element.personId === this.id) {
           this.router.navigate(['/personal-list', element._id]);
         }
       });
     }
   }
+
   submit() {
     const value = this.form.value;
     if (value !== undefined) {
