@@ -1,39 +1,75 @@
 <div class="body">
-    <br>
-    <br>
     <div class="row">
-        <div class="col-12 text-center">
-            <a href="../menu" class="alert-link">กลับไปหน้าหลัก</a>
-            <a href="../menu">
-                <img src="../assets/images/placeholder.png" width="50px" height="50px">
-            </a>
-        </div>
-    </div>
-    <br>
+        <div class="title">
+            <div class="col text-dark ">
+                <img src="../assets/images/certificate.png" width="50px" height="50px">
+                <label> ข้อมูลผู้ป่วย : ใบรับรองแพทย์</label>
+            </div>
 
-    <div class="row">
-        <div class="col-1"></div>
-
-        <img src="../assets/images/certificate.png" width="5%" height="10%">
-
-        <div class="col-2">
-
-            <label>
-                ข้อมูลผู้ป่วย : ใบรับรองแพทย์
-            </label>
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-11" align="right">
-            <button type="button" class="btn btn-warning" (click)="openModal(Modalfollow)">+เพิ่มใบรับรองแพทย์</button>
+            <div class="head">
+                <div class="col text-dark ">
+                    <i>
+                        <img src="../assets/images/placeholder.png" width="35px" height="35px">
+                        <a href="../menu" class="alert-link text-dark">กลับสู่หน้าหลัก</a>
+                    </i>
+                </div>
+            </div>
 
         </div>
     </div>
 
+    <div class="row">
+        <div class="center">
+            <div class="col" align="right">
+                <button type="button" class="btn btn-warning" (click)="openModal(Modalfollow)">+เพิ่มใบรับรองแพทย์</button>
+
+            </div>
 
 
+            <div class="container">
+                <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+                    <ngx-datatable-column name="วันที่" [maxWidth]="100">
+                        <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                            {{value.cerDateout}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="เวลา">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.cerDateout}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="ชื่อ-นามสกุล">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.personNameTitle}} {{value.personName}} {{value.personSurname}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="อาการ/โรค">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value. cerSymptom}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="ผู้รักษา">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.cerPhysicianName}} {{value. cerPhysicianSurName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="เครื่องมือ">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                                </div>
+                                <div class="col">
+                                    <img src="../assets/images/edit.png" (click)="openEdit(Modalfollow, value)" width="30px" height="30px" title="แก้ไข">
+                                </div>
+                            </div>
 
+                        </ng-template>
+                    </ngx-datatable-column>
+                </ngx-datatable>
+            </div>
+        </div>
+    </div>
 
     <ng-template #Modalfollow>
         <div class="modal-header">
@@ -106,41 +142,4 @@
             </div>
         </div>
     </ng-template>
-
-    <div class="container">
-        <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
-            <ngx-datatable-column name="วันที่" [maxWidth]="100">
-                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                    {{value.cerDateout}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="เวลา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.cerDateout}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="ชื่อ-นามสกุล">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.personNameTitle}} {{value.personName}} {{value.personSurname}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="อาการ/โรค">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value. cerSymptom}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="ผู้รักษา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.cerPhysicianName}} {{value. cerPhysicianSurName}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="เครื่องมือ">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
-                    <img src="../assets/images/edit.png" (click)="openEdit(Modalfollow, value)" width="30px" height="30px" title="แก้ไข">
-
-                </ng-template>
-            </ngx-datatable-column>
-        </ngx-datatable>
-    </div>
 </div>
