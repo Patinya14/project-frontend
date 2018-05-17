@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SummaryService } from '../../service/summary.service'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { DiseaseService } from '../../service/disease.service';
 import { ActivatedRoute } from '@angular/router'
 @Component({
     selector: 'app-summary',
@@ -12,9 +13,9 @@ export class SummaryComponent implements OnInit {
     public id;
     public rows = [];
     public form: FormGroup;
+    public disease = [];
     edit = {}
     public data = {
-
         summarySymptom: [null, Validators.required], //อาการ
         summaryProcedure: [null, Validators.required], //หัตถการ
         summaryTreatment: [null, Validators.required], //แผนการรักษา
@@ -28,15 +29,18 @@ export class SummaryComponent implements OnInit {
         private bsmodalservice: BsModalService,
         private modalRef: BsModalRef,
         private formBuilder: FormBuilder,
-        private activatedroute: ActivatedRoute
+        private activatedroute: ActivatedRoute,
+        private diseaseservice: DiseaseService
     ) {
         this.id = this.activatedroute.snapshot.params['personalId'];
     }
     ngOnInit() {
         this.form = this.formBuilder.group(this.data);
-
         this.summaryService.getSummaryById(this.id).subscribe(result => {
             this.rows = result;
+        });
+        this.diseaseservice.getDis().subscribe(result => {
+            this.disease = result;
         });
     }
     openModal(modal: TemplateRef<any>) {
@@ -47,30 +51,34 @@ export class SummaryComponent implements OnInit {
         this.form = this.formBuilder.group(data);
         this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
     }
+    check() {
+        console.log(this.form.value.summarySymptom)
+    }
     submit() {
         const value = this.form.value;
         value.personId = this.id;
         const temp: any = this.herbCheck(value);
-        if (temp !== undefined) {
-            if (this.form.value.status === 'edit') {
-                this.summaryService.updateSummary(temp.id, temp)
-                    .mergeMap(() => this.summaryService.getSummary())
-                    .subscribe(result => {
-                        this.rows = result;
-                    })
-            } else {
-                this.summaryService.addSummary(temp)
-                    .mergeMap(() => this.summaryService.getSummaryById(this.id))
-                    .subscribe(result => {
-                        this.rows = result;
-                    })
-            }
-        }
+        console.log(temp)
+        // if (temp !== undefined) {
+        //     if (this.form.value.status === 'edit') {
+        //         this.summaryService.updateSummary(temp.id, temp)
+        //             .mergeMap(() => this.summaryService.getSummary())
+        //             .subscribe(result => {
+        //                 this.rows = result;
+        //             })
+        //     } else {
+        //         this.summaryService.addSummary(temp)
+        //             .mergeMap(() => this.summaryService.getSummaryById(this.id))
+        //             .subscribe(result => {
+        //                 this.rows = result;
+        //             })
+        //     }
+        // }
     }
     herbCheck(data) {
         if (data.summaryHerbalsteam === true) {
             data.summaryHerbalsteam = 'ประคบสมุนไพร';
-        } 
+        }
         if (data.summaryHerbalcompress === true) {
             data.summaryHerbalcompress = 'อบสมุนไพร';
         }
@@ -80,7 +88,7 @@ export class SummaryComponent implements OnInit {
         if (data.summaryHerbalcompress === false) {
             data.summaryHerbalcompress = '';
         }
-        if (data.summaryDrug === true){
+        if (data.summaryDrug === true) {
             data.summaryDrug = 'จ่ายยาจากสมุนไพร'
         }
         if (data.summaryDrug === false) {

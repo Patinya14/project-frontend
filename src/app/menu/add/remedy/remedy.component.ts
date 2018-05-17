@@ -12,9 +12,12 @@ export class RemedyComponent {
     public rows = [];
     public form: FormGroup;
     edit = {}
+    p: number = 1;
     public data = {
-        treatMent: [null, Validators.required],
-        treatPrice: [null, Validators.required],
+        treatMentID: [null, Validators.required],
+        treatMents: [null, Validators.required],
+        treatInTime: [null, Validators.required],
+        treatOutTime: [null, Validators.required],
     }
     constructor(
         private bsmodalservice: BsModalService,
@@ -30,6 +33,10 @@ export class RemedyComponent {
     }
     openModal(modal: TemplateRef<any>) {
         this.form = this.formBuilder.group(this.data);
+        this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+    }
+    openModalView(modal: TemplateRef<any>, data) {
+        this.form = this.formBuilder.group(data);
         this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
     }
     submit() {
@@ -62,8 +69,10 @@ export class RemedyComponent {
     openEdit(modal, data) {
         let edit = {
             id: data._id,
-            treatMent: data.treatMent,
-            treatPrice: data.treatPrice,
+            treatMentID:data.treatMentID,
+            treatMents: data.treatMents,
+            treatInTime: data.treatInTime,
+            treatOutTime: data.treatInTime,
             status: 'edit'
         }
         this.form = this.formBuilder.group(edit);

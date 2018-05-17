@@ -18,13 +18,19 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>วิธีการรักษา</label>
-                                    <input placeholder="นวด" class="form-control" formControlName="treatMent">
+                                    <input placeholder="นวด" class="form-control" formControlName="treatMents">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>ราคา</label>
-                                    <input placeholder="200" class="form-control" formControlName="treatPrice">
+                                    <label>ราคาในเวลา</label>
+                                    <input placeholder="200" class="form-control" formControlName="treatInTime">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>ราคานอกเวลา</label>
+                                    <input placeholder="200" class="form-control" formControlName="treatOutTime">
                                 </div>
                             </div>
 
@@ -40,15 +46,20 @@
     </div>
 </ng-template>
 <div class="container">
-    <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+    <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows" [limit]="10">
         <ngx-datatable-column name="วิธีการรักษา" [maxWidth]="400">
             <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                {{value.treatMent}}
+                {{value.treatMents}}
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="ราคา" [maxWidth]="400">
+        <ngx-datatable-column name="ราคาในเวลา" [maxWidth]="400">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.treatPrice}}
+                {{value.treatInTime}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="ราคานอกเวลา" [maxWidth]="400">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value.treatOutTime}}
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="เครื่องมือ" [maxWidth]="400">

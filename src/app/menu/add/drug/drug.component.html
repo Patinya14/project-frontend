@@ -19,7 +19,7 @@
                         <form class="col" [formGroup]="form" (ngSubmit)="submit()">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>รหัสยา ( ID Drug)</label>
+                                    <label>รหัสยา ( ID Drug )</label>
                                     <input placeholder="001" class="form-control" formControlName="drugId">
                                 </div>
                             </div>
@@ -31,20 +31,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>จำนวน ( Amount )</label>
-                                    <input placeholder="20" class="form-control" formControlName="drugAmount">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
                                     <label>ราคา ( Price )</label>
                                     <input placeholder="100" class="form-control" formControlName="drugPrice">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>สรรพคุณ ( Properties )</label>
-                                    <input placeholder="100" class="form-control" formControlName="drugProperties">
+                                    <label>บรรจุภัณฑ์ ( Packages )</label>
+                                    <input placeholder="100" class="form-control" formControlName=" drugPackages">
                                 </div>
                             </div>
                             <br>
@@ -59,7 +53,7 @@
     </div>
 </ng-template>
 <div class="container">
-    <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+    <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows" [limit]="10">
         <ngx-datatable-column name="รหัสยา">
             <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
                 {{value.drugId}}
@@ -70,9 +64,9 @@
                 {{value.drugName}}
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="สรรพคุณ">
+        <ngx-datatable-column name="บรรจุภัณฑ์">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value.drugProperties}}
+                {{value.drugPackages}}
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="เครื่องมือ">
@@ -84,68 +78,9 @@
                     <div class="col-2">
                         <img src="../assets/images/edit.png" (click)="openEdit(ModalDrug, value)" width="30px" height="30px" title="แก้ไข">
                     </div>
-                    <div class="col">
-                        <img src="../assets/images/view.png" (click)="openModalView(ModalviewDrug, value)" width="30px" height="30px" title="ดูข้อมูล">
-                    </div>
                 </div>
 
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
 </div>
-<ng-template #ModalviewDrug>
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">ข้อมูลยา</h4>
-    </div>
-    <div class="modal-body alert-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="alert bg-light text-dark" role="alert">
-
-                        <div class="row">
-                            <div class="col-3">
-                                <label>รหัสยา :</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.drugId}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <label>ชื่อยา :</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.drugName}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <label>จำนวน :</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.drugAmount}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <label>สรรพคุณ :</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.drugProperties}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <label>ราคา :</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.drugPrice}} บาท
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</ng-template>

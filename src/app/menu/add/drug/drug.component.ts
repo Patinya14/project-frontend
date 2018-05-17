@@ -12,14 +12,13 @@ export class DrugComponent {
   public rows = [];
   public form: FormGroup;
   edit = {}
+  p: number = 1;
   public data = {
     drugId: [null, Validators.required],
     drugName: [null, Validators.required],
-    drugAmount: [null, Validators.required],
-    drugUseDose: [null, Validators.required],
+    drugPackages: [null, Validators.required],
     drugPrice: [null, Validators.required],
-    drugProperties: [null, Validators.required],
-
+   
   }
   constructor(
     private bsmodalservice: BsModalService,
@@ -73,10 +72,8 @@ openEdit(modal, data) {
       id: data._id,
       drugId: data.drugId,
       drugName: data.drugName,
-      drugAmount: data.drugAmount,
-      drugUseDose: data.drugUseDose,
+      drugPackages: data. drugPackages,
       drugPrice: data.drugPrice,
-      drugProperties: data.drugProperties,
       status: 'edit'
   }
   this.form = this.formBuilder.group(edit);

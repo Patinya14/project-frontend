@@ -40,7 +40,8 @@ import { PhysicalService} from './service/physical.service';
 import { LoginService } from './service/login.service';
 import { SummaryService } from './service/summary.service';
 import { FollowService} from './service/follow.service';
-import { TreatmentService } from './service/treatment.service';
+import { DiseaseService } from './service/disease.service';
+import {TreatmentService } from './service/treatment.service';
 import { MedicineService} from './service/drug.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -98,6 +99,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker/timepicker.module';
     BsModalRef,
     EvalutionService,
     FollowService,
+    DiseaseService,
     TreatmentService,
     MedicineService,
     CertificateService,
