@@ -72,7 +72,7 @@ openEdit(modal, data) {
       id: data._id,
       drugId: data.drugId,
       drugName: data.drugName,
-      drugPackages: data. drugPackages,
+      drugPackages: data.drugPackages,
       drugPrice: data.drugPrice,
       status: 'edit'
   }

@@ -14,33 +14,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <!-- <div class="alert bg-light text-dark" role="alert"> -->
-                    <form class="col " [formGroup]="form" (ngSubmit)="submit()">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="inputEmail4">รหัสโรค ( ID Disease )</label>
-                                <input type="text" class="form-control" placeholder="U61.2" formControlName="disID">
+                    <div class="alert bg-light text-dark" role="alert">
+                        <form class="col " [formGroup]="form" (ngSubmit)="submit()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="inputEmail4">รหัสโรค ( ID Disease )</label>
+                                    <input type="text" class="form-control" placeholder="U61.2" formControlName="disID">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="inputEmail4">ส่วนของร่างกาย ( Body Parts)</label>
-                                <input type="text" placeholder="ศรีษะ" class="form-control" formControlName="disBodyParth">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="inputEmail4">ชื่อโรค ( Name Disease )</label>
+                                    <input type="text" placeholder="เหน็บชา" class="form-control" formControlName="disName">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="inputEmail4">ชื่อโรค ( Name Disease )</label>
-                                <input type="text" placeholder="เหน็บชา" class="form-control" formControlName="disName">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>หัตถการ ( Procedure )</label>
+                                    <input type="text" placeholder="ส.4 หัวไหล่" class="form-control" formControlName="disProcedure">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>หัตถการ ( Procedure )</label>
-                                <input type="text" placeholder="ส.4 หัวไหล่" class="form-control" formControlName="disProcedure">
-                            </div>
-                        </div>
-                        <!-- <div class="row">
+                            <!-- <div class="row">
                                     <div class="col-md-6">
                                         <label for="inputEmail4">วิธีการรักษา ( Treatmemt )</label>
                                         <input type="text" placeholder="อบสมุนไพร" class="form-control" formControlName="treatMent">
@@ -52,12 +46,12 @@
                                         <input type="text" placeholder="500" class="form-control" formControlName="treatPrice">
                                     </div>
                                 </div> -->
-                        <br>
-                        <div class="footer col-md" align="right">
-                            <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
-                        </div>
-                    </form>
-                    <!-- </div> -->
+                            <br>
+                            <div class="footer col-md" align="right">
+                                <button type="submit" aria-label="Close" class="btn btn-warning">บันทึก</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,10 +59,10 @@
 </ng-template>
 
 <div class="container">
-    <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows" [limit]="10">
+    <ngx-datatable class="bootstrap" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
+        [limit]="10">
         <ngx-datatable-column name="รหัสโรค">
             <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-
                 {{value.disID}}
             </ng-template>
         </ngx-datatable-column>
@@ -83,92 +77,33 @@
                 {{value.disProcedure}}
             </ng-template>
         </ngx-datatable-column>
-        <!-- <ngx-datatable-column name="วิธีการรักษา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.treatMent}}
-                </ng-template>
-            </ngx-datatable-column> -->
-
         <ngx-datatable-column name="เครื่องมือ">
             <ng-template let-value="value" ngx-datatable-cell-template>
                 <div class="row">
                     <div class="col-2">
-                        <img src="../assets/images/395848.svg" (click)="delete(value)" width="30px" height="30px" title="ลบ">
+                        <img src="../assets/images/395848.svg" (click)="openModalView(ModalDiseaseView, value)" width="30px" height="30px" title="ลบ">
                     </div>
                     <div class="col-2">
                         <img src="../assets/images/edit.png" (click)="openEdit(ModalDisease, value)" width="30px" height="30px" title="แก้ไข">
                     </div>
-                    <div class="col">
-                        <img src="../assets/images/view.png" (click)="openModalView(ModalDiseaseView, value)" width="30px" height="30px" title="ดูข้อมูล">
-                    </div>
-                </div>
+             </div>
             </ng-template>
         </ngx-datatable-column>
-        
     </ngx-datatable>
-  
 </div>
-<ng-template #ModalDiseaseView>
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">ข้อมูลโรค/หัตถการ</h4>
-    </div>
-    <div class="modal-body alert-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="alert bg-light text-dark" role="alert">
-                        <div class="row">
-                            <div class="col-3">
-                                <label>รหัสโรค:</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.treatDiseaseID}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <label>ส่วนของร่างกาย :</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.treatBodyParth}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <label>ชื่อโรค :</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.treatDiseaseName}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <label>หัตถการ :</label>
-                            </div>
-                            <div class="col-8">
-                                {{form.value.treatProcedure}}
-                            </div>
-                        </div>
-                        <!-- <div class="row">
-                                <div class="col-3">
-                                    <label>วิธีการรักษา :</label>
-                                </div>
-                                <div class="col-8">
-                                    {{form.value.treatMent}}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">
-                                    <label>ราคา :</label>
-                                </div>
-                                <div class="col-8">
-                                    {{form.value.treatPrice}} บาท
-                                </div>
-
-                            </div> -->
-                    </div>
-                </div>
-            </div>
+<ng-template #ModalDiseaseView  >
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4>กรุณายืนยันการลบ
+                <img src="../assets/images/alert.png"> </h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>คุณต้องการลบข้อมูลใช่หรือไม่ ?</p>
+        </div>
+        <div class="modal-footer align-center">
+            <button type="button" class="btn btn-info">ยกเลิก</button>
+            <button type="delete" class="btn btn-danger" (click)="delete(data)" >ลบ</button>
         </div>
     </div>
 </ng-template>

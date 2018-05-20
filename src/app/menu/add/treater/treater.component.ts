@@ -13,6 +13,7 @@ export class TreaterComponent {
   public rows = [];
   public form: FormGroup;
   edit = {}
+  p: number = 1 ;
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ', 'ผู้ช่วยศาสตราจารย์ '
     , 'รองศาสตราจารย์ ', 'พระสงฆ์ ', 'Mr.', 'Miss', 'Mrs.'];
   public data = {
@@ -52,7 +53,7 @@ export class TreaterComponent {
         this.certificateService.updateCer(value.id, value)
           .mergeMap(() => this.certificateService.getCer())
           .subscribe(result => {
-            this.rows = result;
+            this.rows.unshift = result;
           })
       } else {
         this.certificateService.addCer(value)

@@ -22,14 +22,11 @@ export class followComponent implements OnInit {
     '17.00', '17.30', '18.00', '18.30', '19.00', '19.30', '20.00', '20.30', '21.00', '21.30', '22.00',
     '22.30', '23.00', '23.30', '24.00'];
   public data = {
-    folName: [null, Validators.required],
-    folSurName: [null, Validators.required],
     folDate: [new Date('yyyy-mm-dd'), Validators.required],
     folmytimeHour: [null, Validators.required],
     folmytimeMinute: [null, Validators.required],
-    folPhysicianName: [null, Validators.required], //ผู้รักษา
     folPurpose: [null, Validators.required], //จุดประสงค์
-    folduration: [null, Validators.required], //ช่วงเวลาการรักษา
+  
   }
   constructor(
     private followservice: FollowService,
@@ -84,14 +81,10 @@ export class followComponent implements OnInit {
   openEdit(modal, data) {
     let edit = {
       id: data._id,
-      folName: data.folName,
-      folSurName: data.folSurName,
       folDate: data.folDate,
       folmytimeHour: data.folmytimeHour,
       folmytimeMinute: data.folmytimeMinute,
-      folPhysicianName: data.folPhysicianName,
       folPurpose: data.folPurpose,
-      folduration: data.folduration,
       status: 'edit'
     }
     this.form = this.formBuilder.group(edit);

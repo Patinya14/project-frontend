@@ -6,7 +6,7 @@ import { DiseaseService } from '../../../service/disease.service';
 @Component({
     selector: 'app-disease',
     templateUrl: './disease.component.html',
-
+    styleUrls: ['./disease.component.css']
 })
 export class DiseaseComponent {
     public rows = [];
@@ -14,8 +14,8 @@ export class DiseaseComponent {
     edit = {}
     p: number = 1;
     public data = {
-        disName: [null, Validators.required],
         disID: [null, Validators.required],
+        disName: [null, Validators.required],
         disProcedure: [null, Validators.required],  //หัตถการ      
         disBodyParth: [null, Validators.required],
     }
@@ -37,7 +37,7 @@ export class DiseaseComponent {
     }
     openModalView(modal: TemplateRef<any>, data) {
         this.form = this.formBuilder.group(data);
-        this.modalRef = this.bsmodalservice.show(modal, Object.assign({}, { class: 'gray modal-lg' }));
+        this.modalRef = this.bsmodalservice.show(modal);
     }
     submit() {
         const value = this.form.value;
@@ -46,7 +46,7 @@ export class DiseaseComponent {
                 this.diseaseservice.updateDis(value.id, value)
                     .mergeMap(() => this.diseaseservice.getDis())
                     .subscribe(result => {
-                        this.rows.unshift = result;
+                        this.rows = result;
                     })
             } else {
                 this.diseaseservice.addDis(value)
@@ -63,16 +63,17 @@ export class DiseaseComponent {
                 .mergeMap(() => this.diseaseservice.getDis())
                 .subscribe(result => {
                     this.rows = result;
+                   
                 })
         }
     }
     openEdit(modal, data) {
         let edit = {
-            id: data._id,
-            disName: data.treatDiseaseName, //ชื่อโรค
-            disID: data.treatDiseaseID, //รหัสโรค   
-            disProcedure: data.treatProcedure,  //หัตถการ         
-            disBodyParth: data.treatBodyParth, //ส่วนของร่างกาย
+            id: data._id, 
+            disID: data.disID, //รหัสโรค   
+            disName: data.disName, //ชื่อโรค
+            disProcedure: data.disProcedure,  //หัตถการ         
+            disBodyParth: data.disBodyParth, //ส่วนของร่างกาย
             status: 'edit'
         }
         this.form = this.formBuilder.group(edit);
