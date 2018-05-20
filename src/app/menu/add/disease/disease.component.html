@@ -81,7 +81,7 @@
             <ng-template let-value="value" ngx-datatable-cell-template>
                 <div class="row">
                     <div class="col-2">
-                        <img src="../assets/images/395848.svg" (click)="openModalView(ModalDiseaseView, value)" width="30px" height="30px" title="ลบ">
+                        <img src="../assets/images/395848.svg" (click)="openModalDelete(ModalDiseaseView, value)" width="30px" height="30px" title="ลบ">
                     </div>
                     <div class="col-2">
                         <img src="../assets/images/edit.png" (click)="openEdit(ModalDisease, value)" width="30px" height="30px" title="แก้ไข">
@@ -103,7 +103,7 @@
         </div>
         <div class="modal-footer align-center">
             <button type="button" class="btn btn-info">ยกเลิก</button>
-            <button type="delete" class="btn btn-danger" (click)="delete(data)" >ลบ</button>
+            <button type="delete" class="btn btn-danger" (click)="delete(form.value)" >ลบ</button>
         </div>
     </div>
 </ng-template>
